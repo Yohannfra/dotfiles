@@ -13,7 +13,6 @@ rm -rf ./vim/plugin/snippet/.git
 
 # ZSH
 cp ~/.zshrc ./zsh/
-cp ~/.zsh_history ./zsh/
 
 # GIT
 cp ~/.gitignore ./git/
@@ -37,3 +36,9 @@ cp ~/my_scripts/apply_correct_rights ./my_scripts/
 cp ~/my_scripts/poule ./my_scripts/
 cp ~/my_scripts/prepare_my_repo ./my_scripts/
 cp ~/my_scripts/cit ./my_scripts/
+
+# TMUX
+cp ~/.tmux.conf ./tmux/
+
+# AWESOME
+cp ~/.config/awesome/rc.lua ./awesome
