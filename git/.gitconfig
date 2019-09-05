@@ -1,0 +1,5 @@
+[user]
+	email = yohannassouline@hotmail.fr
+	name = Yohann
+[core]
+	excludesfile = /home/yohann/.gitignore
