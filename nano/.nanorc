@@ -1,0 +1,12 @@
+set autoindent
+set const
+set mouse
+set nowrap
+set smooth
+set suspend
+set tabsize 4
+set tabstospaces
+unset tempfile
+set linenumbers
+set morespace
+set nohelp

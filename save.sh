@@ -41,4 +41,10 @@ cp ~/my_scripts/cit ./my_scripts/
 cp ~/.tmux.conf ./tmux/
 
 # AWESOME
-cp ~/.config/awesome/rc.lua ./awesome
+cp ~/.config/awesome/rc.lua ./awesome/
+
+# NANO
+cp ~/.nanorc ./nano/
+
+# CLANG-FORMAT
+cp ~/.clang-format ./clang-format/
