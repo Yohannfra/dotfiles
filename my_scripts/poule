@@ -1,0 +1,47 @@
+#!/usr/bin/python3
+
+from time import sleep
+import curses
+import signal,sys
+import os
+
+def catch_ctrl_C(sig,frame):
+    return
+
+stdscr = curses.initscr()
+height,x = stdscr.getmaxyx()
+x -= 35
+while (x > 0):
+    stdscr.addstr(0, x,"       ,~.")
+    stdscr.addstr(1, x,"    ,-'__ `-,")
+    stdscr.addstr(2, x,"   {,-'  `. }              ,')")
+    stdscr.addstr(3, x,"  ,( o )   `-.__         ,',')~,")
+    stdscr.addstr(4, x," <=.) (         `-.__,==' ' ' '}")
+    stdscr.addstr(5, x,"   (   )                      /)")
+    stdscr.addstr(6, x,"    `-'\\  ,                    )")
+    stdscr.addstr(7, x,"        |  \\        `~.        /")
+    stdscr.addstr(8, x,"        \\   `._        \\    /")
+    stdscr.addstr(9, x,"         \\    `._____,'    ,'")
+    stdscr.addstr(10, x,"         `-.             ,'")
+    stdscr.addstr(11, x,"            `-._     _,-'")
+    stdscr.addstr(12, x,"                77jj'")
+    stdscr.addstr(13, x,"               //_||")
+    stdscr.addstr(14, x,"            __//--'/`")
+    stdscr.addstr(15, x,"          ,--'/`  '")
+    stdscr.refresh()
+    stdscr.clear()
+    x -= 5
+    signal.signal(signal.SIGINT, catch_ctrl_C)
+    sleep(0.025)
+
+curses.nocbreak()
+stdscr.keypad(False)
+curses.echo()
+curses.endwin()
+
+if len(sys.argv) == 1:
+    os.system("git pull")
+elif len(sys.argv) == 2:
+    os.system("git pull " + sys.argv[1])
+elif len(sys.argv) == 3:
+    os.system("git pull " + sys.argv[1] + " " + sys.argv[2])

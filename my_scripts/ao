@@ -1,0 +1,54 @@
+#!/usr/bin/python3
+
+import os, re
+
+dirlist = []
+
+def is_cmake_project(dirlist):
+    if "CMakeLists.txt" not in dirlist:
+        return 0
+    f = open('CMakeLists.txt', 'r')
+    line = f.readline()
+    while (line != ""):
+        if re.findall(r"project", line):
+            break
+        line = f.readline()
+    f.close()
+    binary = line.strip()
+    binary = binary.split('(')[1][0:-1]
+    os.system("./" + binary)
+    return 1
+
+def is_makefile_project(dirlist):
+    if "Makefile" not in dirlist or "CMakeLists.txt" in dirlist:
+        return 0
+    f = open('Makefile', 'r')
+    line = f.readline()
+    while (line != ""):
+        if re.findall(r"NAME", line):
+            break
+        line = f.readline()
+    f.close()
+    binary = line.split("=")[1].strip()
+    os.system("./" + binary)
+    return 1
+
+def is_a_out_project(dirlist):
+    if "a.out" not in dirlist:
+        return 0
+    os.system("./a.out")
+    return 1
+
+def main():
+    dirlist = os.listdir('.')
+    if is_makefile_project(dirlist):
+        pass
+    elif is_cmake_project(dirlist):
+        pass
+    elif is_a_out_project(dirlist):
+        pass
+    else:
+        print("Couldn't find any binary")
+        exit(1)
+
+main()

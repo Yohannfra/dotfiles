@@ -1,0 +1,11 @@
+#!/bin/bash
+#!/usr/bin/blih
+
+if [ -z $1 ]; then
+    echo "Entrez le nom de fichier comme argument"
+else
+    blih -u yohann.assouline@epitech.eu repository create $1
+    blih -u yohann.assouline@epitech.eu repository setacl $1 ramassage-tek r
+    blih -u yohann.assouline@epitech.eu repository getacl $1
+    git clone git@git.epitech.eu:/yohann.assouline@epitech.eu/$1
+fi

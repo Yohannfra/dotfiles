@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -w $1 ]; then
+    echo "Missing URL"
+    exit 1
+fi
+if [ -w $2 ]; then
+    youtube-dl -f 'm4a' -o '/home/yohann/Music/%(title)s.f%(format_id)s.%(ext)s' $1 --download-archive /home/yohann/.archive.txt --no-playlist -i
+    exit 0
+fi
+    youtube-dl -f 'm4a' -o '/home/yohann/Music/%(title)s.f%(format_id)s.%(ext)s' $1 --download-archive /home/yohann/.archive.txt -i
