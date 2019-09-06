@@ -34,3 +34,11 @@ And add these lines: <br>
         Option      "Backlight"  "intel_backlight"
     EndSection
 ```
+
+## Install i3lock-fancy
+
+[i3lock-fancy github page](https://github.com/meskarune/i3lock-fancy)
+
+## Install i3-gaps
+
+[i3-gaps wiki installation page](https://github.com/Airblader/i3/wiki/Installation)
