@@ -42,3 +42,8 @@ And add these lines: <br>
 ## Install i3-gaps
 
 [i3-gaps wiki installation page](https://github.com/Airblader/i3/wiki/Installation)
+
+## Dependencies
+
+- blueman-applet (bluetooth manager in status bar)
+- nm-applet (wifi manager in status bar)
