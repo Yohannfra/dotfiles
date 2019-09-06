@@ -18,7 +18,6 @@ set noerrorbells
 set vb t_vb=
 
 ""-------------------------------------------------------------------------""
-
 " -------------------------------- config -----------------------------------
 set number
 "set relativenumber
@@ -32,7 +31,7 @@ set cursorline
 set autoread
 set so=5
 set ruler
-set foldcolumn=1
+"set foldcolumn=1
 set encoding=utf8
 
 " Epitech coding style
