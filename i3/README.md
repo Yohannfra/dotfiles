@@ -47,3 +47,4 @@ And add these lines: <br>
 
 - blueman-applet (bluetooth manager in status bar)
 - nm-applet (wifi manager in status bar)
+- gnome-screenshot (screenshot application)
