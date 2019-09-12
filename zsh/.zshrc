@@ -56,8 +56,9 @@ alias ys="yarn start"
 alias cb="cargo build"
 alias cr="cargo run -q "
 
+
 # set key repeat rate. delay 200 milisecond, 70 per sec
-xset r rate 200 70
+xset r rate 180 80
 setxkbmap us
 # ---------------------------------------------#
 export PATH=$PATH:~/my_scripts
