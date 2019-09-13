@@ -48,3 +48,9 @@ cp ~/.nanorc ./nano/
 
 # CLANG-FORMAT
 cp ~/.clang-format ./clang-format/
+
+# POLYBAR
+cp ~/.config/polybar/config ./polybar/
+cp ~/.config/polybar/top_bar ./polybar/
+cp ~/.config/polybar/launch_polybar.sh ./polybar/
+
