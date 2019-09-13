@@ -72,6 +72,8 @@ colorscheme monokai
 set termguicolors
 " --------------------------------------------------------------------------
 
+" Strip whitespaces when save
+autocmd BufWritePre * %s/\s\+$//e
 
 " --------------------------------alias --------------------------------------
  :command WQ wq
