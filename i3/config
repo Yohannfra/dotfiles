@@ -34,7 +34,7 @@ font xft:URWGothic-Book 11
 bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # screenshot
-bindsym Print exec gnome-screenshot -i
+bindsym Print exec --no-startup-id gnome-screenshot -i
 
 ############################################
 ### Settings for rofi or dmenu or emenu: ###
@@ -200,8 +200,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset 'Master' 5%-
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset 'Master' 5%+
 bindsym XF86AudioMute exec --no-startup-id amixer sset 'Master' 0%
 
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
 
 #################################
 ### settings for system mode: ###
@@ -243,7 +243,7 @@ bindsym $mod+Shift+c restart
 ###############################
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 #################################
 ### settings for resize mode: ###

@@ -43,6 +43,9 @@ And add these lines: <br>
 
 [i3-gaps wiki installation page](https://github.com/Airblader/i3/wiki/Installation)
 
+## Install rofi
+[rofi wiki installation page](https://github.com/davatorium/rofi/blob/next/INSTALL.md)
+
 ## Dependencies
 
 - blueman-applet (bluetooth manager in status bar)
