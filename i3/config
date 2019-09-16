@@ -71,6 +71,8 @@ new_window 1pixel
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+bindsym $mod+h focus right
+
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -99,7 +101,7 @@ bindsym $mod+Shift+Right move right
 hide_edge_borders none
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v

@@ -18,9 +18,11 @@ cp ~/.zshrc ./zsh/
 cp ~/.gitignore ./git/
 cp ~/.gitconfig ./git/
 
+# I now use spacemacs. I dont need to save it for now.
+# the last version of my emacs config is now in : emacs/paul_config
 # EMACS
-cp -r ~/.emacs.d ./emacs/
-cp ~/.emacs ./emacs/
+# cp -r ~/.emacs.d ./emacs/
+# cp ~/.emacs ./emacs/
 
 # I3
 cp ~/.config/i3/config ./i3/
