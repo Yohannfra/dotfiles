@@ -29,6 +29,7 @@ cp ~/.config/i3/config ./i3/
 cp /usr/bin/tap_to_click.sh ./i3/
 cp /usr/bin/inverse_scroll.sh ./i3/
 cp /usr/bin/my_status ./i3
+cp /usr/bin/my_new_status ./i3
 
 # MY SCRIPTS
 cp ~/my_scripts/ao ./my_scripts/
