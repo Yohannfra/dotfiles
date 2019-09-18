@@ -46,8 +46,15 @@ And add these lines: <br>
 ## Install rofi
 [rofi wiki installation page](https://github.com/davatorium/rofi/blob/next/INSTALL.md)
 
+## Install fontawesome
+```
+pip install fontawesome --user
+```
+
 ## Dependencies
 
 - blueman-applet (bluetooth manager in status bar)
 - nm-applet (wifi manager in status bar)
 - gnome-screenshot (screenshot application)
+- fontawesome (font used by my bar)
+- rofi (a dmenu replacement)
