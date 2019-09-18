@@ -298,7 +298,7 @@ bar {
 #############################
 
 # Set inner/outer gaps
-gaps inner 2
+gaps inner 5
 gaps outer 0
 #gaps inner 8
 #gaps outer -2
