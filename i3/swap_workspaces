@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+
+import sys, os
+
+argv = sys.argv
+
+if len(argv) != 3:
+    print("USAGE : \t ./" + argv[0] + " workspace1 workspace2")
+    exit (1)
+
+w1 = argv[1]
+w2 = argv[2]
+
+command = "i3-msg \"rename workspace {} to temporary; rename workspace {} to {}; rename workspace temporary to {}\"".format(w1, w2, w1, w2)
+os.system(command)
