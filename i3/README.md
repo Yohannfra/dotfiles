@@ -58,3 +58,14 @@ pip install fontawesome --user
 - gnome-screenshot (screenshot application)
 - fontawesome (font used by my bar)
 - rofi (a dmenu replacement)
+
+## Appearence
+
+Widget: <br>
+- Flat-Remix-GTK-Green-Dark-Solid <br>
+
+Icon Theme: <br>
+- Flat-Remix <br>
+
+Mouse Cursor: <br>
+- Paper <br>
