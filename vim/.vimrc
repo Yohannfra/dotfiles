@@ -35,9 +35,9 @@ set ruler
 set encoding=utf8
 
 " Epitech coding style
-set nowrap
 set cc=81
-set textwidth=81
+set textwidth=0
+set nowrap
 set tabstop=4
 set softtabstop=0
 set expandtab
