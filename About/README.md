@@ -16,10 +16,11 @@
 - VsCode
 - micro
 
-## Gnu alternatives tools
+## Cli tools
 - bat
 - ripgrep
 - fd
+- mdless
 
 ## Music
 - clementine
