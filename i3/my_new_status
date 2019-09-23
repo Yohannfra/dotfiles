@@ -11,7 +11,7 @@ import fontawesome as fa
 last_call = 0
 
 def get_disk_space():
-    disk_space = os.popen("df -h / | grep / | cut -d \" \" -f 9").read().strip()
+    disk_space = os.popen("df -h / | grep / | cut -d \" \" -f 8").read().strip()
     return  fa.icons['save'] + "  "+ disk_space
 
 def get_time():

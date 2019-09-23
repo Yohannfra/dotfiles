@@ -5,8 +5,6 @@ cp ~/.vimrc ./vim/
 cp ~/.vim/colors/monokai.vim ./vim/colors/
 cp -r ~/.vim/plugin/epitech_header/ ./vim/plugin/
 cp -r ~/.vim/plugin/snippet ./vim/plugin/
-cp ~/.vim/plugin/rainbow_main.vim ./vim/plugin/
-cp ~/.vim/plugin/NERD_tree.vim ./vim/plugin/
 cp ~/.vim/plugin/AutoClose.vim ./vim/plugin/
 rm -rf ./vim/plugin/epitech_header/.git
 rm -rf ./vim/plugin/snippet/.git
@@ -29,6 +27,7 @@ cp ~/.config/i3/config ./i3/
 cp /usr/bin/tap_to_click.sh ./i3/
 cp /usr/bin/inverse_scroll.sh ./i3/
 cp /usr/bin/my_status ./i3/
+cp /usr/bin/i3exit ./i3/
 cp /usr/bin/my_new_status ./i3/
 cp /usr/bin/swap_workspaces ./i3/
 

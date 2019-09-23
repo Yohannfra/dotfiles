@@ -11,6 +11,8 @@ Plug 'vim-scripts/CycleColor'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'scrooloose/nerdtree'
+Plug 'luochen1990/rainbow'
 call plug#end()
 
 " Disable annoying beeping
@@ -50,7 +52,7 @@ set undolevels=9999
 " ---------------------------------------------------------------------------
 
 " -------------------------------Plugins -----------------------------------
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 " to fix a bug who wrote radom code wrf
 let g:AutoClosePreserveDotReg = 0

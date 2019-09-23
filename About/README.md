@@ -35,3 +35,31 @@
 # Browser
 - firefox
 
+# install with apt:
+```
+vim
+git
+python-pip
+python3-pip
+blueman
+ruby
+clang-format
+gimp
+krita
+vlc
+build-essential
+python3-tk
+libncurses-5
+redshift-gtk
+libsfml-dev
+libcsfml-dev
+gcc-8
+gdb
+valgrind
+tree
+```
+
+# install with pip
+```
+fontawesome
+```

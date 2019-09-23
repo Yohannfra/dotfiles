@@ -93,3 +93,5 @@ DEFAULT_USER=$USER
 #  prompt_segment blue black "${PWD##*/}"
 # }
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
