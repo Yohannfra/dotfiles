@@ -9,9 +9,6 @@ case "$1" in
     logout)
         i3-msg exit
         ;;
-    switch_user)
-        dm-tool switch-to-greeter
-        ;;
     suspend)
         i3lock-fancy -f Comic-Sans-MS -- scrot -z & systemctl suspend
         ;;
