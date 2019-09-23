@@ -1,12 +1,10 @@
 #!/bin/sh
-# /usr/bin/i3exit
 
-# with openrc use loginctl
-[[ $(cat /proc/1/comm) == "systemd" ]] && logind=systemctl || logind=loginctl
+# /usr/bin/i3exit
 
 case "$1" in
     lock)
-        blurlock
+        i3lock-fancy -f Comic-Sans-MS -- scrot -z
         ;;
     logout)
         i3-msg exit
@@ -15,16 +13,16 @@ case "$1" in
         dm-tool switch-to-greeter
         ;;
     suspend)
-        blurlock && $logind suspend
+        i3lock-fancy -f Comic-Sans-MS -- scrot -z & systemctl suspend
         ;;
     hibernate)
-        blurlock && $logind hibernate
+        i3lock-fancy -f Comic-Sans-MS -- scrot -z & systemctl hibernate
         ;;
     reboot)
-        $logind reboot
+        systemctl logind reboot
         ;;
     shutdown)
-        $logind poweroff
+        systemctl poweroff
         ;;
     *)
         echo "== ! i3exit: missing or invalid argument ! =="
