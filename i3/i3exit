@@ -16,7 +16,7 @@ case "$1" in
         i3lock-fancy -f Comic-Sans-MS -- scrot -z & systemctl hibernate
         ;;
     reboot)
-        systemctl logind reboot
+        systemctl reboot
         ;;
     shutdown)
         systemctl poweroff

@@ -24,7 +24,7 @@ font xft:URWGothic-Book 11
 ### Wallpaper ###
 #################
 
-# exec --no-startup-id feh --bg-scale /home/yohann/Pictures/Wallpapers/dawn-daylight-desktop-wallpaper-1301903.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/adventure-climb-conifer-640781.jpg
 
 ###############################
 ### Shortcuts for programs: ###

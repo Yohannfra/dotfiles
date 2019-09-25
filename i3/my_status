@@ -9,7 +9,7 @@ import subprocess as s
 last_call = 0
 
 def get_disk_space():
-    disk_space = os.popen("df -h / | grep / | cut -d \" \" -f 9").read().strip()
+    disk_space = os.popen("df -h / | grep / | cut -d \" \" -f 13").read().strip()
     return "💾 " + disk_space
 
 def get_time():
