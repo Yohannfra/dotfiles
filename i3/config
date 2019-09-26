@@ -48,6 +48,9 @@ bindsym Print exec --no-startup-id gnome-screenshot -i
 # Change rofi theme with : rofi-theme-selector
 bindsym $mod+d exec --no-startup-id "rofi -combi-modi window,run,drun -show combi -modi combi -display-combi '> '"
 
+# rofi search web
+bindsym $mod+g exec --no-startup-id rofi-web
+
 #############################
 ### Settings for i3-lock: ###
 #############################

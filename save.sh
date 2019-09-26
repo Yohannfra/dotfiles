@@ -30,6 +30,7 @@ cp /usr/bin/my_status ./i3/
 cp /usr/bin/i3exit ./i3/
 cp /usr/bin/my_new_status ./i3/
 cp /usr/bin/swap_workspaces ./i3/
+cp /usr/bin/rofi-web ./i3/
 
 # MY SCRIPTS
 cp ~/my_scripts/ao ./my_scripts/

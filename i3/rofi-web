@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+main() {
+    query=$( (echo ) | rofi  -dmenu -location 0 -p "Google > " )
+
+    if [[ -n "$query" ]]; then
+      url="https://www.google.com/search?q="$query
+      firefox "$url"
+    fi
+}
+
+main
+
+exit 0
