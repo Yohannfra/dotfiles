@@ -1,6 +1,5 @@
 " ----------------------------- Plug --------------------------------------
 set nocompatible
-"filetype off
 
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
@@ -13,6 +12,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'scrooloose/nerdtree'
 Plug 'luochen1990/rainbow'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 " Disable annoying beeping
@@ -33,10 +33,9 @@ set cursorline
 set autoread
 set so=5
 set ruler
-"set foldcolumn=1
+filetype plugin on
 set encoding=utf8
 
-" Epitech coding style
 set cc=81
 set textwidth=0
 set nowrap
@@ -49,9 +48,22 @@ set listchars=tab:..,trail:_
 set list
 set autoindent
 set undolevels=9999
+
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+inoremap <S-Tab> <C-D>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
 " ---------------------------------------------------------------------------
 
 " -------------------------------Plugins -----------------------------------
+
+" NERDCommenter
+let g:NERDToggleCheckAllLines = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 " to fix a bug who wrote radom code wrf
@@ -110,10 +122,3 @@ imap <S-Up> <Esc>v<Up>
 imap <S-Down> <Esc>v<Down>
 imap <S-Left> <Esc>v<Left>
 imap <S-Right> <Esc>v<Right>
-
-
-vmap <C-c> y<Esc>i
-vmap <C-x> d<Esc>i
-map <C-v> pi
-imap <C-v> <Esc>pi
-imap <C-z> <Esc>ui
