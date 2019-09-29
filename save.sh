@@ -58,6 +58,10 @@ cp ~/.config/polybar/config ./polybar/
 cp ~/.config/polybar/top_bar ./polybar/
 cp ~/.config/polybar/launch_polybar.sh ./polybar/
 
-# Desktop files
+# DESKTOP FILES
 cp /usr/share/applications/cura.desktop ./desktop_files/
 cp /usr/share/applications/freecad.desktop ./desktop_files/
+
+# TEMPLATES
+cp ~/Templates/Makefile ./templates/
+cp ~/Templates/main.c ./templates/
