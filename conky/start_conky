@@ -1,0 +1,7 @@
+#!/bin/bash
+
+killall conky
+sleep 1
+conky -c /usr/share/conky/data.conky &&
+
+exit 0

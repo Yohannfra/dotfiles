@@ -67,3 +67,7 @@ cp /usr/share/applications/freecad.desktop ./desktop_files/
 cp ~/Templates/Makefile ./templates/
 cp ~/Templates/main.c ./templates/
 cp ~/Templates/csfml_basic.c ./templates/
+
+# CONKY
+cp /usr/bin/start_conky ./conky/
+cp /usr/share/conky/data.conky ./conky/
