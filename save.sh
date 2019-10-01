@@ -6,9 +6,6 @@ cp ~/.vim/colors/monokai.vim ./vim/colors/
 cp -r ~/.vim/plugin/epitech_header/ ./vim/plugin/
 cp -r ~/.vim/plugin/snippet ./vim/plugin/
 cp -r ~/.vim/plugin/protect_header/ ./vim/plugin/
-cp ~/.vim/plugin/AutoClose.vim ./vim/plugin/
-rm -rf ./vim/plugin/epitech_header/.git
-rm -rf ./vim/plugin/snippet/.git
 
 # ZSH
 cp ~/.zshrc ./zsh/
