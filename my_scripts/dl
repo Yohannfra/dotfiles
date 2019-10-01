@@ -5,7 +5,7 @@ if [ -w $1 ]; then
     exit 1
 fi
 if [ -w $2 ]; then
-    youtube-dl -f 'm4a' -o '/home/yohann/Music/%(title)s.f%(format_id)s.%(ext)s' $1 --download-archive /home/yohann/.archive.txt --no-playlist -i
+    youtube-dl -f 'm4a' -o '/home/${USER}/Music/%(title)s.f%(format_id)s.%(ext)s' $1 --download-archive /home/${USER}/.archive.txt --no-playlist -i
     exit 0
 fi
-    youtube-dl -f 'm4a' -o '/home/yohann/Music/%(title)s.f%(format_id)s.%(ext)s' $1 --download-archive /home/yohann/.archive.txt -i
+    youtube-dl -f 'm4a' -o '/home/${USER}/Music/%(title)s.f%(format_id)s.%(ext)s' $1 --download-archive /home/${USER}/.archive.txt -i
