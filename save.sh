@@ -75,3 +75,6 @@ cp ~/.installed_with_apt.txt ./About/
 
 # TERMINATOR
 cp ~/.config/terminator/config ./terminator/
+
+# VS CODE
+cp ~/.config/Code/User/settings.json ./vs_code/
