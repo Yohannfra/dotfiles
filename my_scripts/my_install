@@ -1,0 +1,8 @@
+#!/bin/bash
+
+sudo apt install $@
+
+if [ $? -eq 0 ]
+then
+    echo $@ >> ~/.installed_with_apt.txt
+fi

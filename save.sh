@@ -68,3 +68,7 @@ cp ~/Templates/csfml_basic.c ./templates/
 # CONKY
 cp /usr/bin/start_conky ./conky/
 cp /usr/share/conky/data.conky ./conky/
+
+# APT HISTORY
+cp ~/my_scripts/my_install ./my_scripts/
+cp ~/.installed_with_apt.txt ./About/
