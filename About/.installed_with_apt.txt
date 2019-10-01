@@ -1,1 +1,73 @@
 nsnake
+neovim
+i3lock-fancy i3-gaps i3 i3status
+i3lock-fancy i3-gaps i3 i3status i3-gaps-wm
+i32
+i3
+i3lock-fancy i3-gaps i3 i3status i3-gaps-wm
+i3-gaps
+i3lock-fancy
+rofi
+python-pip
+python3-pip
+python3-pip
+fonts-font-awesome
+lxappearance
+blueman
+blueman
+gimp krita vlc
+xclip
+gem
+ruby
+clang-format
+build-essential
+python3-tk
+i3exit
+i3-exit
+redshift-gtk
+xbacklight
+exfat-fuse exfat-utils
+libncurses5
+libncurses5-dev
+libxcb1-dev
+libxcb1
+libxcb-util-dev
+libxcb-render0 libxcb-render0-dev
+libxcb-shape0 libxcb-shape0-dev
+libxcb-xfixes0 libxcb-xfixes0-dev
+libsfml-dev libcsfml-dev
+gcc-8
+compton
+cmake
+cmake-extras
+gdb
+binutils-arm-none-eabi
+gcc-arm-none-eabi
+multiarch-support
+cinnamon-control-center
+cinnamon-control-center-data
+cinnamon-common
+cinnamon
+python2
+python2.7 python2.7-dev
+code
+code
+tree
+lightdm
+valgrind
+feh
+gdb-multiarch
+mergehex
+cmake
+texlive-full
+texlive
+kile
+libqt4-dev
+neofetch
+python-qt4
+python-qt4-dev
+imagemagick
+conky
+inotify-tools
+neofetch
+clang
