@@ -1,9 +1,9 @@
+// compile with :
+// -lcsfml-system -lcsfml-graphics -lcsfml-window  -lcsfml-audio
+
 #include <SFML/Graphics.h>
 #include <SFML/System.h>
 #include <SFML/System/Export.h>
-
-// compile with :
-// -lcsfml-system -lcsfml-graphics -lcsfml-window  -lcsfml-audio
 
 sfRenderWindow *create_my_window()
 {

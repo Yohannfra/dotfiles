@@ -72,3 +72,6 @@ cp /usr/share/conky/data.conky ./conky/
 # APT HISTORY
 cp ~/my_scripts/my_install ./my_scripts/
 cp ~/.installed_with_apt.txt ./About/
+
+# TERMINATOR
+cp ~/.config/terminator/config ./terminator/
