@@ -19,6 +19,7 @@ def get_time():
      "August", "September", "October", "November", "December"]
 
     format_time = fa.icons['calendar'] + "  %d-%m-%Y | " + fa.icons['clock'] + "  %H:%M"
+    format_time = fa.icons['clock'] + "  %H:%M" + (14 * "\t") + fa.icons['calendar'] +  " %d-%m-%Y"
     return datetime.datetime.now().strftime(format_time)
 
 def get_battery():
