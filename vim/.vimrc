@@ -163,3 +163,6 @@ imap <S-Up> <Esc>v<Up>
 imap <S-Down> <Esc>v<Down>
 imap <S-Left> <Esc>v<Left>
 imap <S-Right> <Esc>v<Right>
+
+" map semicolon as colon to avoid pressing shift
+:nmap ; :
