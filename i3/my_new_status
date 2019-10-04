@@ -45,7 +45,7 @@ def get_battery():
         return state_icons[state] + "  " + power[power.index('percentage:') + 1]
 
 def get_sound():
-    return fa.icons['volume-up'] + " " + os.popen("amixer sget 'Master'").read().split()[20]
+    return fa.icons['volume-up'] + " " + os.popen("amixer sget 'Master'").read().split()[20][1:-1]
 
 def write(data):
     sys.__stdout__.write('%s\n' % data)
@@ -54,10 +54,10 @@ def write(data):
 def main():
     while True:
         data = ""
-        data += get_time() + " | "
-        data += get_battery() + " | "
-        data += get_sound() + " | "
-        data += get_disk_space() + " |  "
+        data += get_time() + "  "
+        data += get_battery() + "  "
+        data += get_sound() + "  "
+        data += get_disk_space() + "   "
         write(data)
         time.sleep(1)
 
