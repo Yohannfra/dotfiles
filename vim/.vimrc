@@ -166,3 +166,9 @@ imap <S-Right> <Esc>v<Right>
 
 " map semicolon as colon to avoid pressing shift
 :nmap ; :
+
+" set tranparent background to vim
+hi Normal guibg=NONE ctermbg=NONE
+
+" force neovim to use caret block in insert mode
+set guicursor=

@@ -69,7 +69,7 @@ ZSH_THEME="robbyrussell"
 export EDITOR=vim
 
 export PATH=$PATH:~/.platformio/penv/bin
-
+export RUST_BACKTRACE=1
 # Uncomment to use node Js
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

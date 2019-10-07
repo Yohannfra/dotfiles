@@ -6,7 +6,7 @@
 - arandr
 - gnome-screenshot
 - nautilus
-- terminator
+- gnome-terminal
 - eog (eye of gnome, the gnome image viewer)
 - nitroen
 
