@@ -114,7 +114,7 @@ colorscheme monokai
 set termguicolors
 
 " set tranparent background to vim
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " Strip whitespaces when save
 autocmd BufWritePre * %s/\s\+$//e
@@ -172,3 +172,6 @@ imap <S-Right> <Esc>v<Right>
 
 " force neovim to use caret block in insert mode
 set guicursor=
+
+" disable commanmd history (q:)
+nnoremap q: <nop>
