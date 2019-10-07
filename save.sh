@@ -6,6 +6,8 @@ cp ~/.vim/colors/monokai.vim ./vim/colors/
 cp -r ~/.vim/plugin/epitech_header/ ./vim/plugin/
 cp -r ~/.vim/plugin/snippet ./vim/plugin/
 cp -r ~/.vim/plugin/protect_header/ ./vim/plugin/
+cp -r ~/.vim/plugin/generate_class/ ./vim/plugin
+cp -r ~/.vim/plugin/replace/ ./vim/plugin/
 
 # ZSH
 cp ~/.zshrc ./zsh/
@@ -29,6 +31,7 @@ cp /usr/bin/i3exit ./i3/
 cp /usr/bin/my_new_status ./i3/
 cp /usr/bin/swap_workspaces ./i3/
 cp /usr/bin/rofi-web ./i3/
+cp ~/.xinitrc ./i3/
 
 # MY SCRIPTS
 cp ~/my_scripts/ao ./my_scripts/
