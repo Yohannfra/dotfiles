@@ -18,6 +18,8 @@ Plug 'scrooloose/nerdtree' " nerdTree
 Plug 'luochen1990/rainbow' " rainbow brackets, parenthesis ...
 Plug 'scrooloose/nerdcommenter' " nerdcommenter to quick comment line
 Plug 'Townk/vim-autoclose' " autoclose brackets, parenthesis...
+Plug 'calviken/vim-gdscript3'
+Plug 'https://github.com/tpope/vim-fugitive'
 call plug#end()
 
 " Disable beeping
@@ -175,3 +177,15 @@ set guicursor=
 
 " disable commanmd history (q:)
 nnoremap q: <nop>
+
+" map Ctrl + q to :qa
+nnoremap <C-q> :qa<CR>
+imap <C-q> <Esc>:qa<CR>
+
+" map Ctrl + w to :q
+nnoremap <C-w> :q<CR>
+imap <C-w> <Esc>:q<CR>
+
+" map Ctrl + s to :w
+nnoremap <C-s> :w<CR>
+imap <C-s> <Esc>:w<CR>
