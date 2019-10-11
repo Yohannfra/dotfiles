@@ -62,6 +62,7 @@ cp ~/.config/polybar/launch_polybar.sh ./polybar/
 # DESKTOP FILES
 cp /usr/share/applications/cura.desktop ./desktop_files/
 cp /usr/share/applications/freecad.desktop ./desktop_files/
+cp /usr/share/applications/godot.desktop ./desktop_files/
 
 # TEMPLATES
 cp ~/Templates/Makefile ./templates/
