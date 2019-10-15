@@ -18,8 +18,9 @@ Plug 'scrooloose/nerdtree' " nerdTree
 Plug 'luochen1990/rainbow' " rainbow brackets, parenthesis ...
 Plug 'scrooloose/nerdcommenter' " nerdcommenter to quick comment line
 Plug 'Townk/vim-autoclose' " autoclose brackets, parenthesis...
-Plug 'calviken/vim-gdscript3'
-Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'calviken/vim-gdscript3' " syntax for godot script
+Plug 'mhartington/oceanic-next'
+Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 " Disable beeping
@@ -112,8 +113,9 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.o$', '\~$', '\.a$']
 
 " colors and theme
-colorscheme monokai
 set termguicolors
+" colorscheme monokai
+colorscheme OceanicNext
 
 " set tranparent background to vim
 " hi Normal guibg=NONE ctermbg=NONE
@@ -189,3 +191,7 @@ imap <C-w> <Esc>:q<CR>
 " map Ctrl + s to :w
 nnoremap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>
+
+" map F12 to the function GotoHeader
+nnoremap <F12> :GotoHeader <CR>
+imap <F12> <Esc>:GotoHeader <CR>
