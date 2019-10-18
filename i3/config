@@ -43,6 +43,9 @@ bindsym $mod+Return exec --no-startup-id gnome-terminal
 # screenshot
 bindsym Print exec --no-startup-id gnome-screenshot -i
 
+#start nautilus
+bindsym $mod+n exec --no-startup-id nautilus -w
+
 ############################################
 ### Settings for rofi or dmenu or emenu: ###
 ############################################
@@ -166,6 +169,9 @@ for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="My hunter"] floating enable
+for_window [class="my_mario"] floating enable
+for_window [class="New Game Project"] floating enable
+for_window [class="Godot_Engine"] floating enable
 
 ################################
 ### Settings for workspaces: ###

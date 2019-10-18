@@ -2,23 +2,30 @@
 " Assouline Yohann
 " 2019
 
-"   If you don't have fd:
-"   Uncomment line 12 and 16
-"   Comment line 13 and 17
-"
-
 function! GotoHeader()
     let filename = expand("<cword>") . '.h'
-    "let info_find = systemlist('find /usr/include/ -name ' . filename . ' 2> /dev/null')
-    let info_find = systemlist('fd ' . filename . ' /usr/include/ 2> /dev/null')
+    let info_find = systemlist('fd -t f -s -L ^' . filename . '$ /usr/include/ 2> /dev/null')
 
     if len(info_find) == 0
-        "let info_find = systemlist('find ../ -name ' . filename . ' 2> /dev/null')
-        let info_find = systemlist('f ' . filename . ' ../ 2> /dev/null')
+        let info_find = systemlist('fd -t f -s -L ^' . filename . '$ ../ 2> /dev/null')
+    endif
+
+    if len(info_find) == 0
+        let info_find = systemlist('fd -t f -s -L ^' . filename . '$ ~ 2> /dev/null')
     endif
 
     if len(info_find) != 0
-        execute ":tabedit " . info_find[0]
+        let c = 0
+        let i = 0
+        for i in info_find
+            if stridx(i, "newlib") != -1 || stridx(i, "c++") != -1
+                let c += 1
+                continue
+            else
+                execute ":tabedit " . info_find[c]
+                break
+            endif
+        endfor
     else
         echo "Couldn't find " . filename
     endif

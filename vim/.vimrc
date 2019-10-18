@@ -23,6 +23,8 @@ Plug 'mhartington/oceanic-next'
 Plug 'rhysd/vim-clang-format'
 call plug#end()
 
+set shell=/bin/bash
+
 " Disable beeping
 set noerrorbells
 set vb t_vb=
@@ -114,8 +116,8 @@ let NERDTreeIgnore=['\.o$', '\~$', '\.a$']
 
 " colors and theme
 set termguicolors
-" colorscheme monokai
-colorscheme OceanicNext
+ colorscheme monokai
+"colorscheme OceanicNext
 
 " set tranparent background to vim
 " hi Normal guibg=NONE ctermbg=NONE
