@@ -82,3 +82,7 @@ cp ~/.config/terminator/config ./terminator/
 
 # VS CODE
 cp ~/.config/Code/User/settings.json ./vs_code/
+
+# FISH
+cp ~/.config/fish/config.fish ./fish/
+cp ~/.local/share/omf/themes/godfather/fish_prompt.fish ./fish/

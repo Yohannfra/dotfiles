@@ -172,6 +172,8 @@ for_window [class="My hunter"] floating enable
 for_window [class="my_mario"] floating enable
 for_window [class="New Game Project"] floating enable
 for_window [class="Godot_Engine"] floating enable
+for_window [class="stepbystep"] floating enable
+for_window [class="Eog"] floating enable
 
 ################################
 ### Settings for workspaces: ###

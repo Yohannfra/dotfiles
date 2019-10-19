@@ -21,6 +21,7 @@ Plug 'Townk/vim-autoclose' " autoclose brackets, parenthesis...
 Plug 'calviken/vim-gdscript3' " syntax for godot script
 Plug 'mhartington/oceanic-next'
 Plug 'rhysd/vim-clang-format'
+Plug 'ervandew/supertab'
 call plug#end()
 
 set shell=/bin/bash
