@@ -46,6 +46,11 @@ bindsym Print exec --no-startup-id gnome-screenshot -i
 #start nautilus
 bindsym $mod+n exec --no-startup-id nautilus -w
 
+# Turn on/off external output
+set $xrandr_eout HDMI2
+bindsym $mod+Control+Shift+o exec --no-startup-id xrandr --output $xrandr_eout --off
+bindsym $mod+Control+o exec --no-startup-id xrandr --output $xrandr_eout --mode 1920x1080 --above eDP1 --rotate normal
+
 ############################################
 ### Settings for rofi or dmenu or emenu: ###
 ############################################
@@ -65,7 +70,7 @@ bindsym $mod+g exec --no-startup-id rofi-web
 ### Settings for i3-lock: ###
 #############################
 
-bindsym $mod+Escape exec --no-startup-id i3lock-fancy -f Comic-Sans-MS -- scrot -z
+# bindsym $mod+Escape exec --no-startup-id i3lock-fancy -f Comic-Sans-MS -- scrot -z
 
 #############################
 ### Settings for windows: ###
@@ -121,6 +126,8 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+
+popup_during_fullscreen leave_fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -189,6 +196,7 @@ bindsym $mod+6 workspace number 6
 bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
@@ -207,6 +215,7 @@ bindsym $mod+Shift+6 move container to workspace number 6
 bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
 
 # bindsym $mod+Ctrl+Shift+Right move container to workspace next
 # bindsym $mod+Ctrl+Shift+Left move container to workspace prev
@@ -223,12 +232,21 @@ bindsym XF86AudioMute exec --no-startup-id amixer sset 'Master' 0%
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
 
+
+########################################
+### shortcuts to control clementine: ###
+########################################
+bindsym $mod+Home exec --no-startup-id clementine-remote "-c prev"
+bindsym $mod+End exec --no-startup-id clementine-remote "-c playpause"
+bindsym $mod+Insert exec --no-startup-id clementine-remote "-c next"
+
+
 #################################
 ### settings for system mode: ###
 #################################
 # Set shut down, restart and locking features
 
-bindsym $mod+0 mode "$mode_system"
+bindsym $mod+Escape mode "$mode_system"
 set $mode_system (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
