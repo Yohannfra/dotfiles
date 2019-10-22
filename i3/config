@@ -236,9 +236,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease
 ########################################
 ### shortcuts to control clementine: ###
 ########################################
-bindsym $mod+Home exec --no-startup-id clementine-remote "-c prev"
-bindsym $mod+End exec --no-startup-id clementine-remote "-c playpause"
-bindsym $mod+Insert exec --no-startup-id clementine-remote "-c next"
+bindsym $mod+Home exec --no-startup-id clementine-remote -c prev
+bindsym $mod+End exec --no-startup-id clementine-remote -c playpause
+bindsym $mod+Insert exec --no-startup-id clementine-remote -c next
 
 
 #################################

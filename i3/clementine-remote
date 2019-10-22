@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# This file is part of clementine-remote-bash
-# https://github.com/mgafner/clementine-remote-bash
-#
 # clementine-remote-bash is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -42,20 +39,15 @@ function usage()
           playpause
           prev
           next
-          playlist
-          playlists
 
       -g    get info
       -h    list all commands
-      -p    set playlist
 
     examples:
 
       $(basename $0) -c play
       $(basename $0) -g title
       $(basename $0) -g status
-      $(basename $0) -g playlists
-      $(basename $0) -p <some-playlist>
     "
 }
 
