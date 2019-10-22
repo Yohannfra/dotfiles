@@ -14,7 +14,7 @@ def get_song_name():
     song_status_icon = fa.icons['play']
     if os.popen("clementine-remote -g status").read().strip() == "Paused":
         song_status_icon = fa.icons['pause']
-    song_name = song_status_icon + '  ' + os.popen("clementine-remote -g title | cut -d '.' '-f1'").read().strip()
+    song_name = song_status_icon + '  ' + os.popen("clementine-remote -g title").read().strip().replace(".m4a", "").replace(".f140", "")
     return song_name
 
 def get_disk_space():
