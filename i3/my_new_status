@@ -10,6 +10,13 @@ import fontawesome as fa
 
 last_call = 0
 
+def get_song_name():
+    song_status_icon = fa.icons['play']
+    if os.popen("clementine-remote -g status").read().strip() == "Paused":
+        song_status_icon = fa.icons['pause']
+    song_name = song_status_icon + '  ' + os.popen("clementine-remote -g title | cut -d '.' '-f1'").read().strip()
+    return song_name
+
 def get_disk_space():
     disk_space = os.popen("df -h / | grep / | cut -d \" \" -f 12").read().strip()
     return  fa.icons['save'] + "  "+ disk_space
@@ -54,6 +61,8 @@ def write(data):
 def main():
     while True:
         data = ""
+        if os.popen("clementine-remote -g title").read().strip() != "clementine is not running":
+            data += get_song_name() + "\t" * 7
         data += get_time() + "  "
         data += get_battery() + "  "
         data += get_sound() + "  "

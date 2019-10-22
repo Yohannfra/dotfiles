@@ -21,9 +21,9 @@ DBUSBASE="org.mpris.MediaPlayer2.clementine /org/mpris/MediaPlayer2"
 # Check if clementine is running
 function is_clementine_running()
 {
-    ps -A | grep "clementine" > /dev/null
-
-    if [ $? -ne 0 ]; then
+    ps -A | grep "clementine" | grep -v "remo" > /dev/null
+    status=$?
+    if [ $status -ne 0 ]; then
         echo "clementine is not running"
         exit 1
     fi
@@ -134,7 +134,7 @@ function main()
     # check if clementine is running, the function exit if not
     is_clementine_running
 
-    if [ $# -eq 0 ]; then 
+    if [ $# -eq 0 ]; then
             usage
             exit 1
     fi
