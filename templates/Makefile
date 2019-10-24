@@ -9,17 +9,19 @@ CC = gcc
 
 SHELL = /bin/bash
 
-RM = rm -f
+THIS_DIR         := $(shell dirname $(abspath $(lastword $(MAKEFILE_LIST))))/
 
-NAME = test
+NAME = default_name
 
 SRC_MAIN = src/main.c
 
 SRC_OTHERS =
 
-SRC = $(SRC_MAIN) $(SRC_OTHERS)
+SRC_TEST =
 
-OBJ = $(SRC:.c=.o)
+SRC = $(SRC_OTHERS)
+
+OBJ = $(SRC:.c=.o) $(SRC_MAIN:.c=.o)
 
 CPPFLAGS =
 
@@ -34,8 +36,13 @@ all: $(NAME) sign
 $(NAME): $(OBJ)
 	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS) $(LDLIBS)
 
-debug: CFLAGS += -g -D DEBUG
+debug: CFLAGS += -g3 -D DEBUG
 debug: fclean $(NAME)
+
+test: LDFLAGS += -lcriterion
+test: fclean
+	gcc $(SRC) $(SRC_TEST) $(LDFLAGS) $(CFLAGS) $(LDLIBS) -o tester
+	./tester --verbose
 
 clean:
 	$(RM) $(NAME)

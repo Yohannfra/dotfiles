@@ -5,11 +5,8 @@ alias ......='cd ../../../../..'
 alias .......='cd ../../../../../..'
 alias ........='cd ../../../../../..'
 
-function r
-    eval $history[1]
-end
-
 alias open="xdg-open"
+alias scd="cd"
 alias l="ls -1"
 alias ne="emacs -nw"
 alias rm="rm -i"

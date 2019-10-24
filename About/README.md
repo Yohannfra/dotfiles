@@ -6,7 +6,7 @@
 - arandr
 - gnome-screenshot
 - nautilus
-- gnome-terminal
+- gnome-terminal (font : DroidSansMono Nerd Font Book)
 - eog (eye of gnome, the gnome image viewer)
 - nitroen
 

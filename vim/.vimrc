@@ -15,13 +15,15 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder
 Plug 'junegunn/fzf.vim' " same
 Plug 'machakann/vim-highlightedyank' " make the yanked region apparent (try yy)
 Plug 'scrooloose/nerdtree' " nerdTree
+Plug 'ryanoasis/vim-devicons'
 Plug 'luochen1990/rainbow' " rainbow brackets, parenthesis ...
 Plug 'scrooloose/nerdcommenter' " nerdcommenter to quick comment line
 Plug 'Townk/vim-autoclose' " autoclose brackets, parenthesis...
 Plug 'calviken/vim-gdscript3' " syntax for godot script
 Plug 'mhartington/oceanic-next'
 Plug 'rhysd/vim-clang-format'
-Plug 'ervandew/supertab'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 set shell=/bin/bash
