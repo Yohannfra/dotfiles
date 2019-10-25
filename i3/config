@@ -51,6 +51,12 @@ set $xrandr_eout HDMI2
 bindsym $mod+Control+Shift+o exec --no-startup-id xrandr --output $xrandr_eout --off
 bindsym $mod+Control+o exec --no-startup-id xrandr --output $xrandr_eout --mode 1920x1080 --above eDP1 --rotate normal
 
+# F9
+bindsym XF86Tools exec --no-startup-id cinnamon-settings
+
+# F12
+bindsym XF86Favorites exec --no-startup-id firefox
+
 ############################################
 ### Settings for rofi or dmenu or emenu: ###
 ############################################
@@ -225,14 +231,15 @@ bindsym $mod+Shift+0 move container to workspace number 10
 ### sound and brightness settings: ###
 ######################################
 
+# F1-F2-F3-F4
 bindsym XF86AudioLowerVolume exec --no-startup-id volumecontrol down
 bindsym XF86AudioRaiseVolume exec --no-startup-id volumecontrol up
-bindsym XF86AudioMute exec --no-startup-id volumecontrol mute
-bindsym XF86AudioMicMute exec --no-startup-id volumecontrol mic_mute
+bindsym XF86AudioMute        exec --no-startup-id volumecontrol mute
+bindsym XF86AudioMicMute     exec --no-startup-id volumecontrol mic_mute
 
+# F5-F6
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
-
 
 ########################################
 ### shortcuts to control clementine: ###
