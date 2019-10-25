@@ -6,24 +6,24 @@
 " -----------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
-Plug 'bling/vim-airline' " a nice bar at the bottom
-Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
-Plug 'ianks/vim-tsx' " allow tsx coloration in vim
-Plug 'junegunn/goyo.vim' " goyo is a distraction free mode :Goyo to activate
-Plug 'vim-scripts/CycleColor' " Cycles through available colorschemes, make it easier to test them all
+Plug 'bling/vim-airline'                                          " a nice bar at the bottom
+Plug 'vim-airline/vim-airline-themes'                             " themes for vim-airline
+Plug 'ianks/vim-tsx'                                              " allow tsx coloration in vim
+Plug 'junegunn/goyo.vim'                                          " goyo is a distraction free mode :Goyo to activate
+Plug 'vim-scripts/CycleColor'                                     " Cycles through available colorschemes, make it easier to test them all
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder for vim
-Plug 'junegunn/fzf.vim' " same
-Plug 'machakann/vim-highlightedyank' " make the yanked region apparent (try yy)
-Plug 'scrooloose/nerdtree' " nerdTree
-Plug 'ryanoasis/vim-devicons'
-Plug 'luochen1990/rainbow' " rainbow brackets, parenthesis ...
-Plug 'scrooloose/nerdcommenter' " nerdcommenter to quick comment line
-Plug 'Townk/vim-autoclose' " autoclose brackets, parenthesis...
-Plug 'calviken/vim-gdscript3' " syntax for godot script
-Plug 'mhartington/oceanic-next'
-Plug 'rhysd/vim-clang-format'
-Plug 'godlygeek/tabular'
-Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf.vim'                                           " same
+Plug 'machakann/vim-highlightedyank'                              " make the yanked region apparent (try yy)
+Plug 'scrooloose/nerdtree'                                        " nerdTree
+Plug 'ryanoasis/vim-devicons'                                     " add icons in nerdtree and powerline
+Plug 'luochen1990/rainbow'                                        " rainbow brackets, parenthesis ...
+Plug 'scrooloose/nerdcommenter'                                   " nerdcommenter to quick comment line
+Plug 'Townk/vim-autoclose'                                        " autoclose brackets, parenthesis...
+Plug 'calviken/vim-gdscript3'                                     " syntax for godot script
+Plug 'mhartington/oceanic-next'                                   " a nice colorscheme
+Plug 'rhysd/vim-clang-format'                                     " clang-format in vim
+Plug 'godlygeek/tabular'                                          " quik text alignement
+Plug 'tpope/vim-surround'                                         " quick edit surround
 call plug#end()
 
 set shell=/bin/bash
@@ -31,6 +31,9 @@ set shell=/bin/bash
 " Disable beeping
 set noerrorbells
 set vb t_vb=
+
+" fileformat for new file
+set fileformats=unix
 
 " show line numbers
 set number
@@ -90,6 +93,10 @@ set shiftwidth=4
 set autoindent
 set smarttab
 
+" Find and replace easier
+nnoremap <C-H> :%s/
+xnoremap <C-H> :s/
+
 " show trailing spaces
 set listchars=tab:..,trail:_
 set list
@@ -119,11 +126,11 @@ let NERDTreeIgnore=['\.o$', '\~$', '\.a$']
 
 " colors and theme
 set termguicolors
- colorscheme monokai
+" colorscheme monokai
 "colorscheme OceanicNext
 
 " set tranparent background to vim
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 " Strip whitespaces when save
 autocmd BufWritePre * %s/\s\+$//e

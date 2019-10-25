@@ -33,6 +33,7 @@ cp /usr/bin/swap_workspaces ./i3/
 cp /usr/bin/rofi-web ./i3/
 cp ~/.xinitrc ./i3/
 cp /usr/bin/clementine-remote ./i3/
+cp /usr/bin/volumecontrol ./i3/
 
 # MY SCRIPTS
 cp ~/my_scripts/ao ./my_scripts/
