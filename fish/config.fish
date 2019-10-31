@@ -5,6 +5,7 @@ alias ......='cd ../../../../..'
 alias .......='cd ../../../../../..'
 alias ........='cd ../../../../../..'
 
+alias cdtoto="mkdir /tmp/toto 2>/dev/null ; cd /tmp/toto"
 alias open="xdg-open"
 alias scd="cd"
 alias l="ls -1"

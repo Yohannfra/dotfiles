@@ -31,7 +31,7 @@ font xft:URWGothic-Book 11
 ### Wallpaper ###
 #################
 
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/moon.jpg
+exec_always --no-startup-id set_wallpaper
 
 ###############################
 ### Shortcuts for programs: ###
@@ -326,7 +326,7 @@ bindsym $mod+r mode "resize"
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
-exec_always --no-startup-id nm-applet
+# exec_always --no-startup-id nm-applet
 exec_always --no-startup-id blueman-applet
 
 bar {

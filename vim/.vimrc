@@ -28,6 +28,10 @@ call plug#end()
 
 set shell=/bin/bash
 
+" Persistent undo
+set undodir=~/.vim/undo-dir
+set undofile
+
 " Disable beeping
 set noerrorbells
 set vb t_vb=
@@ -126,11 +130,11 @@ let NERDTreeIgnore=['\.o$', '\~$', '\.a$']
 
 " colors and theme
 set termguicolors
-" colorscheme monokai
+colorscheme monokai
 "colorscheme OceanicNext
 
 " set tranparent background to vim
-hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
 
 " Strip whitespaces when save
 autocmd BufWritePre * %s/\s\+$//e
