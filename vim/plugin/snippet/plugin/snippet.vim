@@ -39,8 +39,6 @@ function! Snippet()
     if type == "2"
         call Create_main()
     endif
-
-
 endfunction
 
 command Snippet execute Snippet()

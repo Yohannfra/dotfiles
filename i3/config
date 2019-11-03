@@ -187,6 +187,7 @@ for_window [class="New Game Project"] floating enable
 for_window [class="Godot_Engine"] floating enable
 for_window [class="stepbystep"] floating enable
 for_window [class="Eog"] floating enable
+for_window [class="Tk"] floating enable border normal
 
 ################################
 ### Settings for workspaces: ###

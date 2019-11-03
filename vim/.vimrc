@@ -24,6 +24,8 @@ Plug 'mhartington/oceanic-next'                                   " a nice color
 Plug 'rhysd/vim-clang-format'                                     " clang-format in vim
 Plug 'godlygeek/tabular'                                          " quik text alignement
 Plug 'tpope/vim-surround'                                         " quick edit surround
+Plug 'vim-scripts/SearchComplete'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 set shell=/bin/bash
@@ -97,10 +99,6 @@ set shiftwidth=4
 set autoindent
 set smarttab
 
-" Find and replace easier
-nnoremap <C-H> :%s/
-xnoremap <C-H> :s/
-
 " show trailing spaces
 set listchars=tab:..,trail:_
 set list
@@ -136,6 +134,10 @@ colorscheme monokai
 " set tranparent background to vim
 "hi Normal guibg=NONE ctermbg=NONE
 
+" split location
+set splitbelow
+set splitright
+
 " Strip whitespaces when save
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -145,6 +147,9 @@ autocmd BufReadPost *
             \   exe "normal! g`\"" |
             \ endif
 
+" Automaticly open NERDTree if there are no file as arguments
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " some alias
 :command WQ wq
@@ -160,8 +165,10 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
 " Keymap to navigate beetween buffer and nerdtree
-noremap <C-Left> <C-W>h
-noremap <C-Right> <C-W>l
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
+noremap <C-k> <C-W>k
+noremap <C-j> <C-W>j
 
 " open NERDTree with Ctrl + b
 map <C-b> :NERDTreeToggle<CR>
@@ -169,9 +176,9 @@ map <C-b> :NERDTreeToggle<CR>
 " open Fzf with Ctrl + p
 map <C-p> :FZF<CR>
 
-" Automaticly open NERDTree if there are no file as arguments
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Find and replace easier
+nnoremap <C-g> :%s/
+xnoremap <C-g> :s/
 
 " shift+arrow selection
 nmap <S-Up> v<Up>
@@ -187,6 +194,12 @@ imap <S-Down> <Esc>v<Down>
 imap <S-Left> <Esc>v<Left>
 imap <S-Right> <Esc>v<Right>
 
+" open a terminal with maj+t
+nmap <S-T> :split <bar> resize 20 <bar> term <CR>
+
+" escape terminal with escape
+tnoremap <Esc> <C-\><C-n>
+
 " map semicolon as colon to avoid pressing shift
 :nmap ; :
 
@@ -196,13 +209,15 @@ set guicursor=
 " disable commanmd history (q:)
 nnoremap q: <nop>
 
+nnoremap <Space> i
+
 " map Ctrl + q to :qa
 nnoremap <C-q> :qa<CR>
 imap <C-q> <Esc>:qa<CR>
 
 " map Ctrl + w to :q
-nnoremap <C-w> :q<CR>
-imap <C-w> <Esc>:q<CR>
+" nnoremap <C-w> :q<CR>
+" imap <C-w> <Esc>:q<CR>
 
 " map Ctrl + s to :w
 nnoremap <C-s> :w<CR>
