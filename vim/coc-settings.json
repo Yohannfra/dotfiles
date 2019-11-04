@@ -1,0 +1,9 @@
+{
+    "languageserver": {
+        "clangd": {
+            "command": "clangd-8",
+            "args": ["--background-index"],
+            "filetypes": ["c", "cpp", "objc", "objcpp"]
+        }
+    }
+}

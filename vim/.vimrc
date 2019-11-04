@@ -26,9 +26,11 @@ Plug 'godlygeek/tabular'                                          " quik text al
 Plug 'tpope/vim-surround'                                         " quick edit surround
 Plug 'vim-scripts/SearchComplete'
 Plug 'easymotion/vim-easymotion'
+Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " LSP
 call plug#end()
 
-set shell=/bin/bash
+set shell=/bin/zsh
 
 " Persistent undo
 set undodir=~/.vim/undo-dir
@@ -174,7 +176,7 @@ noremap <C-j> <C-W>j
 map <C-b> :NERDTreeToggle<CR>
 
 " open Fzf with Ctrl + p
-map <C-p> :FZF<CR>
+" map <C-p> :FZF<CR>
 
 " Find and replace easier
 nnoremap <C-g> :%s/
@@ -214,6 +216,12 @@ nnoremap <Space> i
 " map Ctrl + q to :qa
 nnoremap <C-q> :qa<CR>
 imap <C-q> <Esc>:qa<CR>
+
+"  map Ctrl j/k to change tab
+" nnoremap <C-j> gT <CR>
+" nnoremap <C-k> gt <CR>
+" imap <C-j> <Esc>gT <CR>
+" imap <C-k> <Esc>gt <CR>
 
 " map Ctrl + w to :q
 " nnoremap <C-w> :q<CR>

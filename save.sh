@@ -9,6 +9,8 @@ cp -r ~/.vim/plugin/protect_header/ ./vim/plugin/
 cp -r ~/.vim/plugin/generate_class/ ./vim/plugin
 cp -r ~/.vim/plugin/replace/ ./vim/plugin/
 cp -r ~/.vim/plugin/goto_header/ ./vim/plugin/
+cp ~/.config/nvim/coc-settings.json ./vim/
+
 # ZSH
 cp ~/.zshrc ./zsh/
 
