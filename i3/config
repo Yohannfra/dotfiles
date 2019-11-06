@@ -12,7 +12,7 @@ set $mod Mod1
 # settings for the touchpad
 exec_always --no-startup-id tap_to_click.sh
 exec_always --no-startup-id inverse_scroll.sh
-
+exec_always --no-startup-id libinput-gestures-setup start
 # start conky
 #exec --no-startup-id start_conky
 
