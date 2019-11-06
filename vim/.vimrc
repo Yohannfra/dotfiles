@@ -22,7 +22,7 @@ Plug 'Townk/vim-autoclose'                                        " autoclose br
 Plug 'calviken/vim-gdscript3'                                     " syntax for godot script
 Plug 'mhartington/oceanic-next'                                   " a nice colorscheme
 Plug 'rhysd/vim-clang-format'                                     " clang-format in vim
-Plug 'godlygeek/tabular'                                          " quik text alignement
+Plug 'godlygeek/tabular'                                          " quick text alignement
 Plug 'tpope/vim-surround'                                         " quick edit surround
 Plug 'vim-scripts/SearchComplete'
 Plug 'easymotion/vim-easymotion'
@@ -30,7 +30,11 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " LSP
 call plug#end()
 
+" default vim shell
 set shell=/bin/zsh
+
+" use system clipboard
+set clipboard=unnamedplus
 
 " Persistent undo
 set undodir=~/.vim/undo-dir
@@ -199,6 +203,12 @@ imap <S-Right> <Esc>v<Right>
 " open a terminal with maj+t
 nmap <S-T> :split <bar> resize 20 <bar> term <CR>
 
+" resize buffer with shortcut
+nnoremap <silent> <Leader>+ :vertical resize +10 <CR>
+nnoremap <silent> <Leader>- :vertical resize -10 <CR>
+nnoremap <silent> <Leader>) :resize +10 <CR>
+nnoremap <silent> <Leader>( :resize -10 <CR>
+
 " escape terminal with escape
 tnoremap <Esc> <C-\><C-n>
 
@@ -216,16 +226,6 @@ nnoremap <Space> i
 " map Ctrl + q to :qa
 nnoremap <C-q> :qa<CR>
 imap <C-q> <Esc>:qa<CR>
-
-"  map Ctrl j/k to change tab
-" nnoremap <C-j> gT <CR>
-" nnoremap <C-k> gt <CR>
-" imap <C-j> <Esc>gT <CR>
-" imap <C-k> <Esc>gt <CR>
-
-" map Ctrl + w to :q
-" nnoremap <C-w> :q<CR>
-" imap <C-w> <Esc>:q<CR>
 
 " map Ctrl + s to :w
 nnoremap <C-s> :w<CR>

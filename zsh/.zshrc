@@ -1,5 +1,5 @@
 # ---------------- Mes Alias ----------------- #
-
+alias cdtoto="mkdir /tmp/toto 2>/dev/null ; cd /tmp/toto"
 alias open="xdg-open"
 alias ne="emacs -nw"
 alias rm="rm -i"
@@ -56,7 +56,8 @@ alias ys="yarn start"
 alias cb="cargo build"
 alias cr="cargo run -q "
 
-
+alias cdsfm="cd /home/yohann/Desktop/Blackfoot/new_WSSFM20Rx_15x/development/SFM/"
+alias cdses="cd /home/yohann/Desktop/Blackfoot/new_WSSFM20Rx_15x/development/SFM/demoApp/pca10040/s132/ses/"
 # set key repeat rate. delay 200 milisecond, 70 per sec
 xset r rate 180 80
 setxkbmap us
@@ -77,6 +78,7 @@ export RUST_BACKTRACE=1
 
 plugins=(
   git
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh

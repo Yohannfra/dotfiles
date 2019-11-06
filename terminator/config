@@ -17,9 +17,11 @@
 [profiles]
   [[default]]
     cursor_color = "#aaaaaa"
+    font = VictorMono Nerd Font Mono Light 10
     foreground_color = "#ffffff"
     scrollbar_position = hidden
     show_titlebar = False
+    use_system_font = False
   [[white]]
     background_color = "#ffffff"
     cursor_color = "#aaaaaa"
