@@ -43,7 +43,11 @@ function! GotoHeader()
 
     echo "Searching for " . current_line . " ..."
 
-    let info_find = systemlist('fd -t f -s -L ^' . current_line . '$ /usr/include/ 2> /dev/null')
+    let info_find = systemlist('fd -t f -s -L ^' . current_line . '$ . 2> /dev/null')
+
+    if len(info_find) == 0
+        let info_find = systemlist('fd -t f -s -L ^' . current_line . '$ /usr/include/ 2> /dev/null')
+    endif
 
     if len(info_find) == 0
         let info_find = systemlist('fd -t f -s -L ^' . current_line . '$ ../ 2> /dev/null')

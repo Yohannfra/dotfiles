@@ -6,7 +6,7 @@ dirlist = []
 
 def is_cmake_project(dirlist):
     if "CMakeLists.txt" not in dirlist:
-        return 0
+        return False
     f = open('CMakeLists.txt', 'r')
     line = f.readline()
     while (line != ""):
@@ -17,11 +17,11 @@ def is_cmake_project(dirlist):
     binary = line.strip()
     binary = binary.split('(')[1][0:-1]
     os.system("./" + binary)
-    return 1
+    return True
 
 def is_makefile_project(dirlist):
     if "Makefile" not in dirlist or "CMakeLists.txt" in dirlist:
-        return 0
+        return False
     f = open('Makefile', 'r')
     line = f.readline()
     while (line != ""):
@@ -31,17 +31,28 @@ def is_makefile_project(dirlist):
     f.close()
     binary = line.split("=")[1].strip()
     os.system("./" + binary)
-    return 1
+    return True
 
 def is_a_out_project(dirlist):
     if "a.out" not in dirlist:
-        return 0
+        return False
     os.system("./a.out")
-    return 1
+    return True
+
+def is_ao_project(dirlist):
+    if ".ao" not in dirlist:
+        return False
+    f = open('.ao', 'r')
+    command = f.readline().strip()
+    os.system(command)
+    f.close()
+    return True
 
 def main():
     dirlist = os.listdir('.')
-    if is_makefile_project(dirlist):
+    if is_ao_project(dirlist):
+        pass
+    elif is_makefile_project(dirlist):
         pass
     elif is_cmake_project(dirlist):
         pass

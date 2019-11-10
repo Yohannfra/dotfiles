@@ -11,8 +11,6 @@ Plug 'vim-airline/vim-airline-themes'                             " themes for v
 Plug 'ianks/vim-tsx'                                              " allow tsx coloration in vim
 Plug 'junegunn/goyo.vim'                                          " goyo is a distraction free mode :Goyo to activate
 Plug 'vim-scripts/CycleColor'                                     " Cycles through available colorschemes, make it easier to test them all
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder for vim
-Plug 'junegunn/fzf.vim'                                           " same
 Plug 'machakann/vim-highlightedyank'                              " make the yanked region apparent (try yy)
 Plug 'scrooloose/nerdtree'                                        " nerdTree
 Plug 'ryanoasis/vim-devicons'                                     " add icons in nerdtree and powerline
@@ -24,10 +22,11 @@ Plug 'mhartington/oceanic-next'                                   " a nice color
 Plug 'rhysd/vim-clang-format'                                     " clang-format in vim
 Plug 'godlygeek/tabular'                                          " quick text alignement
 Plug 'tpope/vim-surround'                                         " quick edit surround
-Plug 'vim-scripts/SearchComplete'
-Plug 'easymotion/vim-easymotion'
-Plug 'sheerun/vim-polyglot'
+Plug 'vim-scripts/SearchComplete'                                 " autocomplete search with tab
+Plug 'easymotion/vim-easymotion'                                  " quick mothion with \\s
+Plug 'sheerun/vim-polyglot'                                       " Better syntax hilighthing
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " LSP
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 " default vim shell
@@ -221,6 +220,10 @@ set guicursor=
 " disable commanmd history (q:)
 nnoremap q: <nop>
 
+" disable help menu
+nnoremap <F1> <nop>
+inoremap <F1> <nop>
+
 nnoremap <Space> i
 
 " map Ctrl + q to :qa
@@ -230,6 +233,9 @@ imap <C-q> <Esc>:qa<CR>
 " map Ctrl + s to :w
 nnoremap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>
+
+" map F5 to my ao script
+nnoremap <F5> :!ao <CR>
 
 " map F12 to the function GotoHeader
 nnoremap <F12> :GotoHeader <CR>
