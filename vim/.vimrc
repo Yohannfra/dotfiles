@@ -136,15 +136,17 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.o$', '\~$', '\.a$']
 
 " colors and theme
-let g:gruvbox_italic=1
-
-let g:gruvbox_contrast_dark='hard'
 set termguicolors
-colorscheme gruvbox
-"colorscheme OceanicNext
+if has("nvim")
+    let g:gruvbox_italic=1
+    let g:gruvbox_contrast_dark='hard'
+    colorscheme gruvbox
+else
+    colorscheme monokai
+endif
 
 " set tranparent background to vim
-"hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " split location
 set splitbelow
@@ -272,8 +274,17 @@ imap <F12> <Esc>:GotoHeader <CR>
 
 " Config for GotoHeader
 let g:goto_header_includes_dirs = [".", "/usr/include", "..", "~"]
+" let g:goto_header_exclude_dirs = ["~/Music", ""] " TODO
 let g:goto_header_use_find = 0
 let g:goto_header_search_flags = "-t f -s"
 
 " disable diff window for autopep8 plugin
 let g:autopep8_disable_show_diff=1
+
+" Move lines up and down
+nnoremap <C-Down> :m .+1<CR>==
+nnoremap <C-Up> :m .-2<CR>==
+inoremap <C-Down> <Esc>:m .+1<CR>==gi
+inoremap <C-Up> <Esc>:m .-2<CR>==gi
+vnoremap <C-Down> :m '>+1<CR>gv=gv
+vnoremap <C-Up> :m '<-2<CR>gv=gv
