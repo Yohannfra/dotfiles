@@ -29,9 +29,10 @@ def is_makefile_project(dirlist):
             break
         line = f.readline()
     f.close()
-    binary = line.split("=")[1].strip()
-    os.system("./" + binary)
-    return True
+    if "NAME" in line:
+        binary = line.split("=")[1].strip()
+        os.system("./" + binary)
+    return "NAME" in line
 
 def is_a_out_project(dirlist):
     if "a.out" not in dirlist:
