@@ -27,6 +27,10 @@ Plug 'easymotion/vim-easymotion'                                  " quick mothio
 Plug 'sheerun/vim-polyglot'                                       " Better syntax hilighthing
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " LSP
 Plug 'terryma/vim-multiple-cursors'
+Plug 'Yohannfra/Vim-Epitech'
+Plug 'Yohannfra/Vim-Goto-Header'
+Plug 'morhetz/gruvbox'
+Plug 'tell-k/vim-autopep8'
 call plug#end()
 
 " default vim shell
@@ -132,8 +136,11 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.o$', '\~$', '\.a$']
 
 " colors and theme
+let g:gruvbox_italic=1
+
+let g:gruvbox_contrast_dark='hard'
 set termguicolors
-colorscheme monokai
+colorscheme gruvbox
 "colorscheme OceanicNext
 
 " set tranparent background to vim
@@ -161,6 +168,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 :command Wq wq
 :command W w
 :command Q q
+
+" some abbrev
+cabbrev tn tabnew
+cabbrev te tabedit
 
 " allow to indent with tab and remove indent with shoft + tab
 nnoremap <Tab> >>_
@@ -208,6 +219,9 @@ nnoremap <silent> <Leader>- :vertical resize -10 <CR>
 nnoremap <silent> <Leader>) :resize +10 <CR>
 nnoremap <silent> <Leader>( :resize -10 <CR>
 
+" map leader enter to add an empty new line
+nmap <Leader><Enter> O<Esc>j
+
 " escape terminal with escape
 tnoremap <Esc> <C-\><C-n>
 
@@ -220,10 +234,25 @@ set guicursor=
 " disable commanmd history (q:)
 nnoremap q: <nop>
 
+" map HJKL to hjkl (to avoid mistake if caps lock is on)
+vnoremap K k
+vnoremap K k
+vnoremap J j
+vnoremap L l
+nnoremap H h
+nnoremap J j
+nnoremap L l
+nnoremap H h
+
+
 " disable help menu
 nnoremap <F1> <nop>
 inoremap <F1> <nop>
 
+" disable CycleColor shortcut
+nnoremap <F4> <nop>
+
+" map space to i in normal mode
 nnoremap <Space> i
 
 " map Ctrl + q to :qa
@@ -240,3 +269,11 @@ nnoremap <F5> :!ao <CR>
 " map F12 to the function GotoHeader
 nnoremap <F12> :GotoHeader <CR>
 imap <F12> <Esc>:GotoHeader <CR>
+
+" Config for GotoHeader
+let g:goto_header_includes_dirs = [".", "/usr/include", "..", "~"]
+let g:goto_header_use_find = 0
+let g:goto_header_search_flags = "-t f -s"
+
+" disable diff window for autopep8 plugin
+let g:autopep8_disable_show_diff=1

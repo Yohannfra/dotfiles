@@ -3,12 +3,8 @@
 # VIM
 cp ~/.vimrc ./vim/
 cp ~/.vim/colors/monokai.vim ./vim/colors/
-cp -r ~/.vim/plugin/epitech_header/ ./vim/plugin/
-cp -r ~/.vim/plugin/snippet ./vim/plugin/
 cp -r ~/.vim/plugin/protect_header/ ./vim/plugin/
 cp -r ~/.vim/plugin/generate_class/ ./vim/plugin
-cp -r ~/.vim/plugin/replace/ ./vim/plugin/
-cp -r ~/.vim/plugin/goto_header/ ./vim/plugin/
 cp ~/.config/nvim/coc-settings.json ./vim/
 
 # ZSH
