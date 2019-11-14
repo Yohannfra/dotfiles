@@ -288,3 +288,13 @@ inoremap <C-Down> <Esc>:m .+1<CR>==gi
 inoremap <C-Up> <Esc>:m .-2<CR>==gi
 vnoremap <C-Down> :m '>+1<CR>gv=gv
 vnoremap <C-Up> :m '<-2<CR>gv=gv
+
+" Hilight identical word          /!\ it remap m in normal mode
+vnoremap <silent> m :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy:mat Error "<C-R><C-R>=substitute(
+  \escape(@", '/".*$^~['), '_s+', '\_s\+', 'g')<CR>"<CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+nnoremap m :mat Error "<C-R><C-W>"<CR>
+nnoremap <S-m> :mat none "<C-R><C-W>"<CR>
