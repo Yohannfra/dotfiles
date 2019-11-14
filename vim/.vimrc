@@ -6,31 +6,29 @@
 " -----------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
-Plug 'bling/vim-airline'                                          " a nice bar at the bottom
-Plug 'vim-airline/vim-airline-themes'                             " themes for vim-airline
-Plug 'ianks/vim-tsx'                                              " allow tsx coloration in vim
-Plug 'junegunn/goyo.vim'                                          " goyo is a distraction free mode :Goyo to activate
-Plug 'vim-scripts/CycleColor'                                     " Cycles through available colorschemes, make it easier to test them all
-Plug 'machakann/vim-highlightedyank'                              " make the yanked region apparent (try yy)
-Plug 'scrooloose/nerdtree'                                        " nerdTree
-Plug 'ryanoasis/vim-devicons'                                     " add icons in nerdtree and powerline
-Plug 'luochen1990/rainbow'                                        " rainbow brackets, parenthesis ...
-Plug 'scrooloose/nerdcommenter'                                   " nerdcommenter to quick comment line
-Plug 'Townk/vim-autoclose'                                        " autoclose brackets, parenthesis...
-Plug 'calviken/vim-gdscript3'                                     " syntax for godot script
-Plug 'mhartington/oceanic-next'                                   " a nice colorscheme
-Plug 'rhysd/vim-clang-format'                                     " clang-format in vim
-Plug 'godlygeek/tabular'                                          " quick text alignement
-Plug 'tpope/vim-surround'                                         " quick edit surround
-Plug 'vim-scripts/SearchComplete'                                 " autocomplete search with tab
-Plug 'easymotion/vim-easymotion'                                  " quick mothion with \\s
-Plug 'sheerun/vim-polyglot'                                       " Better syntax hilighthing
-Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " LSP
-Plug 'terryma/vim-multiple-cursors'
-Plug 'Yohannfra/Vim-Epitech'
-Plug 'Yohannfra/Vim-Goto-Header'
-Plug 'morhetz/gruvbox'
-Plug 'tell-k/vim-autopep8'
+Plug 'bling/vim-airline'                        " a nice bar at the bottom
+Plug 'vim-airline/vim-airline-themes'           " themes for vim-airline
+Plug 'ianks/vim-tsx'                            " allow tsx coloration in vim
+Plug 'junegunn/goyo.vim'                        " goyo is a distraction free mode
+Plug 'vim-scripts/CycleColor'                   " Cycles through available colorschemes
+Plug 'machakann/vim-highlightedyank'            " make the yanked region apparent
+Plug 'scrooloose/nerdtree'                      " nerdTree
+Plug 'ryanoasis/vim-devicons'                   " add icons in nerdtree and powerline
+Plug 'luochen1990/rainbow'                      " rainbow brackets, parenthesis
+Plug 'scrooloose/nerdcommenter'                 " nerdcommenter to quick comment line
+Plug 'Townk/vim-autoclose'                      " autoclose brackets, parenthesis
+Plug 'calviken/vim-gdscript3'                   " syntax for godot script
+Plug 'rhysd/vim-clang-format'                   " clang-format in vim
+Plug 'godlygeek/tabular'                        " quick text alignement
+Plug 'tpope/vim-surround'                       " quick edit surround
+Plug 'vim-scripts/SearchComplete'               " autocomplete search with tab
+Plug 'sheerun/vim-polyglot'                     " Better syntax hilighthing
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
+Plug 'terryma/vim-multiple-cursors'             " Muttiple cursors in vim
+Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
+Plug 'Yohannfra/Vim-Goto-Header'                " goto c/cpp header
+Plug 'morhetz/gruvbox'                          " a nice theme/colorschemes
+Plug 'tell-k/vim-autopep8'                      " autopep8 in vim
 call plug#end()
 
 " default vim shell
@@ -52,7 +50,7 @@ set fileformats=unix
 
 " show line numbers
 set number
-"set relativenumber
+" set relativenumber
 
 " show the file title in the terminal titlebar
 set title
@@ -82,8 +80,8 @@ set autoread
 set so=5
 
 " show a bar at the bottom of the file with some infos about the cursor, the
-" line etc...
-set ruler
+" line etc... (disable because i use powerline)
+set noruler
 
 " allow autocmd looking for filetype
 filetype plugin on
@@ -123,7 +121,7 @@ let g:NERDCompactSexyComs = 1
 " enable rainbow brackets
 let g:rainbow_active = 1
 
-" to fix a bug who wrote radom code wrf
+" to fix a bug which wrote random code wtf
 let g:AutoClosePreserveDotReg = 0
 
 " set airline theme to minimalist
@@ -134,6 +132,9 @@ let NERDTreeShowHidden=1
 
 " hide useless files in nerdtree
 let NERDTreeIgnore=['\.o$', '\~$', '\.a$']
+
+" set default goyo width
+let g:goyo_width=150
 
 " colors and theme
 set termguicolors
@@ -190,9 +191,6 @@ noremap <C-j> <C-W>j
 
 " open NERDTree with Ctrl + b
 map <C-b> :NERDTreeToggle<CR>
-
-" open Fzf with Ctrl + p
-" map <C-p> :FZF<CR>
 
 " Find and replace easier
 nnoremap <C-g> :%s/
