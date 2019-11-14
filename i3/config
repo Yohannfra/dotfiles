@@ -47,9 +47,9 @@ bindsym Print exec --no-startup-id gnome-screenshot -i
 bindsym $mod+n exec --no-startup-id nautilus -w
 
 # Turn on/off external output
-set $xrandr_eout HDMI2
-bindsym $mod+Control+Shift+o exec --no-startup-id xrandr --output $xrandr_eout --off
-bindsym $mod+Control+o exec --no-startup-id xrandr --output $xrandr_eout --mode 1920x1080 --above eDP1 --rotate normal
+# set $xrandr_eout HDMI2
+# bindsym $mod+Control+Shift+o exec --no-startup-id xrandr --output $xrandr_eout --off
+# bindsym $mod+Control+o exec --no-startup-id xrandr --output $xrandr_eout --mode 1920x1080 --above eDP1 --rotate normal
 
 # F9
 bindsym XF86Tools exec --no-startup-id cinnamon-settings
@@ -271,6 +271,21 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
+# Mode to quickly connect an external monitor
+bindsym $mod+Control+o mode "$mode_connect_monitor"
+set $mode_connect_monitor (t)op, (r)ight, (l)eft, (i)ntern, (e)xtern
+mode "$mode_connect_monitor" {
+    bindsym t exec --no-startup-id connect_monitor top, mode "default"
+    bindsym r exec --no-startup-id connect_monitor right, mode "default"
+    bindsym l exec --no-startup-id connect_monitor left, mode "default"
+    bindsym i exec --no-startup-id connect_monitor intern, mode "default"
+    bindsym e exec --no-startup-id connect_monitor extern, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 ##################
 ### reload i3: ###
 ##################
@@ -297,6 +312,7 @@ bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed 
 #################################
 
 # resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
         # Pressing left will shrink the window’s width.
@@ -319,10 +335,8 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
 ###############################
-### settings for i3-status: ###
+### settings for i3-bar :   ###
 ###############################
 
 # hide/unhide i3status bar
@@ -335,7 +349,16 @@ bar {
     height 25
     position top
     # status_command my_status
+    i3bar_command i3bar
     status_command my_new_status
+    colors {
+        background #222222
+    }
+}
+
+bar {
+    position bottom
+    status_command i3status
     colors {
         background #222222
     }
