@@ -295,4 +295,4 @@ vnoremap <silent> m :<C-U>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 nnoremap m :mat Error "<C-R><C-W>"<CR>
-nnoremap <S-m> :mat none "<C-R><C-W>"<CR>
+nnoremap <S-m> :mat none <CR>
