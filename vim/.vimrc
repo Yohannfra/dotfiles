@@ -31,6 +31,9 @@ Plug 'morhetz/gruvbox'                          " a nice theme/colorschemes
 Plug 'tell-k/vim-autopep8'                      " autopep8 in vim
 call plug#end()
 
+" to reload vimrc
+:command! Reload so $MYVIMRC
+
 " default vim shell
 set shell=/bin/zsh
 
@@ -167,10 +170,10 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " some alias
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q
 
 " some abbrev
 cabbrev tn tabnew

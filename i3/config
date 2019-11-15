@@ -346,9 +346,8 @@ bindsym $mod+m bar mode toggle
 exec_always --no-startup-id blueman-applet
 
 bar {
-    height 25
+    height 20
     position top
-    # status_command my_status
     i3bar_command i3bar
     status_command my_new_status
     colors {
