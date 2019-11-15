@@ -95,7 +95,7 @@ new_window 1pixel
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+h focus right
+bindsym $mod+h focus left
 
 bindsym $mod+semicolon focus right
 
@@ -356,13 +356,13 @@ bar {
     }
 }
 
-bar {
-    position bottom
-    status_command i3status
-    colors {
-        background #222222
-    }
-}
+# bar {
+    # position bottom
+    # status_command i3status
+    # colors {
+        # background #222222
+    # }
+# }
 
 #############################
 ### settings for i3-gaps: ###

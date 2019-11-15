@@ -235,14 +235,15 @@ set guicursor=
 nnoremap q: <nop>
 
 " map HJKL to hjkl (to avoid mistake if caps lock is on)
-vnoremap K k
-vnoremap K k
+vnoremap H h
 vnoremap J j
+vnoremap K k
 vnoremap L l
+
 nnoremap H h
 nnoremap J j
+nnoremap K k
 nnoremap L l
-nnoremap H h
 
 
 " disable help menu
