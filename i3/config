@@ -13,6 +13,8 @@ set $mod Mod1
 exec_always --no-startup-id tap_to_click.sh
 exec_always --no-startup-id inverse_scroll.sh
 exec_always --no-startup-id libinput-gestures-setup start
+exec_always --no-start-id buckle
+
 # start conky
 #exec --no-startup-id start_conky
 
@@ -194,6 +196,13 @@ for_window [class="Wargroove"] floating enable border normal
 ### Settings for workspaces: ###
 ################################
 
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+#navigate workspaces next / previous
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+
 # switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -206,12 +215,16 @@ bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 
-#navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
-
-# switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
+bindsym $mod+F1 workspace number 11
+bindsym $mod+F2 workspace number 12
+bindsym $mod+F3 workspace number 13
+bindsym $mod+F4 workspace number 14
+bindsym $mod+F5 workspace number 15
+bindsym $mod+F6 workspace number 16
+bindsym $mod+F7 workspace number 17
+bindsym $mod+F8 workspace number 18
+bindsym $mod+F9 workspace number 19
+bindsym $mod+F10 workspace number 20
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
@@ -225,9 +238,19 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
+bindsym $mod+Shift+F1 move container to workspace number 11
+bindsym $mod+Shift+F2 move container to workspace number 12
+bindsym $mod+Shift+F3 move container to workspace number 13
+bindsym $mod+Shift+F4 move container to workspace number 14
+bindsym $mod+Shift+F5 move container to workspace number 15
+bindsym $mod+Shift+F6 move container to workspace number 16
+bindsym $mod+Shift+F7 move container to workspace number 17
+bindsym $mod+Shift+F8 move container to workspace number 18
+bindsym $mod+Shift+F9 move container to workspace number 19
+bindsym $mod+Shift+F10 move container to workspace number 20
+
 # bindsym $mod+Ctrl+Shift+Right move container to workspace next
 # bindsym $mod+Ctrl+Shift+Left move container to workspace prev
-
 
 ######################################
 ### sound and brightness settings: ###
