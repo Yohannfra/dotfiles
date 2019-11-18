@@ -10,7 +10,6 @@ Plug 'bling/vim-airline'                        " a nice bar at the bottom
 Plug 'vim-airline/vim-airline-themes'           " themes for vim-airline
 Plug 'ianks/vim-tsx'                            " allow tsx coloration in vim
 Plug 'junegunn/goyo.vim'                        " goyo is a distraction free mode
-Plug 'vim-scripts/CycleColor'                   " Cycles through available colorschemes
 Plug 'machakann/vim-highlightedyank'            " make the yanked region apparent
 Plug 'scrooloose/nerdtree'                      " nerdTree
 Plug 'ryanoasis/vim-devicons'                   " add icons in nerdtree and powerline
@@ -65,7 +64,7 @@ syntax enable
 set mouse=a
 
 " don't hilight word when searching
-set nohlsearch
+" set nohlsearch
 
 " encode with utf-8
 set encoding=utf-8
@@ -299,4 +298,4 @@ vnoremap <silent> m :<C-U>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 nnoremap m :mat Error "<C-R><C-W>"<CR>
-nnoremap <S-m> :mat none <CR>
+nnoremap <S-m> :mat none <CR> :noh <CR>
