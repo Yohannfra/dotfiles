@@ -274,8 +274,8 @@ nnoremap <F12> :GotoHeader <CR>
 imap <F12> <Esc>:GotoHeader <CR>
 
 " Config for GotoHeader
-let g:goto_header_includes_dirs = [".", "/usr/include", "..", "~"]
-" let g:goto_header_exclude_dirs = ["~/Music", ""] " TODO
+let g:goto_header_includes_dirs = ["/usr/include", ".", "..", "~"]
+let g:goto_header_excludes_dirs = ["Music", "Logiciels", "Pictures", "Downloads"]
 let g:goto_header_use_find = 0
 let g:goto_header_search_flags = "-t f -s"
 
