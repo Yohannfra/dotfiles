@@ -299,3 +299,7 @@ vnoremap <silent> m :<C-U>
 
 nnoremap m :mat Error "<C-R><C-W>"<CR>
 nnoremap <S-m> :mat none <CR> :noh <CR>
+
+" Map \ + Ctrl + [ to jump to tab in a new tab
+nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+inoremap <silent><Leader><C-]> <Esc><C-w><C-]><C-w>T
