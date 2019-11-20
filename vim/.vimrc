@@ -278,6 +278,7 @@ let g:goto_header_includes_dirs = ["/usr/include", ".", "..", "~"]
 let g:goto_header_excludes_dirs = ["Music", "Logiciels", "Pictures", "Downloads"]
 let g:goto_header_use_find = 0
 let g:goto_header_search_flags = "-t f -s"
+let g:goto_header_open_in_new_tab = 1
 
 " disable diff window for autopep8 plugin
 let g:autopep8_disable_show_diff=1
@@ -309,3 +310,6 @@ nnoremap <C-h> vi"<C-]><CR>
 
 " Map \ + Ctrl + h to jump to header with ctags in a new tab
 nnoremap <silent><Leader><C-h> vi"<C-w><C-]><C-w>T<CR>
+
+" map ctrl i to jump back to tag (it's the default maping but a plugin use it)
+nnoremap <c-i> <c-i>
