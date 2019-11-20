@@ -312,4 +312,13 @@ nnoremap <C-h> vi"<C-]><CR>
 nnoremap <silent><Leader><C-h> vi"<C-w><C-]><C-w>T<CR>
 
 " map ctrl i to jump back to tag (it's the default maping but a plugin use it)
-nnoremap <c-i> <c-i>
+nnoremap <c-p> <c-i>
+
+" Coc multicursor
+nmap <expr> <silent> <C-d> <SID>select_current_word()
+function! s:select_current_word()
+  if !get(g:, 'coc_cursors_activated', 0)
+    return "\<Plug>(coc-cursors-word)"
+  endif
+  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+endfunc

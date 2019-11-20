@@ -18,7 +18,7 @@ exec_always --no-startup-id libinput-gestures-setup start
 #exec --no-startup-id start_conky
 
 # for the transparency
-exec_always --no-startup-id xcompmgr -slt
+exec_always --no-startup-id xcompmgr
 
 #############
 ### Font: ###
