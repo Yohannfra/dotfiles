@@ -300,6 +300,12 @@ vnoremap <silent> m :<C-U>
 nnoremap m :mat Error "<C-R><C-W>"<CR>
 nnoremap <S-m> :mat none <CR> :noh <CR>
 
+" Ctags
 " Map \ + Ctrl + [ to jump to tab in a new tab
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
-inoremap <silent><Leader><C-]> <Esc><C-w><C-]><C-w>T
+
+" Map Ctrl + h to jump to header with ctags
+nnoremap <C-h> vi"<C-]><CR>
+
+" Map \ + Ctrl + h to jump to header with ctags in a new tab
+nnoremap <silent><Leader><C-h> vi"<C-w><C-]><C-w>T<CR>
