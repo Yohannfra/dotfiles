@@ -23,6 +23,9 @@ Plug 'tpope/vim-surround'                       " quick edit surround
 Plug 'vim-scripts/SearchComplete'               " autocomplete search with tab
 Plug 'sheerun/vim-polyglot'                     " Better syntax hilighthing
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
+if has("nvim")
+Plug 'seletskiy/vim-pythonx'
+endif
 Plug 'terryma/vim-multiple-cursors'             " Muttiple cursors in vim
 Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
 Plug 'Yohannfra/Vim-Goto-Header'                " goto c/cpp header
@@ -163,6 +166,12 @@ autocmd BufReadPost *
             \ if line("'\"") > 0 && line("'\"") <= line("$") |
             \   exe "normal! g`\"" |
             \ endif
+
+" Autoprotect new header files
+autocmd BufNewFile *.h,*.hpp :Protect
+
+" Use html syntax for .emProject files
+autocmd BufNewFile,BufRead *.emProject set filetype=html
 
 " Automaticly open NERDTree if there are no file as arguments
 autocmd StdinReadPre * let s:std_in=1
