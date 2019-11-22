@@ -57,11 +57,6 @@ cp ~/.nanorc ./nano/
 # CLANG-FORMAT
 cp ~/.clang-format ./clang-format/
 
-# POLYBAR
-cp ~/.config/polybar/config ./polybar/
-cp ~/.config/polybar/top_bar ./polybar/
-cp ~/.config/polybar/launch_polybar.sh ./polybar/
-
 # DESKTOP FILES
 cp /usr/share/applications/cura.desktop ./desktop_files/
 cp /usr/share/applications/freecad.desktop ./desktop_files/
@@ -75,10 +70,6 @@ cp ~/Templates/csfml_basic.c ./templates/
 # CONKY
 cp /usr/bin/start_conky ./conky/
 cp /usr/share/conky/data.conky ./conky/
-
-# APT HISTORY
-cp ~/my_scripts/my_install ./my_scripts/
-cp ~/.installed_with_apt.txt ./About/
 
 # TERMINATOR
 cp ~/.config/terminator/config ./terminator/
