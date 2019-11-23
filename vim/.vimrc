@@ -36,10 +36,10 @@ Plug 'jeetsukumaran/vim-buffergator'            " easy navigation beetw buffers
 call plug#end()
 
 " to edit the vimrc quicker
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit ~/.vimrc<cr>
 
 " to reload vimrc
-:command! Reload so $MYVIMRC
+nnoremap <leader>sv :source ~/.vimrc <cr>
 
 " default vim shell
 set shell=/bin/zsh
@@ -200,10 +200,10 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
 " Keymap to navigate beetween buffer and nerdtree
-noremap <C-h> <C-W>h
-noremap <C-l> <C-W>l
-noremap <C-k> <C-W>k
-noremap <C-j> <C-W>j
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap <C-k> <C-W>k
+nnoremap <C-j> <C-W>j
 
 " open NERDTree with Ctrl + b
 map <C-b> :NERDTreeToggle<CR>
@@ -251,15 +251,15 @@ set guicursor=
 nnoremap q: <nop>
 
 " map HJKL to hjkl (to avoid mistake if caps lock is on)
-vnoremap H h
+vnoremap H 0
 vnoremap J j
 vnoremap K k
-vnoremap L l
+vnoremap L $
 
-nnoremap H h
+nnoremap H 0
 nnoremap J j
 nnoremap K k
-nnoremap L l
+nnoremap L $
 
 
 " disable help menu
@@ -320,7 +320,7 @@ nnoremap <S-m> :mat none <CR> :noh <CR>
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 
 " Map Ctrl + h to jump to header with ctags
-nnoremap <C-h> vi"<C-]><CR>
+nnoremap <C-f> vi"<C-]><CR>
 
 " Map \ + Ctrl + h to jump to header with ctags in a new tab
 nnoremap <silent><Leader><C-h> vi"<C-w><C-]><C-w>T<CR>
@@ -339,3 +339,15 @@ endfunc
 
 " Toggle buffergator
 nnoremap S :BuffergatorToggle <CR>
+
+" change case in insert mode
+inoremap <c-u> <Esc>lvawU<Esc>i
+inoremap <c-l> <Esc>lvawu<Esc>i
+
+" To not go back one caracter when exiting insert mode
+inoremap <esc> <esc>l
+inoremap <c-c> <c-c>l
+
+" map jk to esc
+inoremap jk <esc>
+inoremap <esc> <nop>
