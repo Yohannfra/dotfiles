@@ -31,7 +31,12 @@ Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
 Plug 'Yohannfra/Vim-Goto-Header'                " goto c/cpp header
 Plug 'morhetz/gruvbox'                          " a nice theme/colorschemes
 Plug 'tell-k/vim-autopep8'                      " autopep8 in vim
+Plug 'terryma/vim-expand-region'                " expand selected region
+Plug 'jeetsukumaran/vim-buffergator'            " easy navigation beetw buffers
 call plug#end()
+
+" to edit the vimrc quicker
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " to reload vimrc
 :command! Reload so $MYVIMRC
@@ -324,10 +329,13 @@ nnoremap <silent><Leader><C-h> vi"<C-w><C-]><C-w>T<CR>
 nnoremap <c-p> <c-i>
 
 " Coc multicursor
-nmap <expr> <silent> <C-d> <SID>select_current_word()
+nnoremap <expr> <silent> <C-d> <SID>select_current_word()
 function! s:select_current_word()
   if !get(g:, 'coc_cursors_activated', 0)
     return "\<Plug>(coc-cursors-word)"
   endif
   return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
 endfunc
+
+" Toggle buffergator
+nnoremap S :BuffergatorToggle <CR>
