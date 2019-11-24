@@ -43,7 +43,7 @@ exec_always --no-startup-id set_wallpaper
 ###############################
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id gnome-terminal
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # screenshot
 bindsym Print exec --no-startup-id gnome-screenshot -i

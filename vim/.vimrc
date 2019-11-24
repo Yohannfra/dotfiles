@@ -182,8 +182,8 @@ autocmd BufNewFile *.h,*.hpp :Protect
 autocmd BufNewFile,BufRead *.emProject set filetype=html
 
 " Automaticly open NERDTree if there are no file as arguments
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " some alias
 :command! WQ wq
@@ -248,7 +248,7 @@ tnoremap <Esc> <C-\><C-n>
 :nmap ; :
 
 " force neovim to use caret block in insert mode
-set guicursor=
+" set guicursor=
 
 " disable commanmd history (q:)
 nnoremap q: <nop>
