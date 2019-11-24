@@ -35,6 +35,9 @@ Plug 'terryma/vim-expand-region'                " expand selected region
 Plug 'jeetsukumaran/vim-buffergator'            " easy navigation beetw buffers
 call plug#end()
 
+" map leader to ','
+let mapleader=","
+
 " to edit the vimrc quicker
 nnoremap <leader>ev :vsplit ~/.vimrc<cr>
 
@@ -313,7 +316,7 @@ vnoremap <silent> m :<C-U>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 nnoremap m :mat Error "<C-R><C-W>"<CR>
-nnoremap <S-m> :mat none <CR> :noh <CR>
+noremap <S-m> :mat none <CR> :noh <CR>
 
 " Ctags
 " Map \ + Ctrl + [ to jump to tab in a new tab
@@ -346,8 +349,11 @@ inoremap <c-l> <Esc>lvawu<Esc>i
 
 " To not go back one caracter when exiting insert mode
 inoremap <esc> <esc>l
-inoremap <c-c> <c-c>l
+noremap <c-c> <c-c>l
 
-" map jk to esc
+" exit normal mode with jk to avoid pressing esc
 inoremap jk <esc>
 inoremap <esc> <nop>
+
+" easy switch to last buffer
+nnoremap <leader>f :b#<cr>
