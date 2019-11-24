@@ -1,2 +1,0 @@
-a plugin that jump to header under the cursor (it search in /usr/include/)
-find / -name "Graphics\.h" 2> /dev/null
