@@ -166,6 +166,8 @@ endif
 set splitbelow
 set splitright
 
+augroup all_files
+autocmd!
 " Strip whitespaces when save
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -174,6 +176,7 @@ autocmd BufReadPost *
             \ if line("'\"") > 0 && line("'\"") <= line("$") |
             \   exe "normal! g`\"" |
             \ endif
+augroup END
 
 " Autoprotect new header files
 autocmd BufNewFile *.h,*.hpp :Protect
@@ -353,7 +356,9 @@ noremap <c-c> <c-c>l
 
 " exit normal mode with jk to avoid pressing esc
 inoremap jk <esc>
-inoremap <esc> <nop>
 
 " easy switch to last buffer
 nnoremap <leader>f :b#<cr>
+
+" debug abbrev
+iabbrev pflu printf("LUUU\n");
