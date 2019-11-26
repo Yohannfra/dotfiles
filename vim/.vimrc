@@ -14,7 +14,6 @@ Plug 'machakann/vim-highlightedyank'            " make the yanked region apparen
 Plug 'scrooloose/nerdtree'                      " nerdTree
 Plug 'ryanoasis/vim-devicons'                   " add icons in nerdtree and powerline
 Plug 'luochen1990/rainbow'                      " rainbow brackets, parenthesis
-Plug 'scrooloose/nerdcommenter'                 " nerdcommenter to quick comment line
 Plug 'Townk/vim-autoclose'                      " autoclose brackets, parenthesis
 Plug 'calviken/vim-gdscript3'                   " syntax for godot script
 Plug 'rhysd/vim-clang-format'                   " clang-format in vim
@@ -33,10 +32,17 @@ Plug 'morhetz/gruvbox'                          " a nice theme/colorschemes
 Plug 'tell-k/vim-autopep8'                      " autopep8 in vim
 Plug 'terryma/vim-expand-region'                " expand selected region
 Plug 'jeetsukumaran/vim-buffergator'            " easy navigation beetw buffers
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 " map leader to ','
 let mapleader=","
+
+" set foldmethod to indent
+set foldmethod=indent
+
+" start with no folding
+set foldlevelstart=99
 
 " to edit the vimrc quicker
 nnoremap <leader>ev :vsplit ~/.vimrc<cr>
@@ -125,11 +131,6 @@ set list
 
 " set undolevel to max
 set undolevels=9999
-
-" NERDCommenter allow to quick comment line using \cc to comment and \cu to uncoment
-let g:NERDToggleCheckAllLines = 1
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
 
 " enable rainbow brackets
 let g:rainbow_active = 1
