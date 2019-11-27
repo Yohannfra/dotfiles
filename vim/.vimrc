@@ -151,7 +151,9 @@ let NERDTreeIgnore=['\.o$', '\~$', '\.a$']
 let g:goyo_width=150
 
 " colors and theme
-set termguicolors
+if $TERM !=# "rxvt-unicode-256color"
+    set termguicolors
+endif
 if has("nvim")
     let g:gruvbox_italic=1
     let g:gruvbox_contrast_dark='hard'
