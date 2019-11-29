@@ -34,10 +34,9 @@ Plug 'tell-k/vim-autopep8'                      " autopep8 in vim
 Plug 'terryma/vim-expand-region'                " expand selected region
 Plug 'jeetsukumaran/vim-buffergator'            " easy navigation beetw buffers
 Plug 'tpope/vim-commentary'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
-
-" map leader to ','
-let mapleader=","
 
 " set foldmethod to indent
 set foldmethod=indent
@@ -107,7 +106,7 @@ set noruler
 filetype plugin on
 
 " show a vertical ruller a X columns
-set cc=81
+set colorcolumn=81
 
 " remove a bug with cc and NERDTree, keep it
 set textwidth=0
@@ -365,3 +364,24 @@ iabbrev pflu printf("LUUU\n");
 
 " map " to : so i don't make mistake all the time
 nnoremap " :
+
+" map leader [/] to navigate beetween buffers
+nnoremap <leader>[ :bprevious <cr>
+nnoremap <leader>] :bnext <cr>
+
+" FZF Config
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+silent! function! FloatingFZF()
+    let buf = nvim_create_buf(v:false, v:true)
+    call setbufvar(buf, '&signcolumn', 'no')
+
+    let opts = {'relative': 'editor',
+                \ 'row': 0,
+                \ 'col': (&columns / 2) - ((&columns / 2) / 2),
+                \ 'width': &columns / 2,
+                \ 'height': 10
+                \}
+    call nvim_open_win(buf, v:true, opts)
+    nnoremap <buffer> <esc> :q <cr>
+endfunction
+nnoremap t :silent! FZF .<cr>

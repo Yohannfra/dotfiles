@@ -1,3 +1,5 @@
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # ALIAS
 alias RTT="JLinkRTTClient"
 alias ake="make"
@@ -7,6 +9,7 @@ alias amke="make"
 alias android="sh /home/yohann/Logiciels/android-studio/bin/studio.sh"
 alias bat="bat -p"
 alias bc="bc -ql"
+alias cf="cd \"\`fd -H -t d . | fzf\`\""
 alias cb="cargo build"
 alias cdhdc="cd /home/yohann/Desktop/Blackfoot/MY_SFM_15x_SDK/development/SFM/HerdingCats"
 alias cdses="cd /home/yohann/Desktop/Blackfoot/new_WSSFM20Rx_15x/development/SFM/demoApp/pca10040/s132/ses/"
@@ -96,8 +99,7 @@ plugins=(
 
 # FZF Configuration
 export FZF_DEFAULT_OPTS='--height 30% --layout=reverse --border'
-export FZF_DEFAULT_COMMAND='fd --type f -H'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+export FZF_DEFAULT_COMMAND='fd --type f -H --exclude Music \
+                            --exclude Pictures --exclude Logiciels --exclude .git'
 # Must stay at the botton of this file
 source $ZSH/oh-my-zsh.sh
