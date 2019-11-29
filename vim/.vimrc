@@ -24,6 +24,7 @@ Plug 'sheerun/vim-polyglot'                     " Better syntax hilighthing
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
 if has("nvim")
 Plug 'seletskiy/vim-pythonx'
+Plug 'Yohannfra/Nvim-Switch-Buffer'
 endif
 Plug 'terryma/vim-multiple-cursors'             " Muttiple cursors in vim
 Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
@@ -270,13 +271,9 @@ nnoremap J j
 nnoremap K k
 nnoremap L $
 
-
 " disable help menu
 nnoremap <F1> <nop>
 inoremap <F1> <nop>
-
-" disable CycleColor shortcut
-nnoremap <F4> <nop>
 
 " map space to i in normal mode
 nnoremap <Space> i
@@ -346,8 +343,8 @@ function! s:select_current_word()
   return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
 endfunc
 
-" Toggle buffergator
-nnoremap S :BuffergatorToggle <CR>
+" Spawn SwitchBuffer Plugin
+nnoremap S :SwitchBuffer <cr>
 
 " change case in insert mode
 inoremap <c-u> <Esc>lvawU<Esc>i
@@ -365,3 +362,6 @@ nnoremap <leader>f :b#<cr>
 
 " debug abbrev
 iabbrev pflu printf("LUUU\n");
+
+" map " to : so i don't make mistake all the time
+nnoremap " :

@@ -26,4 +26,4 @@ function! Generate_class()
 endfunction
 
 
-command Gclass execute Generate_class()
+command Gclass :call Generate_class()

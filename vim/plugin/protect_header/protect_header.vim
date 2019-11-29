@@ -21,4 +21,4 @@ function! Protect()
     endif
 endfunction
 
-command Protect execute Protect()
+command Protect :call Protect()
