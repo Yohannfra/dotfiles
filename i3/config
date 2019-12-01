@@ -151,9 +151,6 @@ bindsym $mod+e layout toggle split
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-# bindsym $mod+d focus child
-
 ######################################
 ### Settings for floating windows: ###
 ######################################
@@ -257,9 +254,6 @@ bindsym $mod+Shift+F7 move container to workspace number 17
 bindsym $mod+Shift+F8 move container to workspace number 18
 bindsym $mod+Shift+F9 move container to workspace number 19
 bindsym $mod+Shift+F10 move container to workspace number 20
-
-# bindsym $mod+Ctrl+Shift+Right move container to workspace next
-# bindsym $mod+Ctrl+Shift+Left move container to workspace prev
 
 ######################################
 ### sound and brightness settings: ###
@@ -387,14 +381,6 @@ bar {
     }
 }
 
-# bar {
-    # position bottom
-    # status_command i3status
-    # colors {
-        # background #222222
-    # }
-# }
-
 #############################
 ### settings for i3-gaps: ###
 #############################
@@ -402,8 +388,6 @@ bar {
 # Set inner/outer gaps
 gaps inner 5
 gaps outer 0
-#gaps inner 8
-#gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -429,6 +413,7 @@ mode "$mode_gaps" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
 mode "$mode_gaps_inner" {
         bindsym plus  gaps inner current plus 5
         bindsym minus gaps inner current minus 5
@@ -441,6 +426,7 @@ mode "$mode_gaps_inner" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
 mode "$mode_gaps_outer" {
         bindsym plus  gaps outer current plus 5
         bindsym minus gaps outer current minus 5
