@@ -15,7 +15,6 @@ Plug 'scrooloose/nerdtree'                      " nerdTree
 Plug 'ryanoasis/vim-devicons'                   " add icons in nerdtree and powerline
 Plug 'luochen1990/rainbow'                      " rainbow brackets, parenthesis
 Plug 'Townk/vim-autoclose'                      " autoclose brackets, parenthesis
-Plug 'calviken/vim-gdscript3'                   " syntax for godot script
 Plug 'rhysd/vim-clang-format'                   " clang-format in vim
 Plug 'godlygeek/tabular'                        " quick text alignement
 Plug 'tpope/vim-surround'                       " quick edit surround
@@ -31,8 +30,6 @@ Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
 Plug 'Yohannfra/Vim-Goto-Header'                " goto c/cpp header
 Plug 'morhetz/gruvbox'                          " a nice theme/colorschemes
 Plug 'tell-k/vim-autopep8'                      " autopep8 in vim
-Plug 'terryma/vim-expand-region'                " expand selected region
-Plug 'jeetsukumaran/vim-buffergator'            " easy navigation beetw buffers
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
