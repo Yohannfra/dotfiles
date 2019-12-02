@@ -9,7 +9,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'                        " a nice bar at the bottom
 Plug 'vim-airline/vim-airline-themes'           " themes for vim-airline
 Plug 'ianks/vim-tsx'                            " allow tsx coloration in vim
-Plug 'junegunn/goyo.vim'                        " goyo is a distraction free mode
 Plug 'machakann/vim-highlightedyank'            " make the yanked region apparent
 Plug 'scrooloose/nerdtree'                      " nerdTree
 Plug 'ryanoasis/vim-devicons'                   " add icons in nerdtree and powerline
@@ -42,10 +41,10 @@ set foldmethod=indent
 set foldlevelstart=99
 
 " to edit the vimrc quicker
-nnoremap <leader>ev :vsplit ~/.vimrc<cr>
+nnoremap <Leader>ev :vsplit ~/.vimrc<CR>
 
 " to reload vimrc
-nnoremap <leader>sv :source ~/.vimrc <cr>
+nnoremap <Leader>sv :source ~/.vimrc <CR>
 
 " default vim shell
 set shell=/bin/zsh
@@ -144,9 +143,6 @@ let NERDTreeShowHidden=1
 " hide useless files in nerdtree
 let NERDTreeIgnore=['\.o$', '\~$', '\.a$']
 
-" set default goyo width
-let g:goyo_width=150
-
 " colors and theme
 if $TERM !=# "rxvt-unicode-256color"
     set termguicolors
@@ -154,6 +150,8 @@ endif
 if has("nvim")
     let g:gruvbox_italic=1
     let g:gruvbox_contrast_dark='hard'
+    let g:gruvbox_contrast_light='hard'
+    set background=dark
     colorscheme gruvbox
 else
     colorscheme monokai
@@ -318,43 +316,34 @@ nnoremap m :mat Error "<C-R><C-W>"<CR>
 noremap <S-m> :mat none <CR> :noh <CR>
 
 " Ctags
-" Map \ + Ctrl + [ to jump to tab in a new tab
+" Map \ + Ctrl + [ to jump to tag in a new tab
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 
 " Map Ctrl + h to jump to header with ctags
 nnoremap <C-f> vi"<C-]><CR>
 
 " Map \ + Ctrl + h to jump to header with ctags in a new tab
-nnoremap <silent><Leader><C-h> vi"<C-w><C-]><C-w>T<CR>
+nnoremap <silent><Leader><C-f> vi"<C-w><C-]><C-w>T<CR>
 
 " map ctrl i to jump back to tag (it's the default maping but a plugin use it)
-nnoremap <c-p> <c-i>
-
-" Coc multicursor
-nnoremap <expr> <silent> <C-d> <SID>select_current_word()
-function! s:select_current_word()
-  if !get(g:, 'coc_cursors_activated', 0)
-    return "\<Plug>(coc-cursors-word)"
-  endif
-  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
-endfunc
+nnoremap <C-p> <C-i>
 
 " Spawn SwitchBuffer Plugin
-nnoremap S :SwitchBuffer <cr>
+nnoremap S :SwitchBuffer <CR>
 
 " change case in insert mode
-inoremap <c-u> <Esc>lvawU<Esc>i
-inoremap <c-l> <Esc>lvawu<Esc>i
+inoremap <C-u> <Esc>lvawU<Esc>i
+inoremap <C-l> <Esc>lvawu<Esc>i
 
 " To not go back one caracter when exiting insert mode
-inoremap <esc> <esc>l
-noremap <c-c> <c-c>l
+inoremap <Esc> <Esc>l
+noremap <C-c> <C-c>l
 
 " exit normal mode with jk to avoid pressing esc
-inoremap jk <esc>
+inoremap jk <Esc>
 
 " easy switch to last buffer
-nnoremap <leader>f :b#<cr>
+nnoremap <Leader>f :b#<CR>
 
 " debug abbrev
 iabbrev pflu printf("LUUU\n");
@@ -363,8 +352,8 @@ iabbrev pflu printf("LUUU\n");
 nnoremap " :
 
 " map leader [/] to navigate beetween buffers
-nnoremap <leader>[ :bprevious <cr>
-nnoremap <leader>] :bnext <cr>
+nnoremap <Leader>[ :bprevious <CR>
+nnoremap <Leader>] :bnext <CR>
 
 " FZF Config
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
@@ -379,6 +368,9 @@ silent! function! FloatingFZF()
                 \ 'height': 10
                 \}
     call nvim_open_win(buf, v:true, opts)
-    nnoremap <buffer> <esc> :q <cr>
+    nnoremap <buffer> <Esc> :q <CR>
 endfunction
-nnoremap t :silent! FZF .<cr>
+nnoremap t :silent! FZF .<CR>
+
+" to select the tag i prefer, easier to type
+nnoremap <C-]> g<C-]>
