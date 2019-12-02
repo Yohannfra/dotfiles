@@ -3,7 +3,12 @@
         "clangd": {
             "command": "clangd-8",
             "args": ["--background-index"],
-            "filetypes": ["c", "cpp", "objc", "objcpp"]
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
         }
-    }
+    },
+    "suggest.noselect": false,
+    "coc.source.buffer.enable" : true,
+    "coc.source.around.enable" : true,
+    "coc.source.file.enable" : true,
 }

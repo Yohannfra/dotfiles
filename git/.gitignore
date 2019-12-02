@@ -8,3 +8,4 @@ a.out
 __pycache__
 *.ao
 tags
+compile_commands.json

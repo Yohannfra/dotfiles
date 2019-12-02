@@ -5,7 +5,7 @@
     "files.trimTrailingWhitespace": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "files.exclude": {
         "**/*.o": true
     },
