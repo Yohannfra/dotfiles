@@ -15,16 +15,16 @@ Plug 'ryanoasis/vim-devicons'                   " add icons in nerdtree and powe
 Plug 'luochen1990/rainbow'                      " rainbow brackets, parenthesis
 Plug 'Townk/vim-autoclose'                      " autoclose brackets, parenthesis
 Plug 'rhysd/vim-clang-format'                   " clang-format in vim
-Plug 'godlygeek/tabular'                        " quick text alignement
+Plug 'godlygeek/tabular'                        " quick text alignment
 Plug 'tpope/vim-surround'                       " quick edit surround
 Plug 'vim-scripts/SearchComplete'               " autocomplete search with tab
-Plug 'sheerun/vim-polyglot'                     " Better syntax hilighthing
+Plug 'sheerun/vim-polyglot'                     " Better syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
 if has("nvim")
 Plug 'seletskiy/vim-pythonx'
 Plug 'Yohannfra/Nvim-Switch-Buffer'
 endif
-Plug 'terryma/vim-multiple-cursors'             " Muttiple cursors in vim
+Plug 'terryma/vim-multiple-cursors'             " Multiple cursors in vim
 Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
 Plug 'Yohannfra/Vim-Goto-Header'                " goto c/cpp header
 Plug 'morhetz/gruvbox'                          " a nice theme/colorschemes
@@ -78,7 +78,7 @@ syntax enable
 " enable mouse
 set mouse=a
 
-" don't hilight word when searching
+" don't highlight word when searching
 " set nohlsearch
 
 " encode with utf-8
@@ -92,7 +92,7 @@ set cursorline
 " want to reload it
 set autoread
 
-" set a gap of X lines when scolling verticaly, so the scrolling start X lines
+" set a gap of X lines when scrolling vertically, so the scrolling start X lines
 " before the last line
 set so=5
 
@@ -103,7 +103,7 @@ set noruler
 " allow autocmd looking for filetype
 filetype plugin on
 
-" show a vertical ruller a X columns
+" show a vertical ruler a X columns
 set colorcolumn=81
 
 " remove a bug with cc and NERDTree, keep it
@@ -118,7 +118,7 @@ set softtabstop=0
 set expandtab
 set shiftwidth=4
 
-" autoindent when you're on an indented line and hit Enter, it will ajust the
+" autoindent when you're on an indented line and hit Enter, it will adjust the
 " indentation of the new line
 set autoindent
 set smarttab
@@ -133,7 +133,7 @@ set undolevels=9999
 " enable rainbow brackets
 let g:rainbow_active = 1
 
-" to fix a bug which wrote random code wtf
+" to fix a bug which wrote random code
 let g:AutoClosePreserveDotReg = 0
 
 " set airline theme to minimalist
@@ -159,7 +159,7 @@ else
     colorscheme monokai
 endif
 
-" set tranparent background to vim
+" set transparent background to vim
 " hi Normal guibg=NONE ctermbg=NONE
 
 " split location
@@ -168,7 +168,7 @@ set splitright
 
 augroup all_files
 autocmd!
-" Strip whitespaces when save
+" Strip whitespace when save
 autocmd BufWritePre * %s/\s\+$//e
 
 " Return to last edit position when opening files
@@ -185,7 +185,7 @@ autocmd BufNewFile *.h,*.hpp :Protect
 autocmd BufNewFile,BufRead *.emProject set filetype=html
 autocmd BufNewFile,BufRead pymakr.conf set filetype=json
 
-" Automaticly open NERDTree if there are no file as arguments
+" Automatically open NERDTree if there are no file as arguments
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
@@ -199,14 +199,14 @@ autocmd BufNewFile,BufRead pymakr.conf set filetype=json
 cabbrev tn tabnew
 cabbrev te tabedit
 
-" allow to indent with tab and remove indent with shoft + tab
+" allow to indent with tab and remove indent with shift + tab
 nnoremap <Tab> >>_
 nnoremap <S-Tab> <<_
 inoremap <S-Tab> <C-D>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-" Keymap to navigate beetween buffer and nerdtree
+" Shortcuts to navigate between buffers
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 nnoremap <C-k> <C-W>k
@@ -254,7 +254,7 @@ tnoremap <Esc> <C-\><C-n>
 " force neovim to use caret block in insert mode
 " set guicursor=
 
-" disable commanmd history (q:)
+" disable command history (q:)
 nnoremap q: <nop>
 
 " map HJKL to hjkl (to avoid mistake if caps lock is on)
@@ -307,7 +307,7 @@ inoremap <C-Up> <Esc>:m .-2<CR>==gi
 vnoremap <C-Down> :m '>+1<CR>gv=gv
 vnoremap <C-Up> :m '<-2<CR>gv=gv
 
-" Hilight identical word          /!\ it remap m in normal mode
+" Highlight identical word          /!\ it remap m in normal mode
 vnoremap <silent> m :<C-U>
   \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
   \gvy:mat Error "<C-R><C-R>=substitute(
@@ -327,7 +327,7 @@ nnoremap <C-f> vi"<C-]><CR>
 " Map \ + Ctrl + h to jump to header with ctags in a new tab
 nnoremap <silent><Leader><C-f> vi"<C-w><C-]><C-w>T<CR>
 
-" map ctrl i to jump back to tag (it's the default maping but a plugin use it)
+" map ctrl i to jump back to tag (it's the default mapping but a plugin use it)
 nnoremap <C-p> <C-i>
 
 " Spawn SwitchBuffer Plugin
@@ -337,7 +337,7 @@ nnoremap S :SwitchBuffer <CR>
 inoremap <C-u> <Esc>lvawU<Esc>i
 inoremap <C-l> <Esc>lvawu<Esc>i
 
-" To not go back one caracter when exiting insert mode
+" To not go back one character when exiting insert mode
 inoremap <Esc> <Esc>l
 noremap <C-c> <C-c>l
 
@@ -353,7 +353,7 @@ iabbrev pflu printf("LUUU\n");
 " map " to : so i don't make mistake all the time
 nnoremap " :
 
-" map leader [/] to navigate beetween buffers
+" map leader [/] to navigate between buffers
 nnoremap <Leader>[ :bprevious <CR>
 nnoremap <Leader>] :bnext <CR>
 
