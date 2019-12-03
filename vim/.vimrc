@@ -262,7 +262,6 @@ vnoremap L $
 
 nnoremap H 0
 nnoremap J j
-nnoremap K k
 nnoremap L $
 
 " disable help menu
@@ -374,3 +373,16 @@ nnoremap t :silent! FZF .<CR>
 
 " to select the tag i prefer, easier to type
 nnoremap <C-]> g<C-]>
+
+" Use K to show documentation in preview window
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
