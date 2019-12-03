@@ -33,6 +33,7 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Yohannfra/Vim-Protect-Header'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " set foldmethod to indent
@@ -391,3 +392,9 @@ command! -nargs=0 Format :call CocAction('format')
 
 " Generate ctags
 command! Gt :execute "! ctags --extra=+f --c-kinds=+p -R ."
+
+" set the color of the error column the same as the bg
+hi! link SignColumn Normal
+
+" vim updatetime
+set updatetime=300
