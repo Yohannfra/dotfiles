@@ -32,6 +32,7 @@ Plug 'tell-k/vim-autopep8'                      " autopep8 in vim
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'Yohannfra/Vim-Protect-Header'
 call plug#end()
 
 " set foldmethod to indent
@@ -181,6 +182,7 @@ autocmd BufNewFile *.h,*.hpp :Protect
 
 " Use html syntax for .emProject files
 autocmd BufNewFile,BufRead *.emProject set filetype=html
+autocmd BufNewFile,BufRead pymakr.conf set filetype=json
 
 " Automaticly open NERDTree if there are no file as arguments
 " autocmd StdinReadPre * let s:std_in=1
@@ -386,3 +388,6 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
+
+" Generate ctags
+command! Gt :execute "! ctags --extra=+f --c-kinds=+p -R ."
