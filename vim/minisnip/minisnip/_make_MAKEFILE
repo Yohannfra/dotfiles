@@ -58,4 +58,4 @@ sign:
 	@echo "EPITECH, 2018"
 	@echo ""
 
-.PHONY: all clean fclean re debug debug
+.PHONY: all clean fclean re debug sign test
