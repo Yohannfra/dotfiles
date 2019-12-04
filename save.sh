@@ -6,6 +6,7 @@ cp ~/.vimrc ./vim/
 cp ~/.vim/colors/monokai.vim ./vim/colors/
 cp -r ~/.vim/plugin/generate_class/ ./vim/plugin/
 cp ~/.config/nvim/coc-settings.json ./vim/
+cp -r ~/.vim/minisnip/ ./vim/minisnip/
 
 # ZSH
 cp ~/.zshrc ./zsh/
@@ -56,11 +57,6 @@ cp ~/.clang-format ./clang-format/
 cp /usr/share/applications/cura.desktop ./desktop_files/
 cp /usr/share/applications/freecad.desktop ./desktop_files/
 cp /usr/share/applications/godot.desktop ./desktop_files/
-
-# TEMPLATES
-cp ~/Templates/Makefile ./templates/
-cp ~/Templates/main.c ./templates/
-cp ~/Templates/csfml_basic.c ./templates/
 
 # CONKY
 cp /usr/bin/start_conky ./conky/

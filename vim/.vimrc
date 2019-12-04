@@ -34,6 +34,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Yohannfra/Vim-Protect-Header'
 Plug 'airblade/vim-gitgutter'
+Plug 'joereynolds/vim-minisnip'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -148,10 +149,10 @@ let g:AutoClosePreserveDotReg = 0
 let g:airline_theme = 'minimalist'
 
 " show hidden files in nerdtree
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 
 " hide useless files in nerdtree
-let NERDTreeIgnore=['\.o$', '\~$', '\.a$']
+let NERDTreeIgnore = ['\.o$', '\~$', '\.a$']
 
 " Config for GotoHeader
 let g:goto_header_includes_dirs = ["/usr/include", ".", "..", "~"]
@@ -162,6 +163,9 @@ let g:goto_header_open_in_new_tab = 1
 
 " disable diff window for autopep8 plugin
 let g:autopep8_disable_show_diff = 1
+
+" Protect Header add comment on endif line
+let g:Protect_Header_Endif_Comment = 1
 
 " FZF Config
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
@@ -421,6 +425,3 @@ nnoremap <leader>0 :tablast<cr>
 " some abbrev
 cabbrev tn tabnew
 cabbrev te tabedit
-
-" debug abbrev
-iabbrev pflu printf("LUUU\n");

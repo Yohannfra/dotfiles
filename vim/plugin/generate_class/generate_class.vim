@@ -2,6 +2,7 @@
 " Assouline Yohann
 " 2019
 
+
 function! Generate_class()
     let extension = expand('%:e')
     let filename = expand('%:t:r')
@@ -9,17 +10,21 @@ function! Generate_class()
     if extension == "hpp"
         let ext = "_HPP"
         let class_name = toupper(filename[0]) . filename[1:]
+        let ARR_CLASS = [
+                    \"}", "    private:", "Toto", "class " . class_name . " {" ]
 
-        call append(line('^'), "#ifndef ". toupper(filename) . ext)
-        call append(line('^') + 1, "#define " . toupper(filename) . ext)
-        call append(line('^') + 3, "class " . class_name ." {")
-        call append(line('^') + 4, "    public:")
-        call append(line('^') + 5, "        " . class_name . "();")
-        call append(line('^') + 6, "        ~" . class_name . "();")
-        call append(line('^') + 7, "    private:")
-        call append(line('^') + 8, "}")
-        call append(line('^') + 9, "")
-        call append(line('^') + 10, "#endif")
+        for i in ARR_CLASS
+            call append(line('.'), i)
+        endfor
+
+
+        " call append(line('.'), "class " . class_name ." {")
+        " call append(line('.'), "    public:")
+        " call append(line('.'), "        " . class_name . "();")
+        " call append(line('.'), "        ~" . class_name . "();")
+        " call append(line('.'), "    private:")
+        " call append(line('.'), "}")
+        " call append(line('.'), "")
     else
         echo "This is not a header file"
     endif
