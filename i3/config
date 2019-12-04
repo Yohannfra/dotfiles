@@ -365,7 +365,7 @@ mode "resize" {
 ### settings for i3-bar :   ###
 ###############################
 
-# hide/unhide i3status bar
+# hide/unhide bar
 bindsym $mod+m bar mode toggle
 
 # exec_always --no-startup-id nm-applet
@@ -375,7 +375,7 @@ bar {
     height 20
     position top
     i3bar_command i3bar
-    status_command my_new_status
+    status_command i3status
     colors {
         background #222222
     }

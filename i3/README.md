@@ -58,6 +58,9 @@ pip install fontawesome --user
 - gnome-screenshot (screenshot application)
 - fontawesome (font used by my bar)
 - rofi (a dmenu replacement)
+- alacritty (terminal emulator)
+- libinput-gestures
+- xcompmgr (X compositing manager)
 
 ## Appearence
 
