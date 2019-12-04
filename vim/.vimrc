@@ -78,9 +78,6 @@ syntax enable
 " enable mouse
 set mouse=a
 
-" don't highlight word when searching
-" set nohlsearch
-
 " encode with utf-8
 set encoding=utf-8
 set fileencodings=utf-8
@@ -315,7 +312,7 @@ vnoremap <silent> m :<C-U>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 nnoremap m :mat Error "<C-R><C-W>"<CR>
-noremap <S-m> :mat none <CR> :noh <CR>
+nnoremap <S-m> :mat none <CR> :noh <CR>
 
 " Ctags
 " Map \ + Ctrl + [ to jump to tag in a new tab
@@ -333,13 +330,16 @@ nnoremap <C-p> <C-i>
 " Spawn SwitchBuffer Plugin
 nnoremap S :SwitchBuffer <CR>
 
+" Try to find open buffer before creating it
+set switchbuf=usetab
+
 " change case in insert mode
 inoremap <C-u> <Esc>lvawU<Esc>i
 inoremap <C-l> <Esc>lvawu<Esc>i
 
 " To not go back one character when exiting insert mode
 inoremap <Esc> <Esc>l
-noremap <C-c> <C-c>l
+nnoremap <C-c> <C-c>l
 
 " exit normal mode with jk to avoid pressing esc
 inoremap jk <Esc>
@@ -396,5 +396,17 @@ command! Gt :execute "! ctags --extra=+f --c-kinds=+p -R ."
 " set the color of the error column the same as the bg
 hi! link SignColumn Normal
 
-" vim updatetime
+" vim update time
 set updatetime=300
+
+" Go to tab by number
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
+nnoremap <leader>0 :tablast<cr>
