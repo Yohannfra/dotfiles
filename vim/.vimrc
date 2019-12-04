@@ -36,17 +36,13 @@ Plug 'Yohannfra/Vim-Protect-Header'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
+" --------------------------  General Config ------------------------------- "
+
 " set foldmethod to indent
 set foldmethod=indent
 
 " start with no folding
 set foldlevelstart=99
-
-" to edit the vimrc quicker
-nnoremap <Leader>ev :vsplit ~/.vimrc<CR>
-
-" to reload vimrc
-nnoremap <Leader>sv :source ~/.vimrc <CR>
 
 " default vim shell
 set shell=/bin/zsh
@@ -127,6 +123,21 @@ set list
 " set undolevel to max
 set undolevels=9999
 
+" split location
+set splitbelow
+set splitright
+
+" vim update time
+set updatetime=300
+
+" Try to find open buffer before creating it
+set switchbuf=usetab
+
+" force neovim to use caret block in insert mode
+" set guicursor=
+
+" --------------------------  Plugins Config ------------------------------- "
+
 " enable rainbow brackets
 let g:rainbow_active = 1
 
@@ -142,14 +153,73 @@ let NERDTreeShowHidden=1
 " hide useless files in nerdtree
 let NERDTreeIgnore=['\.o$', '\~$', '\.a$']
 
-" colors and theme
+" Config for GotoHeader
+let g:goto_header_includes_dirs = ["/usr/include", ".", "..", "~"]
+let g:goto_header_excludes_dirs = ["Music", "Logiciels", "Pictures", "Downloads"]
+let g:goto_header_use_find = 0
+let g:goto_header_search_flags = "-t f -s"
+let g:goto_header_open_in_new_tab = 1
+
+" disable diff window for autopep8 plugin
+let g:autopep8_disable_show_diff = 1
+
+" FZF Config
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+silent! function! FloatingFZF()
+    let buf = nvim_create_buf(v:false, v:true)
+    call setbufvar(buf, '&signcolumn', 'no')
+
+    let opts = {'relative': 'editor',
+                \ 'row': 0,
+                \ 'col': (&columns / 2) - ((&columns / 2) / 2),
+                \ 'width': &columns / 2,
+                \ 'height': 10
+                \}
+    call nvim_open_win(buf, v:true, opts)
+    nnoremap <buffer> <Esc> :q <CR>
+endfunction
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" ----------------- Shortcuts for plugins / external stuff ----------------- "
+
+" map F12 to the function GotoHeader
+nnoremap <F12> :GotoHeader <CR>
+inoremap <F12> <Esc>:GotoHeader <CR>
+
+" Spawn SwitchBuffer Plugin
+nnoremap S :SwitchBuffer <CR>
+
+" FZF
+nnoremap t :silent! FZF .<CR>
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Generate ctags
+command! Gt :execute "! ctags --extra=+f --c-kinds=+p -R ."
+
+" open NERDTree with Ctrl + b
+nnoremap <C-b> :NERDTreeToggle<CR>
+
+" ------------------------ Color and Themes ------------------------------ "
+
 if $TERM !=# "rxvt-unicode-256color"
     set termguicolors
 endif
 if has("nvim")
-    let g:gruvbox_italic=1
-    let g:gruvbox_contrast_dark='hard'
-    let g:gruvbox_contrast_light='hard'
+    let g:gruvbox_italic = 1
+    let g:gruvbox_contrast_dark = 'hard'
+    let g:gruvbox_contrast_light = 'hard'
     set background=dark
     colorscheme gruvbox
 else
@@ -159,9 +229,10 @@ endif
 " set transparent background to vim
 " hi Normal guibg=NONE ctermbg=NONE
 
-" split location
-set splitbelow
-set splitright
+" set the color of the error column the same as the bg
+hi! link SignColumn Normal
+
+" ------------------------ Autocmds ------------------------------ "
 
 augroup all_files
 autocmd!
@@ -182,19 +253,22 @@ autocmd BufNewFile *.h,*.hpp :Protect
 autocmd BufNewFile,BufRead *.emProject set filetype=html
 autocmd BufNewFile,BufRead pymakr.conf set filetype=json
 
-" Automatically open NERDTree if there are no file as arguments
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" ------------------------ Internals Shortcuts ------------------------------ "
 
-" some alias
-:command! WQ wq
-:command! Wq wq
-:command! W w
-:command! Q q
+" to edit the vimrc quicker
+nnoremap <Leader>ev :vsplit ~/.vimrc<CR>
 
-" some abbrev
-cabbrev tn tabnew
-cabbrev te tabedit
+" to reload vimrc
+nnoremap <Leader>sv :source ~/.vimrc <CR>
+
+" map semicolon as colon to avoid pressing shift
+:nmap ; :
+
+" map " to : so i don't make mistake all the time
+nnoremap " :
+
+" map space to i in normal mode
+nnoremap <Space> i
 
 " allow to indent with tab and remove indent with shift + tab
 nnoremap <Tab> >>_
@@ -209,29 +283,29 @@ nnoremap <C-l> <C-W>l
 nnoremap <C-k> <C-W>k
 nnoremap <C-j> <C-W>j
 
-" open NERDTree with Ctrl + b
-map <C-b> :NERDTreeToggle<CR>
-
 " Find and replace easier
 nnoremap <C-g> :%s/
 xnoremap <C-g> :s/
 
 " shift+arrow selection
-nmap <S-Up> v<Up>
-nmap <S-Down> v<Down>
-nmap <S-Left> v<Left>
-nmap <S-Right> v<Right>
-vmap <S-Up> <Up>
-vmap <S-Down> <Down>
-vmap <S-Left> <Left>
-vmap <S-Right> <Right>
-imap <S-Up> <Esc>v<Up>
-imap <S-Down> <Esc>v<Down>
-imap <S-Left> <Esc>v<Left>
-imap <S-Right> <Esc>v<Right>
+nnoremap <S-Up> v<Up>
+nnoremap <S-Down> v<Down>
+nnoremap <S-Left> v<Left>
+nnoremap <S-Right> v<Right>
+vnoremap <S-Up> <Up>
+vnoremap <S-Down> <Down>
+vnoremap <S-Left> <Left>
+vnoremap <S-Right> <Right>
+inoremap <S-Up> <Esc>v<Up>
+inoremap <S-Down> <Esc>v<Down>
+inoremap <S-Left> <Esc>v<Left>
+inoremap <S-Right> <Esc>v<Right>
 
 " open a terminal with maj+t
-nmap <S-T> :split <bar> resize 20 <bar> term <CR>
+nnoremap <S-T> :split <bar> resize 20 <bar> term <CR>
+
+" escape terminal with escape
+tnoremap <Esc> <C-\><C-n>
 
 " resize buffer with shortcut
 nnoremap <silent> <Leader>+ :vertical resize +10 <CR>
@@ -240,61 +314,37 @@ nnoremap <silent> <Leader>) :resize +10 <CR>
 nnoremap <silent> <Leader>( :resize -10 <CR>
 
 " map leader enter to add an empty new line
-nmap <Leader><Enter> O<Esc>j
-
-" escape terminal with escape
-tnoremap <Esc> <C-\><C-n>
-
-" map semicolon as colon to avoid pressing shift
-:nmap ; :
-
-" force neovim to use caret block in insert mode
-" set guicursor=
+nnoremap <Leader><Enter> O<Esc>j
 
 " disable command history (q:)
 nnoremap q: <nop>
 
-" map HJKL to hjkl (to avoid mistake if caps lock is on)
+" Map H to 0
 vnoremap H 0
-vnoremap J j
-vnoremap K k
-vnoremap L $
-
 nnoremap H 0
-nnoremap J j
+
+" Map L to $
+vnoremap L $
 nnoremap L $
+
+" Map J to j
+vnoremap J j
+nnoremap J j
 
 " disable help menu
 nnoremap <F1> <nop>
 inoremap <F1> <nop>
 
-" map space to i in normal mode
-nnoremap <Space> i
-
 " map Ctrl + q to :qa
 nnoremap <C-q> :qa<CR>
-imap <C-q> <Esc>:qa<CR>
+inoremap <C-q> <Esc>:qa<CR>
 
 " map Ctrl + s to :w
 nnoremap <C-s> :w<CR>
-imap <C-s> <Esc>:w<CR>
+inoremap <C-s> <Esc>:w<CR>
 
 " map F5 to my ao script
 nnoremap <F5> :!ao <CR>
-
-" map F12 to the function GotoHeader
-nnoremap <F12> :GotoHeader <CR>
-imap <F12> <Esc>:GotoHeader <CR>
-
-" Config for GotoHeader
-let g:goto_header_includes_dirs = ["/usr/include", ".", "..", "~"]
-let g:goto_header_excludes_dirs = ["Music", "Logiciels", "Pictures", "Downloads"]
-let g:goto_header_use_find = 0
-let g:goto_header_search_flags = "-t f -s"
-let g:goto_header_open_in_new_tab = 1
-
-" disable diff window for autopep8 plugin
-let g:autopep8_disable_show_diff=1
 
 " Move lines up and down
 nnoremap <C-Down> :m .+1<CR>==
@@ -327,11 +377,8 @@ nnoremap <silent><Leader><C-f> vi"<C-w><C-]><C-w>T<CR>
 " map ctrl i to jump back to tag (it's the default mapping but a plugin use it)
 nnoremap <C-p> <C-i>
 
-" Spawn SwitchBuffer Plugin
-nnoremap S :SwitchBuffer <CR>
-
-" Try to find open buffer before creating it
-set switchbuf=usetab
+" to select the tag i prefer, easier to type
+nnoremap <C-]> g<C-]>
 
 " change case in insert mode
 inoremap <C-u> <Esc>lvawU<Esc>i
@@ -347,57 +394,9 @@ inoremap jk <Esc>
 " easy switch to last buffer
 nnoremap <Leader>f :b#<CR>
 
-" debug abbrev
-iabbrev pflu printf("LUUU\n");
-
-" map " to : so i don't make mistake all the time
-nnoremap " :
-
 " map leader [/] to navigate between buffers
 nnoremap <Leader>[ :bprevious <CR>
 nnoremap <Leader>] :bnext <CR>
-
-" FZF Config
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-silent! function! FloatingFZF()
-    let buf = nvim_create_buf(v:false, v:true)
-    call setbufvar(buf, '&signcolumn', 'no')
-
-    let opts = {'relative': 'editor',
-                \ 'row': 0,
-                \ 'col': (&columns / 2) - ((&columns / 2) / 2),
-                \ 'width': &columns / 2,
-                \ 'height': 10
-                \}
-    call nvim_open_win(buf, v:true, opts)
-    nnoremap <buffer> <Esc> :q <CR>
-endfunction
-nnoremap t :silent! FZF .<CR>
-
-" to select the tag i prefer, easier to type
-nnoremap <C-]> g<C-]>
-
-" Use K to show documentation in preview window
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Generate ctags
-command! Gt :execute "! ctags --extra=+f --c-kinds=+p -R ."
-
-" set the color of the error column the same as the bg
-hi! link SignColumn Normal
-
-" vim update time
-set updatetime=300
 
 " Go to tab by number
 nnoremap <leader>1 1gt
@@ -410,3 +409,18 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>0 :tablast<cr>
+
+" ------------------------ Abbrev / Alias ------------------------------ "
+
+" some alias
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q
+
+" some abbrev
+cabbrev tn tabnew
+cabbrev te tabedit
+
+" debug abbrev
+iabbrev pflu printf("LUUU\n");
