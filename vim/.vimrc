@@ -215,6 +215,13 @@ command! Gt :execute "! ctags --extra=+f --c-kinds=+p -R ."
 " open NERDTree with Ctrl + b
 nnoremap <C-b> :NERDTreeToggle<CR>
 
+" map F5 to my ao script
+nnoremap <F5> :!ao <CR>
+
+" Gen Cpp Class
+command! -nargs=1 -complete=file Gclass :r !gen_cpp_class <f-args>
+command! -nargs=1 -complete=file Uclass :r !gen_cpp_class <f-args> '%:p'
+
 " ------------------------ Color and Themes ------------------------------ "
 
 if $TERM !=# "rxvt-unicode-256color"
@@ -346,9 +353,6 @@ inoremap <C-q> <Esc>:qa<CR>
 " map Ctrl + s to :w
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>
-
-" map F5 to my ao script
-nnoremap <F5> :!ao <CR>
 
 " Move lines up and down
 nnoremap <C-Down> :m .+1<CR>==
