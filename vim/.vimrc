@@ -10,7 +10,7 @@ Plug 'bling/vim-airline'                        " a nice bar at the bottom
 Plug 'vim-airline/vim-airline-themes'           " themes for vim-airline
 Plug 'ianks/vim-tsx'                            " allow tsx coloration in vim
 Plug 'machakann/vim-highlightedyank'            " make the yanked region apparent
-Plug 'scrooloose/nerdtree'                      " nerdTree
+Plug 'tpope/vim-vinegar'
 Plug 'ryanoasis/vim-devicons'                   " add icons in nerdtree and powerline
 Plug 'luochen1990/rainbow'                      " rainbow brackets, parenthesis
 Plug 'Townk/vim-autoclose'                      " autoclose brackets, parenthesis
@@ -21,7 +21,6 @@ Plug 'vim-scripts/SearchComplete'               " autocomplete search with tab
 Plug 'sheerun/vim-polyglot'                     " Better syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
 if has("nvim")
-Plug 'seletskiy/vim-pythonx'
 Plug 'Yohannfra/Nvim-Switch-Buffer'
 endif
 Plug 'terryma/vim-multiple-cursors'             " Multiple cursors in vim
@@ -148,18 +147,13 @@ let g:AutoClosePreserveDotReg = 0
 " set airline theme to minimalist
 let g:airline_theme = 'minimalist'
 
-" show hidden files in nerdtree
-let NERDTreeShowHidden = 1
-
-" hide useless files in nerdtree
-let NERDTreeIgnore = ['\.o$', '\~$', '\.a$']
-
 " Config for GotoHeader
 let g:goto_header_includes_dirs = ["/usr/include", ".", "..", "~"]
 let g:goto_header_excludes_dirs = ["Music", "Logiciels", "Pictures", "Downloads"]
 let g:goto_header_use_find = 0
 let g:goto_header_search_flags = "-t f -s"
 let g:goto_header_open_in_new_tab = 1
+let g:goto_header_use_shorter_path = 1
 
 " disable diff window for autopep8 plugin
 let g:autopep8_disable_show_diff = 1
