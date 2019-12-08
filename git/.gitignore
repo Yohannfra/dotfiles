@@ -6,6 +6,7 @@ a.out
 .idea
 .vscode
 __pycache__
+.vimproject
 *.ao
 tags
 compile_commands.json

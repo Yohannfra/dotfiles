@@ -34,6 +34,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'Yohannfra/Vim-Protect-Header'
 Plug 'airblade/vim-gitgutter'
 Plug 'joereynolds/vim-minisnip'
+Plug 'Yohannfra/Vim-Vim-Project'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -72,7 +73,7 @@ set title
 syntax enable
 
 " enable mouse
-set mouse=a
+set mouse=r
 
 " encode with utf-8
 set encoding=utf-8
@@ -152,7 +153,7 @@ let g:goto_header_includes_dirs = ["/usr/include", ".", "..", "~"]
 let g:goto_header_excludes_dirs = ["Music", "Logiciels", "Pictures", "Downloads"]
 let g:goto_header_use_find = 0
 let g:goto_header_search_flags = "-t f -s"
-let g:goto_header_open_in_new_tab = 1
+let g:goto_header_open_in_new_tab = 0
 let g:goto_header_use_shorter_path = 1
 
 " disable diff window for autopep8 plugin
@@ -215,6 +216,10 @@ nnoremap <F5> :!ao <CR>
 " Gen Cpp Class
 command! -nargs=1 -complete=file Gclass :r !gen_cpp_class <f-args>
 command! -nargs=1 -complete=file Uclass :r !gen_cpp_class <f-args> '%:p'
+
+" Vim-Project plugin
+nnoremap <F3> :VimProjectBuild <CR>
+nnoremap <F4> :VimProjectRun<CR>
 
 " ------------------------ Color and Themes ------------------------------ "
 
