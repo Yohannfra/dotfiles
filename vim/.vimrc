@@ -21,10 +21,13 @@ Plug 'vim-scripts/SearchComplete'               " autocomplete search with tab
 Plug 'sheerun/vim-polyglot'                     " Better syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
 if has("nvim")
-Plug 'Yohannfra/Nvim-Switch-Buffer'
+    Plug 'Yohannfra/Nvim-Switch-Buffer'         " Switch buffer quicker
 endif
 Plug 'terryma/vim-multiple-cursors'             " Multiple cursors in vim
-Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
+" Vim project. MUST STAY BEFORE Vim-Epitech
+Plug 'Yohannfra/Vim-Vim-Project', {'branch': 'branch_to_use_with_epitech_header'}
+" Create epitech header
+Plug 'Yohannfra/Vim-Epitech', {'branch': 'branch_to_use_with_vim_project'}
 Plug 'Yohannfra/Vim-Goto-Header'                " goto c/cpp header
 Plug 'morhetz/gruvbox'                          " a nice theme/colorschemes
 Plug 'tell-k/vim-autopep8'                      " autopep8 in vim
@@ -34,7 +37,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'Yohannfra/Vim-Protect-Header'
 Plug 'airblade/vim-gitgutter'
 Plug 'joereynolds/vim-minisnip'
-Plug 'Yohannfra/Vim-Vim-Project'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -73,7 +75,7 @@ set title
 syntax enable
 
 " enable mouse
-set mouse=r
+set mouse=a
 
 " encode with utf-8
 set encoding=utf-8
