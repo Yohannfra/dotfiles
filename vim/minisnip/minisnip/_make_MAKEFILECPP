@@ -1,0 +1,61 @@
+##
+## EPITECH PROJECT, 2019
+## project name
+## File description:
+## Makefile
+##
+
+CC = g++
+
+SHELL = /bin/bash
+
+THIS_DIR         := $(shell dirname $(abspath $(lastword $(MAKEFILE_LIST))))/
+
+NAME = default_name
+
+SRC_MAIN = src/main.cpp
+
+SRC_OTHERS =
+
+SRC_TEST =
+
+SRC = $(SRC_OTHERS)
+
+OBJ = $(SRC:.cpp=.o) $(SRC_MAIN:.cpp=.o)
+
+CPPFLAGS =
+
+CXXLAGS = -Wall -Wextra
+
+LDFLAGS =
+
+LDLIBS =
+
+all: $(NAME) sign
+
+$(NAME): $(OBJ)
+	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS) $(LDLIBS)
+
+debug: CFLAGS += -g3 -D DEBUG
+debug: fclean $(NAME)
+
+test: LDFLAGS += -lcriterion
+test: fclean
+	gcc $(SRC) $(SRC_TEST) $(LDFLAGS) $(CFLAGS) $(LDLIBS) -o tester
+	./tester --verbose
+
+clean:
+	$(RM) $(NAME)
+
+fclean: clean
+	$(RM) $(OBJ)
+
+re: fclean all
+
+sign:
+	@echo ""
+	@echo "Assouline Yohann"
+	@echo "EPITECH, 2018"
+	@echo ""
+
+.PHONY: all clean fclean re debug sign test

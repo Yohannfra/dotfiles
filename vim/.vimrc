@@ -37,6 +37,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'Yohannfra/Vim-Protect-Header'
 Plug 'airblade/vim-gitgutter'
 Plug 'joereynolds/vim-minisnip'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -191,11 +192,17 @@ endfunction
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
+" Enable indent line plugin
+let g:indentLine_enabled = 1
+
 " ----------------- Shortcuts for plugins / external stuff ----------------- "
 
 " map F12 to the function GotoHeader
 nnoremap <F12> :GotoHeader <CR>
 inoremap <F12> <Esc>:GotoHeader <CR>
+
+" map gh to GotoHeader#Switch
+nnoremap gh :GotoHeaderSwitch <CR>
 
 " Spawn SwitchBuffer Plugin
 nnoremap S :SwitchBuffer <CR>
@@ -278,6 +285,8 @@ nnoremap <Leader>sv :source ~/.vimrc <CR>
 
 " map " to : so i don't make mistake all the time
 nnoremap " :
+nnoremap '; :
+nnoremap ': :
 
 " map space to i in normal mode
 nnoremap <Space> i
@@ -417,7 +426,7 @@ nnoremap <leader>6 6gt
 nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
-nnoremap <leader>0 :tablast<cr>
+nnoremap <leader>0 :tablast<CR>
 
 " ------------------------ Abbrev / Alias ------------------------------ "
 
