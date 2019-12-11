@@ -140,6 +140,9 @@ set switchbuf=usetab
 " force neovim to use caret block in insert mode
 " set guicursor=
 
+" Options for :mksession
+set sessionoptions="curdir,tabpages,winsize,options,help,buffers,folds"
+
 " --------------------------  Plugins Config ------------------------------- "
 
 " enable rainbow brackets
@@ -404,10 +407,10 @@ inoremap <C-l> <Esc>lvawu<Esc>i
 
 " To not go back one character when exiting insert mode
 inoremap <Esc> <Esc>l
-nnoremap <C-c> <C-c>l
+inoremap <C-c> <C-c>l
 
 " exit normal mode with jk to avoid pressing esc
-inoremap jk <Esc>
+inoremap jk <Esc>l
 
 " easy switch to last buffer
 nnoremap <Leader>f :b#<CR>
