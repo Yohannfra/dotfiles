@@ -1,5 +1,5 @@
 #!/bin/bash
 
-img_path="/home/yohann/Pictures/Wallpapers/4k-wallpaper-conifers-desktop-wallpaper-1367192.jpg"
+img_path="/home/yohann/Pictures/Wallpapers/piou_wallpaper.jpg"
 
 feh --bg-scale ${img_path}

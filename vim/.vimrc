@@ -442,3 +442,10 @@ nnoremap <leader>0 :tablast<CR>
 " some abbrev
 cabbrev tn tabnew
 cabbrev te tabedit
+
+" to be inside quotes/brackets... in insert mode
+inoremap "" ""<Left>
+inoremap '' ''<Left>
+inoremap () ()<Left>
+inoremap {} {}<Left>
+inoremap [] []<Left>
