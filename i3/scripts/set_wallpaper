@@ -1,5 +1,5 @@
 #!/bin/bash
 
-img_path="/home/yohann/Pictures/Wallpapers/piou_wallpaper.jpg"
+img_path="/home/yohann/Pictures/Wallpapers/cascade.jpg"
 
 feh --bg-scale ${img_path}

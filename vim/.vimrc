@@ -37,7 +37,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'Yohannfra/Vim-Protect-Header'
 Plug 'airblade/vim-gitgutter'
 Plug 'joereynolds/vim-minisnip'
-Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -121,8 +120,9 @@ set autoindent
 set smarttab
 
 " show trailing spaces
-set listchars=tab:..,trail:_
+set listchars=tab:>>,trail:_
 set list
+set lcs+=space:·
 
 " set undolevel to max
 set undolevels=9999
@@ -194,9 +194,6 @@ endfunction
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
-
-" Enable indent line plugin
-let g:indentLine_enabled = 1
 
 " ----------------- Shortcuts for plugins / external stuff ----------------- "
 
@@ -274,6 +271,9 @@ autocmd BufNewFile *.h,*.hpp :Protect
 " Use html syntax for .emProject files
 autocmd BufNewFile,BufRead *.emProject set filetype=html
 autocmd BufNewFile,BufRead pymakr.conf set filetype=json
+
+" Indent with tabs in makefiles
+autocmd FileType make setlocal noexpandtab shiftwidth=8 softtabstop=0
 
 " ------------------------ Internals Shortcuts ------------------------------ "
 
