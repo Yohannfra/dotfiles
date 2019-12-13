@@ -122,7 +122,6 @@ set smarttab
 " show trailing spaces
 set listchars=tab:>>,trail:_
 set list
-set lcs+=space:·
 
 " set undolevel to max
 set undolevels=9999
@@ -141,7 +140,7 @@ set switchbuf=usetab
 " set guicursor=
 
 " Options for :mksession
-set sessionoptions="curdir,tabpages,winsize,options,help,buffers,folds"
+" set sessionoptions="blank,curdir,tabpages,winsize,options,help,buffers,folds"
 
 " --------------------------  Plugins Config ------------------------------- "
 
@@ -449,3 +448,17 @@ inoremap '' ''<Left>
 inoremap () ()<Left>
 inoremap {} {}<Left>
 inoremap [] []<Left>
+
+" got to begening of line the way i like
+" stackoverflow.com/questions/2035799/pressing-home-in-vim-on-an-indented-line
+function ExtendedHome()
+    let column = col('.')
+    normal! ^
+    if column == col('.')
+        normal! 0
+    endif
+endfunction
+
+nnoremap 0 :call ExtendedHome() <CR>
+nnoremap <silent> <Home> :call ExtendedHome()<CR>
+inoremap <silent> <Home> <C-O>:call ExtendedHome()<CR>
