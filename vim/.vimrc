@@ -37,6 +37,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'Yohannfra/Vim-Protect-Header'
 Plug 'airblade/vim-gitgutter'
 Plug 'joereynolds/vim-minisnip'
+Plug 'Yohannfra/Vim-Flip'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -141,6 +142,12 @@ set switchbuf=usetab
 
 " Options for :mksession
 " set sessionoptions="blank,curdir,tabpages,winsize,options,help,buffers,folds"
+
+" Path var. mostly for c/cpp headers
+set path=
+            \.,
+            \../includes/,
+            \/usr/include/**,
 
 " --------------------------  Plugins Config ------------------------------- "
 
@@ -342,10 +349,6 @@ nnoremap <Leader><Enter> O<Esc>j
 " disable command history (q:)
 nnoremap q: <nop>
 
-" Map H to 0
-vnoremap H 0
-nnoremap H 0
-
 " Map L to $
 vnoremap L $
 nnoremap L $
@@ -419,16 +422,16 @@ nnoremap <Leader>[ :bprevious <CR>
 nnoremap <Leader>] :bnext <CR>
 
 " Go to tab by number
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>4 4gt
-nnoremap <leader>5 5gt
-nnoremap <leader>6 6gt
-nnoremap <leader>7 7gt
-nnoremap <leader>8 8gt
-nnoremap <leader>9 9gt
-nnoremap <leader>0 :tablast<CR>
+nnoremap <Leader>1 1gt
+nnoremap <Leader>2 2gt
+nnoremap <Leader>3 3gt
+nnoremap <Leader>4 4gt
+nnoremap <Leader>5 5gt
+nnoremap <Leader>6 6gt
+nnoremap <Leader>7 7gt
+nnoremap <Leader>8 8gt
+nnoremap <Leader>9 9gt
+nnoremap <Leader>0 :tablast<CR>
 
 " ------------------------ Abbrev / Alias ------------------------------ "
 
@@ -459,6 +462,9 @@ function ExtendedHome()
     endif
 endfunction
 
+nnoremap H :call ExtendedHome()<CR>
 nnoremap 0 :call ExtendedHome() <CR>
 nnoremap <silent> <Home> :call ExtendedHome()<CR>
 inoremap <silent> <Home> <C-O>:call ExtendedHome()<CR>
+
+nnoremap <Leader>p :Flip <CR>
