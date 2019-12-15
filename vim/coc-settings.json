@@ -1,11 +1,12 @@
 {
     "languageserver": {
         "clangd": {
-            "command": "clangd-8",
+            "enable": true,
+            "command": "clangd",
             "args": ["--background-index"],
             "filetypes": ["c", "cpp", "objc", "objcpp"],
             "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-        }
+        },
     },
     "suggest.noselect": false,
     "coc.source.buffer.enable" : true,

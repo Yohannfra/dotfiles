@@ -3,10 +3,10 @@
 ################
 
 # Alt key
-set $mod Mod1
+set $mod Mod4
 
 # Super key
-set $mod2 Mod4
+set $mod2 Mod1
 
 ###################
 ### At startup: ###
