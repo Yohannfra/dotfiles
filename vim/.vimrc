@@ -6,12 +6,12 @@
 " -----------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
-Plug 'bling/vim-airline'                        " a nice bar at the bottom
-Plug 'vim-airline/vim-airline-themes'           " themes for vim-airline
+" Plug 'bling/vim-airline'                        " a nice bar at the bottom
+" Plug 'vim-airline/vim-airline-themes'           " themes for vim-airline
 Plug 'ianks/vim-tsx'                            " allow tsx coloration in vim
 Plug 'machakann/vim-highlightedyank'            " make the yanked region apparent
 Plug 'tpope/vim-vinegar'
-Plug 'ryanoasis/vim-devicons'                   " add icons in nerdtree and powerline
+" Plug 'ryanoasis/vim-devicons'                   " add icons in nerdtree and powerline
 Plug 'luochen1990/rainbow'                      " rainbow brackets, parenthesis
 Plug 'Townk/vim-autoclose'                      " autoclose brackets, parenthesis
 Plug 'rhysd/vim-clang-format'                   " clang-format in vim
@@ -95,7 +95,7 @@ set so=5
 
 " show a bar at the bottom of the file with some infos about the cursor, the
 " line etc... (disable because i use powerline)
-set noruler
+" set noruler
 
 " allow autocmd looking for filetype
 filetype plugin on
@@ -252,10 +252,22 @@ else
 endif
 
 " set transparent background to vim
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 " set the color of the error column the same as the bg
 hi! link SignColumn Normal
+
+let t:is_transparent = 1
+function! Toggle_transparent()
+    if t:is_transparent == 0
+        hi Normal guibg=NONE ctermbg=NONE
+        let t:is_transparent = 1
+    else
+        hi Normal ctermbg=black
+        let t:is_transparent = 0
+    endif
+endfunction
+nnoremap <Leader>t : call Toggle_transparent()<CR>
 
 " ------------------------ Autocmds ------------------------------ "
 
@@ -356,6 +368,8 @@ nnoremap L $
 " Map J to j
 vnoremap J j
 nnoremap J j
+
+vnoremap KK kk
 
 " disable help menu
 nnoremap <F1> <nop>

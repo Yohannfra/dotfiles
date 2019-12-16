@@ -44,7 +44,7 @@ exec_always --no-startup-id set_wallpaper
 ###############################
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id urxvt
 
 # screenshot
 bindsym Print exec --no-startup-id gnome-screenshot -i
@@ -58,10 +58,7 @@ bindsym $mod+n exec --no-startup-id nautilus -w
 # bindsym $mod+Control+o exec --no-startup-id xrandr --output $xrandr_eout --mode 1920x1080 --above eDP1 --rotate normal
 
 # F9
-bindsym XF86Tools exec --no-startup-id cinnamon-settings
-
-# F12
-bindsym XF86Favorites exec --no-startup-id firefox
+# bindsym XF86Tools exec --no-startup-id alsamixer
 
 ############################################
 ### Settings for rofi or dmenu or emenu: ###
@@ -77,6 +74,9 @@ bindsym $mod+d exec --no-startup-id "rofi -show-icons -combi-modi window,run,dru
 
 # rofi search web
 bindsym $mod+g exec --no-startup-id rofi-web
+
+# Firefox
+bindsym $mod+Shift+f exec --no-startup-id firefox
 
 #############################
 ### Settings for i3-lock: ###
@@ -195,6 +195,7 @@ for_window [class="stepbystep"] floating enable
 for_window [class="Eog"] floating enable
 for_window [class="Tk"] floating enable border normal
 for_window [class="Wargroove"] floating enable border normal
+for_window [class="Viewnior"] floating enable
 
 ################################
 ### Settings for workspaces: ###
@@ -369,7 +370,7 @@ mode "resize" {
 # hide/unhide bar
 bindsym $mod+m bar mode toggle
 
-# exec_always --no-startup-id nm-applet
+exec_always --no-startup-id nm-applet
 exec_always --no-startup-id blueman-applet
 
 bar {
@@ -387,8 +388,8 @@ bar {
 #############################
 
 # Set inner/outer gaps
-gaps inner 5
-gaps outer 0
+gaps inner 11
+gaps outer 4
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
