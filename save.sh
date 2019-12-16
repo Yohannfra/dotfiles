@@ -19,6 +19,8 @@ cp ~/.config/i3/config ./i3/
 cp ~/.xinitrc ./i3/
 cp ~/.config/libinput-gestures.conf ./i3/
 cp ~/.config/i3status/config ./i3/i3status/
+cp ~/.Xresources ./i3/
+
 # I3 (scripts)
 cp /usr/bin/tap_to_click.sh ./i3/scripts/
 cp /usr/bin/inverse_scroll.sh ./i3/scripts/
