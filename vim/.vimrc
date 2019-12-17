@@ -251,7 +251,7 @@ if has("nvim")
     set background=dark
     colorscheme gruvbox
 else
-    colorscheme monokai
+    colorscheme gruvbox
 endif
 
 " set transparent background to vim
@@ -260,13 +260,14 @@ hi Normal guibg=NONE ctermbg=NONE
 " set the color of the error column the same as the bg
 hi! link SignColumn Normal
 
+" Toggle transparency
 let t:is_transparent = 1
 function! Toggle_transparent()
     if t:is_transparent == 0
         hi Normal guibg=NONE ctermbg=NONE
         let t:is_transparent = 1
     else
-        hi Normal ctermbg=black
+        colorscheme gruvbox
         let t:is_transparent = 0
     endif
 endfunction
@@ -471,7 +472,7 @@ inoremap [] []<Left>
 
 " got to begening of line the way i like
 " stackoverflow.com/questions/2035799/pressing-home-in-vim-on-an-indented-line
-function ExtendedHome()
+function! ExtendedHome()
     let column = col('.')
     normal! ^
     if column == col('.')
