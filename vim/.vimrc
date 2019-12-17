@@ -6,12 +6,9 @@
 " -----------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
-" Plug 'bling/vim-airline'                        " a nice bar at the bottom
-" Plug 'vim-airline/vim-airline-themes'           " themes for vim-airline
 Plug 'ianks/vim-tsx'                            " allow tsx coloration in vim
 Plug 'machakann/vim-highlightedyank'            " make the yanked region apparent
 Plug 'tpope/vim-vinegar'
-" Plug 'ryanoasis/vim-devicons'                   " add icons in nerdtree and powerline
 Plug 'luochen1990/rainbow'                      " rainbow brackets, parenthesis
 Plug 'Townk/vim-autoclose'                      " autoclose brackets, parenthesis
 Plug 'rhysd/vim-clang-format'                   " clang-format in vim
@@ -149,6 +146,9 @@ set path=
             \../includes/,
             \/usr/include/**,
 
+" To replace vim airline
+set rulerformat=%30(%{&fileencoding?&fileencoding:&encoding}\ \ %y\ \ %P\ %l\/%L\ \:\ %c%)
+
 " --------------------------  Plugins Config ------------------------------- "
 
 " enable rainbow brackets
@@ -235,6 +235,9 @@ command! -nargs=1 -complete=file Uclass :r !gen_cpp_class <f-args> '%:p'
 " Vim-Project plugin
 nnoremap <F3> :VimProjectBuild <CR>
 nnoremap <F4> :VimProjectRun<CR>
+
+" Flip plugin
+nnoremap <Leader>p :Flip <CR>
 
 " ------------------------ Color and Themes ------------------------------ "
 
@@ -480,5 +483,3 @@ nnoremap H :call ExtendedHome()<CR>
 nnoremap 0 :call ExtendedHome() <CR>
 nnoremap <silent> <Home> :call ExtendedHome()<CR>
 inoremap <silent> <Home> <C-O>:call ExtendedHome()<CR>
-
-nnoremap <Leader>p :Flip <CR>
