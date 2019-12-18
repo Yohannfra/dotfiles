@@ -22,8 +22,7 @@ exec_always --no-startup-id libinput-gestures-setup start
 #exec --no-startup-id start_conky
 
 # for the transparency
-# Must fix the fading issue before enabling it again
-# exec_always --no-startup-id xcompmgr
+exec_always --no-startup-id picom
 
 #############
 ### Font: ###

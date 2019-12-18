@@ -60,8 +60,11 @@ Xcursor.size:                     0
 urxvt.font:     xft:DejaVu Sans Mono, xft:Noto Emoji
 urxvt.boldFont:     xft:DejaVu Sans Mono :Bold, xft:Noto Emoji
 
+! Real transparency
 URxvt.depth:                      32
-URxvt.background:                 [100]#222D31
+urxvt*background: rgba:0000/0000/0200/B000
+
+! URxvt.background:                 [100]#222D31 */
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
@@ -71,8 +74,8 @@ URxvt*saveLines:                  5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
 ! URxvt*inheritPixmap:            true
-URxvt*transparent:              true
-URxvt*shading:                  30
+!URxvt*transparent:              true
+!URxvt*shading:                  30
 
 ! Normal copy-paste keybindings without perls
 URxvt.iso14755:                   false

@@ -35,6 +35,9 @@ cp /usr/bin/volumecontrol ./i3/scripts/
 cp /usr/bin/set_wallpaper ./i3/scripts/
 cp /usr/bin/connect_monitor ./i3/scripts/
 
+# PICOM
+cp ~/.config/picom/picom.conf ./picom
+
 # MY SCRIPTS
 cp ~/my_scripts/ao ./my_scripts/
 cp ~/my_scripts/dl ./my_scripts/
