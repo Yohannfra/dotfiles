@@ -42,7 +42,7 @@ alias meteo="curl wttr.in/Paris"
 alias mi="micro"
 alias mkae="make"
 alias mke="make"
-alias mtags="ctags --extra=+f --c-kinds=+p -R ."
+alias mtags="ctags --extras=+f --c-kinds=+p -R ."
 alias na="nano"
 alias ne="emacs -nw"
 alias ne="emacs -nw"
@@ -102,5 +102,8 @@ plugins=(
 export FZF_DEFAULT_OPTS='--height 30% --layout=reverse --border'
 export FZF_DEFAULT_COMMAND='fd --type f -H --exclude Music \
                             --exclude Pictures --exclude Logiciels --exclude .git'
+
+export TERM_IS_TRANSPARENT=`cat ~/.Xresources | grep transparent | grep true`
+
 # Must stay at the botton of this file
 source $ZSH/oh-my-zsh.sh

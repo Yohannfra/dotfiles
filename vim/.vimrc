@@ -35,6 +35,7 @@ Plug 'Yohannfra/Vim-Protect-Header'
 Plug 'airblade/vim-gitgutter'
 Plug 'joereynolds/vim-minisnip'
 Plug 'Yohannfra/Vim-Flip'
+Plug 'YohannFra/vim-startify'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -255,20 +256,24 @@ else
 endif
 
 " set transparent background to vim
-hi Normal guibg=NONE ctermbg=NONE
+" Refers to the env variable defined in my .zshrc
+let g:term_is_transparent = $TERM_IS_TRANSPARENT
+if !empty(g:term_is_transparent)
+    hi Normal guibg=NONE ctermbg=NONE
+endif
 
 " set the color of the error column the same as the bg
 hi! link SignColumn Normal
 
 " Toggle transparency
-let t:is_transparent = 1
+let g:is_transparent = 1
 function! Toggle_transparent()
-    if t:is_transparent == 0
+    if g:is_transparent == 0
         hi Normal guibg=NONE ctermbg=NONE
-        let t:is_transparent = 1
+        let g:is_transparent = 1
     else
         colorscheme gruvbox
-        let t:is_transparent = 0
+        let g:is_transparent = 0
     endif
 endfunction
 nnoremap <Leader>t : call Toggle_transparent()<CR>
@@ -484,3 +489,5 @@ nnoremap H :call ExtendedHome()<CR>
 nnoremap 0 :call ExtendedHome() <CR>
 nnoremap <silent> <Home> :call ExtendedHome()<CR>
 inoremap <silent> <Home> <C-O>:call ExtendedHome()<CR>
+
+let g:startify_bookmarks = ["~/.vimrc", "~/.config/i3/config", "~/.zshrc"]
