@@ -1,5 +1,6 @@
 #!/bin/bash
 
-img_path="/home/yohann/Pictures/Wallpapers/cascade.jpg"
-
-feh --bg-scale ${img_path}
+mapfile -t my_array < <( find ~/Pictures/wallpapers -type f )
+let a=${#my_array[@]}
+let index=$(( $RANDOM % a + 1 ))
+feh --bg-scale ${my_array[index]}
