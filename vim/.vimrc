@@ -35,7 +35,7 @@ Plug 'Yohannfra/Vim-Protect-Header'
 Plug 'airblade/vim-gitgutter'
 Plug 'joereynolds/vim-minisnip'
 Plug 'Yohannfra/Vim-Flip'
-Plug 'YohannFra/vim-startify'
+" Plug 'YohannFra/vim-startify'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -176,6 +176,7 @@ let g:autopep8_disable_show_diff = 1
 let g:Protect_Header_Endif_Comment = 1
 
 " FZF Config
+if has('nvim')
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 silent! function! FloatingFZF()
     let buf = nvim_create_buf(v:false, v:true)
@@ -190,7 +191,7 @@ silent! function! FloatingFZF()
     call nvim_open_win(buf, v:true, opts)
     nnoremap <buffer> <Esc> :q <CR>
 endfunction
-
+endif
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -239,6 +240,43 @@ nnoremap <F4> :VimProjectRun<CR>
 
 " Flip plugin
 nnoremap <Leader>p :Flip <CR>
+let g:vim_flip_dict = {
+            \"true" : "false",
+            \"True" : "False",
+            \ "TRUE": "FALSE",
+            \ "0"   : "1",
+            \ "on"  : "off"
+            \}
+
+let g:startify_bookmarks = ["~/.vimrc", "~/.config/i3/config", "~/.zshrc"]
+
+" Add surround in visual mode
+function! AddSurround(char1, char2)
+    let pos_1 = getpos("'<")
+    let pos_2 = getpos("'>")
+    let pos_2[2] += 1
+    call setpos(".", pos_1)
+    execute "normal i" . a:char1
+    call setpos('.', pos_2)
+    execute "normal a" . a:char2
+endfunction
+
+" Single quotes
+vnoremap a' :call AddSurround("'", "'")<CR>
+" Double quotes
+vnoremap a" :call AddSurround('"', '"')<CR>
+" parenthesis
+vnoremap a( :call AddSurround('(', ')')<CR>
+vnoremap a) :call AddSurround('(', ')')<CR>
+" brackets
+vnoremap a[ :call AddSurround('[', ']')<CR>
+vnoremap a] :call AddSurround('[', ']')<CR>
+" curly brackets
+vnoremap a{ :call AddSurround('{', '}')<CR>
+vnoremap a} :call AddSurround('{', '}')<CR>
+" chevrons
+vnoremap a< :call AddSurround('<', '>')<CR>
+vnoremap a> :call AddSurround('<', '>')<CR>
 
 " ------------------------ Color and Themes ------------------------------ "
 
@@ -456,6 +494,9 @@ nnoremap <Leader>8 8gt
 nnoremap <Leader>9 9gt
 nnoremap <Leader>0 :tablast<CR>
 
+" Select word in visual mode
+vnoremap W iw
+
 " ------------------------ Abbrev / Alias ------------------------------ "
 
 " some alias
@@ -489,5 +530,3 @@ nnoremap H :call ExtendedHome()<CR>
 nnoremap 0 :call ExtendedHome() <CR>
 nnoremap <silent> <Home> :call ExtendedHome()<CR>
 inoremap <silent> <Home> <C-O>:call ExtendedHome()<CR>
-
-let g:startify_bookmarks = ["~/.vimrc", "~/.config/i3/config", "~/.zshrc"]
