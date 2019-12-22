@@ -11,10 +11,6 @@ alias bat="bat -p"
 alias bc="bc -ql"
 alias cf="cd \"\`fd -H -t d . | fzf\`\""
 alias cb="cargo build"
-alias cdhdc="cd /home/yohann/Desktop/Blackfoot/MY_SFM_15x_SDK/development/SFM/HerdingCats"
-alias cdses="cd /home/yohann/Desktop/Blackfoot/new_WSSFM20Rx_15x/development/SFM/demoApp/pca10040/s132/ses/"
-alias cdsfm="cd /home/yohann/Desktop/Blackfoot/new_WSSFM20Rx_15x/development/SFM/"
-alias cdspc="cd /home/yohann/Desktop/Blackfoot/Spac/Spac_Firmware"
 alias cdtoto="mkdir /tmp/toto 2>/dev/null ; cd /tmp/toto"
 alias clip="xclip -selection clipboard"
 alias cr="cargo run -q "
@@ -27,6 +23,8 @@ alias gtm="git commit -m"
 alias gs="git status"
 alias oa='ao'
 alias gww="gcc -Wextra -Werror -Wall"
+alias cpp="g++"
+alias gxx="g++"
 alias joke="curl https://icanhazdadjoke.com/ ; echo"
 alias jv="java"
 alias jvc="javac"
@@ -34,7 +32,6 @@ alias k="make"
 alias ke="make"
 alias ks="ls"
 alias l1="ls -1"
-alias lspyc="lsusb | grep 'Microchip Technology'"
 alias mae="make"
 alias maek="make"
 alias mak="make"
@@ -65,8 +62,8 @@ alias vim="nvim"
 alias ys="yarn start"
 
 # Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Keyboard settings
 xset r rate 180 80 # set key repeat rate. delay 200 milisecond, 70 per sec
@@ -76,11 +73,6 @@ setxkbmap -option ctrl:nocaps # Disable Caps Lock
 # Add dirs to $PATH
 export PATH=$PATH:~/my_scripts
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/usr/share/segger_embedded_studio_for_arm_4.22/bin/
-export PATH=$PATH:~/.platformio/penv/bin
-
-# SDK PATH
-export SDK_PATH=/home/yohann/Desktop/Blackfoot/MY_SFM_15x_SDK
 
 # Some other env vars i need
 export RUST_BACKTRACE=1
