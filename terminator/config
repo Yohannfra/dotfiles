@@ -1,5 +1,6 @@
 [global_config]
   borderless = True
+  title_use_system_font = False
 [keybindings]
   move_tab_left = None
   move_tab_right = None
@@ -16,13 +17,23 @@
 [plugins]
 [profiles]
   [[default]]
+    background_darkness = 0.6
+    background_type = transparent
     cursor_color = "#aaaaaa"
-    font = VictorMono Nerd Font Mono Light 10
+    cursor_shape = ibeam
+    font = Source Code Pro 12
     foreground_color = "#ffffff"
+    icon_bell = False
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
-  [[white]]
-    background_color = "#ffffff"
+  [[not tansparent]]
+    background_darkness = 0.6
     cursor_color = "#aaaaaa"
-    foreground_color = "#000000"
+    cursor_shape = ibeam
+    font = Source Code Pro 12
+    foreground_color = "#ffffff"
+    icon_bell = False
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False

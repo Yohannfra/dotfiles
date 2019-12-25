@@ -35,7 +35,6 @@ Plug 'Yohannfra/Vim-Protect-Header'
 Plug 'airblade/vim-gitgutter'
 Plug 'joereynolds/vim-minisnip'
 Plug 'Yohannfra/Vim-Flip'
-" Plug 'YohannFra/vim-startify'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -203,6 +202,9 @@ endfunction
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
+" not hide .h in netrw
+set suffixes-=.h
+
 " ----------------- Shortcuts for plugins / external stuff ----------------- "
 
 " map F12 to the function GotoHeader
@@ -277,6 +279,8 @@ vnoremap a} :call AddSurround('{', '}')<CR>
 " chevrons
 vnoremap a< :call AddSurround('<', '>')<CR>
 vnoremap a> :call AddSurround('<', '>')<CR>
+" reverse quote
+vnoremap a` :call AddSurround('`', '``')<CR>
 
 " ------------------------ Color and Themes ------------------------------ "
 
@@ -290,7 +294,7 @@ if has("nvim")
     set background=dark
     colorscheme gruvbox
 else
-    colorscheme gruvbox
+    colorscheme monokai
 endif
 
 " set transparent background to vim

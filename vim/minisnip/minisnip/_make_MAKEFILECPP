@@ -41,7 +41,7 @@ debug: fclean $(NAME)
 
 test: LDFLAGS += -lcriterion
 test: fclean
-	gcc $(SRC) $(SRC_TEST) $(LDFLAGS) $(CFLAGS) $(LDLIBS) -o tester
+	$(CC) $(SRC) $(SRC_TEST) $(LDFLAGS) $(CFLAGS) $(LDLIBS) -o tester
 	./tester --verbose
 
 clean:
