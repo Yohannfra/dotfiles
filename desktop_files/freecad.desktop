@@ -4,5 +4,5 @@ Encoding=UTF-8
 Name=FreeCAD
 Comment=A CAD software
 Keywords[en]=CAD;cad;freecad
-Exec=/home/yohann/Logiciels/FreeCAD/FreeCAD_0.18-16131-Linux-Conda_Py3Qt5_glibc2.12-x86_64.AppImage
+Exec=/home/yohann/Logiciels/Freecad.AppImage
 Terminal=false
