@@ -35,6 +35,7 @@ Plug 'Yohannfra/Vim-Protect-Header'
 Plug 'airblade/vim-gitgutter'
 Plug 'joereynolds/vim-minisnip'
 Plug 'Yohannfra/Vim-Flip'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -229,6 +230,9 @@ command! Gt :execute "! ctags --extra=+f --c-kinds=+p -R ."
 " open NERDTree with Ctrl + b
 nnoremap <C-b> :NERDTreeToggle<CR>
 
+" Toggle TagBar
+nnoremap <Leader><F8>  :TagbarToggle<CR>
+
 " map F5 to my ao script
 nnoremap <F5> :!ao <CR>
 
@@ -281,6 +285,16 @@ vnoremap a< :call AddSurround('<', '>')<CR>
 vnoremap a> :call AddSurround('<', '>')<CR>
 " reverse quote
 vnoremap a` :call AddSurround('`', '``')<CR>
+
+function! OpenFiles(...)
+    if a:0 == 1
+        let fp = a:1
+    else
+        let fp = '.'
+    endif
+    execute "! xdg-open " . fp
+endfunction
+command! -narg=? -complete=file OP :call OpenFiles(<f-args>)
 
 " ------------------------ Color and Themes ------------------------------ "
 

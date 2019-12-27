@@ -55,6 +55,7 @@ alias sbl="/opt/sublime_text/sublime_text"
 alias sl="ls"
 alias top='gotop'
 alias v="nvim"
+alias vm='nvim'
 alias va="valgrind"
 alias vf='nvim $(fzf)'
 alias vi="nvim"
