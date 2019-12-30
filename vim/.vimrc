@@ -283,7 +283,7 @@ vnoremap a} :call AddSurround('{', '}')<CR>
 " chevrons
 vnoremap a< :call AddSurround('<', '>')<CR>
 vnoremap a> :call AddSurround('<', '>')<CR>
-" reverse quote
+" backtick
 vnoremap a` :call AddSurround('`', '``')<CR>
 
 function! OpenFiles(...)
@@ -357,6 +357,7 @@ autocmd BufNewFile,BufRead pymakr.conf set filetype=json
 
 " Indent with tabs in makefiles
 autocmd FileType make setlocal noexpandtab shiftwidth=8 softtabstop=0
+
 
 " ------------------------ Internals Shortcuts ------------------------------ "
 
@@ -526,6 +527,12 @@ vnoremap W iw
 " some abbrev
 cabbrev tn tabnew
 cabbrev te tabedit
+
+" abbrev for importants dotfiles
+cabbrev i3config ~/.config/i3/config
+cabbrev zshrc ~/.zshrc
+cabbrev vimrc ~/.vimrc
+
 
 " to be inside quotes/brackets... in insert mode
 inoremap "" ""<Left>

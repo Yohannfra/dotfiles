@@ -376,7 +376,8 @@ bar {
     height 20
     position top
     i3bar_command i3bar
-    status_command i3status
+    status_command py3status -c ~/.config/i3status/i3status.conf
+    # status_command i3status
     colors {
         background #222222
     }

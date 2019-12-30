@@ -67,7 +67,7 @@ alias setxkbmap_international='setxkbmap -layout us -variant intl'
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Keyboard settings
-xset r rate 180 80 # set key repeat rate. delay 200 milisecond, 70 per sec
+xset r rate 170 85 # set key repeat rate. delay 180 milisecond, 80 per sec
 setxkbmap us
 setxkbmap -option ctrl:nocaps # Disable Caps Lock
 
