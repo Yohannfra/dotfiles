@@ -305,7 +305,8 @@ if has("nvim")
     set background=dark
     colorscheme gruvbox
 else
-    colorscheme monokai
+    set background=dark
+    colorscheme gruvbox
 endif
 
 " set transparent background to vim
