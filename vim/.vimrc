@@ -158,9 +158,6 @@ let g:rainbow_active = 1
 " to fix a bug which wrote random code
 let g:AutoClosePreserveDotReg = 0
 
-" set airline theme to minimalist
-let g:airline_theme = 'minimalist'
-
 " Config for GotoHeader
 let g:goto_header_includes_dirs = ["/usr/include", ".", "..", "~"]
 let g:goto_header_excludes_dirs = ["Music", "Logiciels", "Pictures", "Downloads"]
@@ -358,7 +355,6 @@ autocmd BufNewFile,BufRead pymakr.conf set filetype=json
 " Indent with tabs in makefiles
 autocmd FileType make setlocal noexpandtab shiftwidth=8 softtabstop=0
 
-
 " ------------------------ Internals Shortcuts ------------------------------ "
 
 " to edit the vimrc quicker
@@ -394,20 +390,6 @@ nnoremap <C-j> <C-W>j
 " Find and replace easier
 nnoremap <C-g> :%s/
 xnoremap <C-g> :s/
-
-" shift+arrow selection
-nnoremap <S-Up> v<Up>
-nnoremap <S-Down> v<Down>
-nnoremap <S-Left> v<Left>
-nnoremap <S-Right> v<Right>
-vnoremap <S-Up> <Up>
-vnoremap <S-Down> <Down>
-vnoremap <S-Left> <Left>
-vnoremap <S-Right> <Right>
-inoremap <S-Up> <Esc>v<Up>
-inoremap <S-Down> <Esc>v<Down>
-inoremap <S-Left> <Esc>v<Left>
-inoremap <S-Right> <Esc>v<Right>
 
 " open a terminal with maj+t
 nnoremap <S-T> :split <bar> resize 20 <bar> term <CR>
@@ -501,18 +483,6 @@ nnoremap <Leader>f :b#<CR>
 nnoremap <Leader>[ :bprevious <CR>
 nnoremap <Leader>] :bnext <CR>
 
-" Go to tab by number
-nnoremap <Leader>1 1gt
-nnoremap <Leader>2 2gt
-nnoremap <Leader>3 3gt
-nnoremap <Leader>4 4gt
-nnoremap <Leader>5 5gt
-nnoremap <Leader>6 6gt
-nnoremap <Leader>7 7gt
-nnoremap <Leader>8 8gt
-nnoremap <Leader>9 9gt
-nnoremap <Leader>0 :tablast<CR>
-
 " Select word in visual mode
 vnoremap W iw
 
@@ -532,7 +502,6 @@ cabbrev te tabedit
 cabbrev i3config ~/.config/i3/config
 cabbrev zshrc ~/.zshrc
 cabbrev vimrc ~/.vimrc
-
 
 " to be inside quotes/brackets... in insert mode
 inoremap "" ""<Left>

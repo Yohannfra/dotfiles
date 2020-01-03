@@ -9,6 +9,7 @@ cp -r ~/.vim/minisnip/ ./vim/minisnip/
 
 # ZSH
 cp ~/.zshrc ./zsh/
+cp ~/.zshenv ./zsh/
 
 # GIT
 cp ~/.gitignore ./git/

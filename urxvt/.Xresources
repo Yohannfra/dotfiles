@@ -63,7 +63,10 @@ urxvt.boldFont:     xft:DejaVu Sans Mono :Bold, xft:Noto Emoji
 
 ! Real transparency
 URxvt.depth:                      32
+! The transparent :
 urxvt*background: rgba:0000/0000/0200/B000
+! The non transparent
+!urxvt*background: rgb:0000/0000/0200
 
 ! URxvt.background:                 [100]#222D31 */
 URxvt*scrollBar:                  false
