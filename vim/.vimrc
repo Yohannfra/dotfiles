@@ -253,6 +253,29 @@ let g:vim_flip_dict = {
 
 let g:startify_bookmarks = ["~/.vimrc", "~/.config/i3/config", "~/.zshrc"]
 
+" A little function to increment and decrement numbers in code
+function! CalcVal(calc)
+    let word = expand("<cword>")
+    if empty(word)
+        return
+    endif
+    if word =~# '^\d\+$'
+        let nb = str2nr(word, 10)
+    else
+        echo "NAN"
+        return
+    endif
+    if a:calc == '+'
+        let nb = nb + 1
+    else
+        let nb = nb - 1
+    endif
+    execute "normal ciw" . nb
+endfunction
+
+nnoremap + :call CalcVal("+")<CR>
+nnoremap _ :call CalcVal("-")<CR>
+
 " Add surround in visual mode
 function! AddSurround(char1, char2)
     let pos_1 = getpos("'<")
@@ -405,7 +428,7 @@ nnoremap <silent> <Leader>) :resize +10 <CR>
 nnoremap <silent> <Leader>( :resize -10 <CR>
 
 " map leader enter to add an empty new line
-nnoremap <Leader><Enter> O<Esc>j
+nnoremap <Enter> O<Esc>j
 
 " disable command history (q:)
 nnoremap q: <nop>
@@ -443,12 +466,12 @@ vnoremap <C-Up> :m '<-2<CR>gv=gv
 " Highlight identical word          /!\ it remap m in normal mode
 vnoremap <silent> m :<C-U>
   \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy:mat Error "<C-R><C-R>=substitute(
+  \gvy:match Error "<C-R><C-R>=substitute(
   \escape(@", '/".*$^~['), '_s+', '\_s\+', 'g')<CR>"<CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
-nnoremap m :mat Error "<C-R><C-W>"<CR>
-nnoremap <S-m> :mat none <CR> :noh <CR>
+nnoremap m :match Error "<C-R><C-W>"<CR>
+nnoremap <S-m> :match none <CR> :noh <CR>
 
 " Ctags
 " Map \ + Ctrl + [ to jump to tag in a new tab

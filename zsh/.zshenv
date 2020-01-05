@@ -59,10 +59,16 @@ alias vi="nvim"
 alias vim="nvim"
 alias ys="yarn start"
 alias setxkbmap_international='setxkbmap -layout us -variant intl'
-
-
+alias t='true && clear'
 URXVT_SIZE=12
 URXVT_PROGRESS_SIZE=2
+
+alias cdp="cd ~/Desktop/Epitech/Tek2/Units/Shell_Scripting/script_formatter_2019"
+
+function cdpd()
+{
+
+}
 
 function zp()
 {
@@ -73,6 +79,12 @@ function zp()
 function zm()
 {
     URXVT_SIZE=$(echo "$URXVT_SIZE-$URXVT_PROGRESS_SIZE" | bc )
+    zoom $URXVT_SIZE
+}
+
+function z()
+{
+    URXVT_SIZE=12
     zoom $URXVT_SIZE
 }
 
