@@ -8,7 +8,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'ianks/vim-tsx'                            " allow tsx coloration in vim
 Plug 'machakann/vim-highlightedyank'            " make the yanked region apparent
-Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-vinegar'                        " file explorer
 Plug 'luochen1990/rainbow'                      " rainbow brackets, parenthesis
 Plug 'Townk/vim-autoclose'                      " autoclose brackets, parenthesis
 Plug 'rhysd/vim-clang-format'                   " clang-format in vim
@@ -28,14 +28,14 @@ Plug 'Yohannfra/Vim-Epitech', {'branch': 'branch_to_use_with_vim_project'}
 Plug 'Yohannfra/Vim-Goto-Header'                " goto c/cpp header
 Plug 'morhetz/gruvbox'                          " a nice theme/colorschemes
 Plug 'tell-k/vim-autopep8'                      " autopep8 in vim
-Plug 'tpope/vim-commentary'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'Yohannfra/Vim-Protect-Header'
-Plug 'airblade/vim-gitgutter'
-Plug 'joereynolds/vim-minisnip'
-Plug 'Yohannfra/Vim-Flip'
-Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-commentary'                     " quick commenting
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " FZF
+Plug 'junegunn/fzf.vim'                                           " FZF
+Plug 'Yohannfra/Vim-Protect-Header'               "protect c/cpp header files
+Plug 'airblade/vim-gitgutter'                     " git diff in vim
+Plug 'joereynolds/vim-minisnip'                   " snippets engine
+Plug 'Yohannfra/Vim-Flip'                         " flip booleans
+Plug 'majutsushi/tagbar'                          " tagbar
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
