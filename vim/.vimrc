@@ -510,6 +510,9 @@ nnoremap <Leader>] :bnext <CR>
 " Select word in visual mode
 vnoremap W iw
 
+" delete word after cursor in insert mode
+inoremap <C-e> <Esc>ldei
+
 " ------------------------ Abbrev / Alias ------------------------------ "
 
 " some alias
