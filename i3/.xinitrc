@@ -21,11 +21,6 @@ if [ -f $sysmodmap ]; then
     xmodmap $sysmodmap
 fi
 
-setxkbmap us
-setxkbmap -option ctrl:nocaps # Disable Caps Lock
-xmodmap -e 'remove Mod1 = Alt_R'
-xmodmap -e 'add Mod4 = Alt_R'
-
 if [ -f "$userresources" ]; then
     xrdb -merge "$userresources"
 fi

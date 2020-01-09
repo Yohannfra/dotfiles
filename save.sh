@@ -35,6 +35,7 @@ cp /usr/bin/clementine-remote ./i3/scripts/
 cp /usr/bin/volumecontrol ./i3/scripts/
 cp /usr/bin/set_wallpaper ./i3/scripts/
 cp /usr/bin/connect_monitor ./i3/scripts/
+cp /usr/bin/apply_keyboard_conf ./i3/scripts/
 
 # PICOM
 cp ~/.config/picom/picom.conf ./picom

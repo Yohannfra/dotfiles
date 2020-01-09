@@ -6,8 +6,6 @@
 
 # Keyboard settings
 xset r rate 170 85 # set key repeat rate. delay 180 milisecond, 80 per sec
-setxkbmap us
-setxkbmap -option ctrl:nocaps # Disable Caps Lock
 
 # Add dirs to $PATH
 export PATH=$PATH:~/my_scripts

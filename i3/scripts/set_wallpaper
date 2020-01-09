@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ $# -eq 1 ]; then
+	feh --bg-scale ~/Pictures/wallpapers/MY_Wallpapers/black.png
+	exit 0
+fi
+
 mapfile -t my_array < <( find ~/Pictures/wallpapers -type f )
 let a=${#my_array[@]}
 let index=$(( $RANDOM % a + 1 ))
