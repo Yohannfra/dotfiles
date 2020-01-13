@@ -63,7 +63,7 @@ alias t='true && clear'
 URXVT_SIZE=12
 URXVT_PROGRESS_SIZE=2
 
-alias cdp="cd ~/Desktop/Epitech/Tek2/Units/Shell_Scripting/script_formatter_2019"
+alias cdp="cd ~/Desktop/Epitech/Tek2/Units/Shell_Scripting/SHL_2019_shell"
 
 function cdpd()
 {

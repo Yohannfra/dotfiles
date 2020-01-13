@@ -10,6 +10,7 @@ xset r rate 170 85 # set key repeat rate. delay 180 milisecond, 80 per sec
 # Add dirs to $PATH
 export PATH=$PATH:~/my_scripts
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/.cargo/bin/
 
 # Some other env vars i need
 export RUST_BACKTRACE=1

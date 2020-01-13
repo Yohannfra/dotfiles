@@ -26,5 +26,8 @@ vim -c "CocInstall coc-python" -c qa
 pip install python-language-server --user
 pip install jedi --user
 
+# install coc-rls (rust lsp)
+vim -c "CocInstall coc-rls" -c qa
+
 echo -e "\nDone!"
 echo "You should install clang and clang extra tools if you want to have the autocompletion and lsp features in c/c++"

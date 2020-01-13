@@ -388,8 +388,8 @@ bar {
 #############################
 
 # Set inner/outer gaps
-gaps inner 11
-gaps outer 4
+gaps inner 3
+gaps outer 1
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
