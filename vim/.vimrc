@@ -97,6 +97,7 @@ set so=5
 
 " allow autocmd looking for filetype
 filetype plugin on
+filetype indent on
 
 " show a vertical ruler a X columns
 set colorcolumn=81
@@ -150,6 +151,8 @@ set path=
 " To replace vim airline
 set rulerformat=%30(%{&fileencoding?&fileencoding:&encoding}\ \ %y\ \ %P\ %l\/%L\ \:\ %c%)
 
+set noshowmatch
+
 " --------------------------  Plugins Config ------------------------------- "
 
 " enable rainbow brackets
@@ -200,6 +203,9 @@ endfunction
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
+" Coc fix
+command! Fix :CocFix
+
 " not hide .h in netrw
 set suffixes-=.h
 
@@ -208,6 +214,9 @@ set suffixes-=.h
 " map F12 to the function GotoHeader
 nnoremap <F12> :GotoHeader <CR>
 inoremap <F12> <Esc>:GotoHeader <CR>
+
+" a command to format json files easily
+command! Jq :%!jq .
 
 " map gh to GotoHeader#Switch
 nnoremap gh :GotoHeaderSwitch <CR>
@@ -395,6 +404,9 @@ nnoremap " :
 nnoremap '; :
 nnoremap ': :
 
+" map ! to :! to type in shell commands easily
+nnoremap ! :!
+
 " map space to i in normal mode
 nnoremap <Space> i
 
@@ -414,6 +426,13 @@ nnoremap <C-j> <C-W>j
 " Find and replace easier
 nnoremap <C-g> :%s/
 xnoremap <C-g> :s/
+
+" paste with good indentation
+nnoremap p ]p
+
+" switch buffer easily
+nnoremap ( gT
+nnoremap ) gt
 
 " open a terminal with maj+t
 nnoremap <S-T> :split <bar> resize 20 <bar> term <CR>
