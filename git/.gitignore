@@ -10,3 +10,5 @@ __pycache__
 *.ao
 tags
 compile_commands.json
+vgcore*
+.vimsession

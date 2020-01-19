@@ -187,6 +187,7 @@ for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="My hunter"] floating enable move window to position 0 px 0 px
+for_window [class="Pong"] floating enable move window to position 0 px 0 px
 for_window [class="my_mario"] floating enable
 for_window [class="New Game Project"] floating enable
 for_window [class="Godot_Engine"] floating enable
@@ -300,13 +301,14 @@ mode "$mode_system" {
 
 # Mode to quickly connect an external monitor
 bindsym $mod+Control+o mode "$mode_connect_monitor"
-set $mode_connect_monitor (t)op, (r)ight, (l)eft, (i)ntern, (e)xtern
+set $mode_connect_monitor (t)op, (r)ight, (l)eft, (i)ntern, (e)xtern (m)irror
 mode "$mode_connect_monitor" {
     bindsym t exec --no-startup-id connect_monitor top, mode "default"
     bindsym r exec --no-startup-id connect_monitor right, mode "default"
     bindsym l exec --no-startup-id connect_monitor left, mode "default"
     bindsym i exec --no-startup-id connect_monitor intern, mode "default"
     bindsym e exec --no-startup-id connect_monitor extern, mode "default"
+    bindsym m exec --no-startup-id connect_monitor mirror, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"

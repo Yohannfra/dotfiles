@@ -427,12 +427,10 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-g> :%s/
 xnoremap <C-g> :s/
 
-" paste with good indentation
-nnoremap p ]p
-
 " switch buffer easily
 nnoremap ( gT
 nnoremap ) gt
+nnoremap gr gT
 
 " open a terminal with maj+t
 nnoremap <S-T> :split <bar> resize 20 <bar> term <CR>
@@ -490,7 +488,7 @@ vnoremap <silent> m :<C-U>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 nnoremap m :match Error "<C-R><C-W>"<CR>
-nnoremap <S-m> :match none <CR> :noh <CR>
+nnoremap <S-m> :match none <CR> :noh <CR>h
 
 " Ctags
 " Map \ + Ctrl + [ to jump to tag in a new tab
@@ -533,6 +531,10 @@ vnoremap W iw
 inoremap <C-e> <Esc>ldei
 
 " ------------------------ Abbrev / Alias ------------------------------ "
+
+" save layout easily
+command! Sl :mksession! .vimsession
+command! Rl :source .vimsession
 
 " some alias
 :command! WQ wq
