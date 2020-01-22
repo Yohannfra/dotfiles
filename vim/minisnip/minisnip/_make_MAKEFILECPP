@@ -25,7 +25,7 @@ OBJ = $(SRC:.cpp=.o) $(SRC_MAIN:.cpp=.o)
 
 CPPFLAGS =
 
-CXXLAGS = -Wall -Wextra
+CXXFLAGS = -Wall -Wextra
 
 LDFLAGS =
 

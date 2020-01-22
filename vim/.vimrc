@@ -36,6 +36,7 @@ Plug 'airblade/vim-gitgutter'                     " git diff in vim
 Plug 'joereynolds/vim-minisnip'                   " snippets engine
 Plug 'Yohannfra/Vim-Flip'                         " flip booleans
 Plug 'majutsushi/tagbar'                          " tagbar
+Plug 'PeterRincker/vim-argumentative'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -490,6 +491,9 @@ vnoremap <silent> m :<C-U>
 nnoremap m :match Error "<C-R><C-W>"<CR>
 nnoremap <S-m> :match none <CR> :noh <CR>h
 
+" select the line except \n
+nnoremap <Leader>hl 0v$h
+
 " Ctags
 " Map \ + Ctrl + [ to jump to tag in a new tab
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
@@ -572,3 +576,8 @@ nnoremap H :call ExtendedHome()<CR>
 nnoremap 0 :call ExtendedHome() <CR>
 nnoremap <silent> <Home> :call ExtendedHome()<CR>
 inoremap <silent> <Home> <C-O>:call ExtendedHome()<CR>
+
+" ------------------------ Macros ------------------------------ "
+
+" macro to go from proto to function in c/cpp
+let @p = '$s{?kr'

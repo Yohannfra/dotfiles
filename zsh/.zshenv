@@ -12,7 +12,7 @@ alias cdtk='cd ~/Desktop/Epitech/Tek2'
 alias clip="xclip -selection clipboard"
 alias cr="cargo run -q "
 alias emacs="emacs -nw"
-alias f='fzf'
+alias f='fg'
 alias gcl="git clone"
 alias gdf="git diff --color | diff-so-fancy | bat"
 alias gta="git add"
@@ -60,10 +60,11 @@ alias vim="nvim"
 alias ys="yarn start"
 alias setxkbmap_international='setxkbmap -layout us -variant intl'
 alias t='true && clear'
+alias gf="fg"
 URXVT_SIZE=12
 URXVT_PROGRESS_SIZE=2
 
-alias cdp="cd ~/Desktop/Epitech/Tek2/Units/Shell_Scripting/SHL_2019_shell"
+alias cdp="cd ~/Desktop/Epitech/Tek2/Piscine_CPP/"
 
 function cdpd()
 {
