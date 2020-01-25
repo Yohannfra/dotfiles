@@ -1,4 +1,8 @@
+[[ $TERM != "screen" ]] && exec tmux
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias mouli='sudo docker run --rm -it -v $PWD:/home/ -w /home epitechcontent/epitest-docker bash'
+alias moulip='sudo docker run --rm -it -v $PWD:/home/ -w /home --privileged epitechcontent/epitest-docker bash'
 
 # Node Version Manager
 # export NVM_DIR="$HOME/.nvm"
@@ -33,6 +37,9 @@ plugins=(
 export FZF_DEFAULT_OPTS='--height 30% --layout=reverse --border'
 export FZF_DEFAULT_COMMAND='fd --type f -H --exclude Music \
                             --exclude Pictures --exclude Logiciels --exclude .git'
+
+export CFLAGS='-Wextra -Wall'
+export CXXFLAGS='-Wextra -Wall'
 
 export TERM_IS_TRANSPARENT=`cat ~/.Xresources | grep transparent | grep true`
 

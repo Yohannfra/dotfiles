@@ -21,10 +21,8 @@ if has("nvim")
     Plug 'Yohannfra/Nvim-Switch-Buffer'         " Switch buffer quicker
 endif
 Plug 'terryma/vim-multiple-cursors'             " Multiple cursors in vim
-" Vim project. MUST STAY BEFORE Vim-Epitech
-Plug 'Yohannfra/Vim-Vim-Project', {'branch': 'branch_to_use_with_epitech_header'}
-" Create epitech header
-Plug 'Yohannfra/Vim-Epitech', {'branch': 'branch_to_use_with_vim_project'}
+Plug 'Yohannfra/Vim-Vim-Project'                 " Vim project
+Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
 Plug 'Yohannfra/Vim-Goto-Header'                " goto c/cpp header
 Plug 'morhetz/gruvbox'                          " a nice theme/colorschemes
 Plug 'tell-k/vim-autopep8'                      " autopep8 in vim
@@ -36,7 +34,8 @@ Plug 'airblade/vim-gitgutter'                     " git diff in vim
 Plug 'joereynolds/vim-minisnip'                   " snippets engine
 Plug 'Yohannfra/Vim-Flip'                         " flip booleans
 Plug 'majutsushi/tagbar'                          " tagbar
-Plug 'PeterRincker/vim-argumentative'
+Plug 'PeterRincker/vim-argumentative'             " change arguments position
+" Plug 'stevearc/vim-arduino'                       " use vim instead of arduino ide
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -149,6 +148,9 @@ set path=
             \../includes/,
             \/usr/include/**,
 
+" vimgrep ignore list
+set wildignore+=a.out,*.o,*.png,*.jpg,*.ttf,tags,*.ogg*.wav
+
 " To replace vim airline
 set rulerformat=%30(%{&fileencoding?&fileencoding:&encoding}\ \ %y\ \ %P\ %l\/%L\ \:\ %c%)
 
@@ -158,6 +160,9 @@ set noshowmatch
 
 " enable rainbow brackets
 let g:rainbow_active = 1
+
+" Arduino plugin path
+let g:arduino_dir="~/Logiciels/arduino/arduino-1.8.10"
 
 " to fix a bug which wrote random code
 let g:AutoClosePreserveDotReg = 0
@@ -209,6 +214,25 @@ command! Fix :CocFix
 
 " not hide .h in netrw
 set suffixes-=.h
+
+" vimproject custom text
+let g:vim_project_custom_variables= [
+            \"\"If it is a project for Epitech",
+            \"let g:is_epitech_project = 0",
+            \"",
+            \"\"autocmd for epitech projects",
+            \"if g:is_epitech_project == 1",
+            \"  augroup vimprojectAutocmds",
+            \"      autocmd!",
+            \"      autocmd BufReadPost,BufNewFile *.c,*.h,*.py,Makefile,*.cpp,*.hpp",
+            \"          \\ call epitech_header#Check_epitech_header()",
+            \"  augroup END",
+            \"else",
+            \"  augroup vimprojectAutocmds",
+            \"      autocmd!",
+            \"  augroup END",
+            \"endif"
+            \]
 
 " ----------------- Shortcuts for plugins / external stuff ----------------- "
 
@@ -325,6 +349,10 @@ function! OpenFiles(...)
     execute "! xdg-open " . fp
 endfunction
 command! -narg=? -complete=file OP :call OpenFiles(<f-args>)
+
+
+" use vimgrep easily
+command! -nargs=1 ProjSearch vimgrep <args> **
 
 " ------------------------ Color and Themes ------------------------------ "
 
@@ -549,6 +577,7 @@ command! Rl :source .vimsession
 " some abbrev
 cabbrev tn tabnew
 cabbrev te tabedit
+cabbrev vg ProjSearch
 
 " abbrev for importants dotfiles
 cabbrev i3config ~/.config/i3/config
@@ -576,8 +605,3 @@ nnoremap H :call ExtendedHome()<CR>
 nnoremap 0 :call ExtendedHome() <CR>
 nnoremap <silent> <Home> :call ExtendedHome()<CR>
 inoremap <silent> <Home> <C-O>:call ExtendedHome()<CR>
-
-" ------------------------ Macros ------------------------------ "
-
-" macro to go from proto to function in c/cpp
-let @p = '$s{?kr'
