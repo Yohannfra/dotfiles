@@ -60,6 +60,7 @@ Xcursor.size:                     0
 ! Fonts
 urxvt.font:     xft:DejaVu Sans Mono, xft:Noto Emoji
 urxvt.boldFont:     xft:DejaVu Sans Mono :Bold, xft:Noto Emoji
+URxvt.italicFont: xft:DejaVu Sans Mono:Italic
 
 ! Real transparency
 URxvt.depth:                      32

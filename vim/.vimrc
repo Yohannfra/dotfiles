@@ -36,6 +36,7 @@ Plug 'Yohannfra/Vim-Flip'                         " flip booleans
 Plug 'majutsushi/tagbar'                          " tagbar
 Plug 'PeterRincker/vim-argumentative'             " change arguments position
 " Plug 'stevearc/vim-arduino'                       " use vim instead of arduino ide
+Plug 'AndrewRadev/linediff.vim'                   " vimdiff within a file
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -184,6 +185,7 @@ let g:Protect_Header_Endif_Comment = 1
 " FZF Config
 if has('nvim')
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
 silent! function! FloatingFZF()
     let buf = nvim_create_buf(v:false, v:true)
     call setbufvar(buf, '&signcolumn', 'no')
@@ -233,6 +235,9 @@ let g:vim_project_custom_variables= [
             \"  augroup END",
             \"endif"
             \]
+
+" skip epitech header if ther is one
+let g:Protect_Header_Skip_Epitech_Header = 1
 
 " ----------------- Shortcuts for plugins / external stuff ----------------- "
 
@@ -370,18 +375,11 @@ else
     colorscheme gruvbox
 endif
 
-" set transparent background to vim
-" Refers to the env variable defined in my .zshrc
-let g:term_is_transparent = $TERM_IS_TRANSPARENT
-if !empty(g:term_is_transparent)
-    hi Normal guibg=NONE ctermbg=NONE
-endif
-
 " set the color of the error column the same as the bg
 hi! link SignColumn Normal
 
 " Toggle transparency
-let g:is_transparent = 1
+let g:is_transparent = 0
 function! Toggle_transparent()
     if g:is_transparent == 0
         hi Normal guibg=NONE ctermbg=NONE
@@ -579,11 +577,6 @@ cabbrev tn tabnew
 cabbrev te tabedit
 cabbrev vg ProjSearch
 
-" abbrev for importants dotfiles
-cabbrev i3config ~/.config/i3/config
-cabbrev zshrc ~/.zshrc
-cabbrev vimrc ~/.vimrc
-
 " to be inside quotes/brackets... in insert mode
 inoremap "" ""<Left>
 inoremap '' ''<Left>
@@ -605,3 +598,15 @@ nnoremap H :call ExtendedHome()<CR>
 nnoremap 0 :call ExtendedHome() <CR>
 nnoremap <silent> <Home> :call ExtendedHome()<CR>
 inoremap <silent> <Home> <C-O>:call ExtendedHome()<CR>
+
+" Go to tab by number
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
+nnoremap <leader>0 :tablast<cr>

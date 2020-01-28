@@ -1,0 +1,277 @@
+" --------------------------  General Config ------------------------------- "
+
+" set foldmethod to indent
+set foldmethod=indent
+
+" start with no folding
+set foldlevelstart=99
+
+" default vim shell
+set shell=/bin/zsh
+
+" use system clipboard
+set clipboard=unnamedplus
+
+" Persistent undo
+set undodir=~/.vim/undo-dir
+set undofile
+
+" Disable beeping
+set noerrorbells
+set vb t_vb=
+
+" fileformat for new file
+set fileformats=unix
+
+" show line numbers
+set number
+" set relativenumber
+
+" show the file title in the terminal titlebar
+set title
+
+" enable syntax coloration
+syntax enable
+
+" enable mouse
+set mouse=a
+
+" encode with utf-8
+set encoding=utf-8
+set fileencodings=utf-8
+
+" hilight the cursorline
+set cursorline
+
+" autoread file, if the file is changed outside of vim, it will ask you if you
+" want to reload it
+set autoread
+
+" set a gap of X lines when scrolling vertically, so the scrolling start X lines
+" before the last line
+set so=5
+
+" show a bar at the bottom of the file with some infos about the cursor, the
+" line etc... (disable because i use powerline)
+" set noruler
+
+" allow autocmd looking for filetype
+filetype plugin on
+filetype indent on
+
+" show a vertical ruler a X columns
+set colorcolumn=81
+
+" remove a bug with cc and NERDTree, keep it
+set textwidth=0
+
+" disable line wrapping
+set nowrap
+
+" indent with 4 spaces
+set tabstop=4
+set softtabstop=0
+set expandtab
+set shiftwidth=4
+
+" autoindent when you're on an indented line and hit Enter, it will adjust the
+" indentation of the new line
+set autoindent
+set smarttab
+
+" show trailing spaces
+set listchars=tab:>>,trail:_
+set list
+
+" set undolevel to max
+set undolevels=9999
+
+" split location
+set splitbelow
+set splitright
+
+" vim update time
+set updatetime=300
+
+" Try to find open buffer before creating it
+set switchbuf=usetab
+
+" force neovim to use caret block in insert mode
+" set guicursor=
+
+" Options for :mksession
+" set sessionoptions="blank,curdir,tabpages,winsize,options,help,buffers,folds"
+
+" Path var. mostly for c/cpp headers
+set path=
+            \.,
+            \../includes/,
+            \/usr/include/**,
+
+" vimgrep ignore list
+set wildignore+=a.out,*.o,*.png,*.jpg,*.ttf,tags,*.ogg*.wav
+
+" To replace vim airline
+set rulerformat=%30(%{&fileencoding?&fileencoding:&encoding}\ \ %y\ \ %P\ %l\/%L\ \:\ %c%)
+
+set noshowmatch
+
+" ------------------------ Internals Shortcuts ------------------------------ "
+
+" to edit the vimrc quicker
+nnoremap <Leader>ev :vsplit ~/.vimrc<CR>
+
+" to reload vimrc
+nnoremap <Leader>sv :source ~/.vimrc <CR>
+
+" map semicolon as colon to avoid pressing shift
+:nmap ; :
+
+" map " to : so i don't make mistake all the time
+nnoremap " :
+nnoremap '; :
+nnoremap ': :
+
+" map ! to :! to type in shell commands easily
+nnoremap ! :!
+
+" map space to i in normal mode
+nnoremap <Space> i
+
+" allow to indent with tab and remove indent with shift + tab
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+inoremap <S-Tab> <C-D>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
+" Shortcuts to navigate between buffers
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap <C-k> <C-W>k
+nnoremap <C-j> <C-W>j
+
+" Find and replace easier
+nnoremap <C-g> :%s/
+xnoremap <C-g> :s/
+
+" switch buffer easily
+nnoremap ( gT
+nnoremap ) gt
+nnoremap gr gT
+
+" open a terminal with maj+t
+nnoremap <S-T> :split <bar> resize 20 <bar> term <CR>
+
+" escape terminal with escape
+tnoremap <Esc> <C-\><C-n>
+
+" resize buffer with shortcut
+nnoremap <silent> <Leader>+ :vertical resize +10 <CR>
+nnoremap <silent> <Leader>- :vertical resize -10 <CR>
+nnoremap <silent> <Leader>) :resize +10 <CR>
+nnoremap <silent> <Leader>( :resize -10 <CR>
+
+" map leader enter to add an empty new line
+nnoremap <Enter> O<Esc>j
+
+" disable command history (q:)
+nnoremap q: <nop>
+
+" Map L to $
+vnoremap L $
+nnoremap L $
+
+" Map J to j
+vnoremap J j
+nnoremap J j
+
+vnoremap KK kk
+
+" disable help menu
+nnoremap <F1> <nop>
+inoremap <F1> <nop>
+
+" map Ctrl + q to :qa
+nnoremap <C-q> :qa<CR>
+inoremap <C-q> <Esc>:qa<CR>
+
+" map Ctrl + s to :w
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>
+
+" Move lines up and down
+nnoremap <C-Down> :m .+1<CR>==
+nnoremap <C-Up> :m .-2<CR>==
+inoremap <C-Down> <Esc>:m .+1<CR>==gi
+inoremap <C-Up> <Esc>:m .-2<CR>==gi
+vnoremap <C-Down> :m '>+1<CR>gv=gv
+vnoremap <C-Up> :m '<-2<CR>gv=gv
+
+" select the line except \n
+nnoremap <Leader>hl 0v$h
+
+" Ctags
+" Map \ + Ctrl + [ to jump to tag in a new tab
+nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+
+" Map Ctrl + h to jump to header with ctags
+nnoremap <C-f> vi"<C-]><CR>
+
+" Map \ + Ctrl + h to jump to header with ctags in a new tab
+nnoremap <silent><Leader><C-f> vi"<C-w><C-]><C-w>T<CR>
+
+" map ctrl i to jump back to tag (it's the default mapping but a plugin use it)
+nnoremap <C-p> <C-i>
+
+" to select the tag i prefer, easier to type
+nnoremap <C-]> g<C-]>
+
+" change case in insert mode
+inoremap <C-u> <Esc>lvawU<Esc>i
+inoremap <C-l> <Esc>lvawu<Esc>i
+
+" To not go back one character when exiting insert mode
+inoremap <Esc> <Esc>l
+inoremap <C-c> <C-c>l
+
+" exit normal mode with jk to avoid pressing esc
+inoremap jk <Esc>l
+
+" easy switch to last buffer
+nnoremap <Leader>f :b#<CR>
+
+" map leader [/] to navigate between buffers
+nnoremap <Leader>[ :bprevious <CR>
+nnoremap <Leader>] :bnext <CR>
+
+" Select word in visual mode
+vnoremap W iw
+
+" delete word after cursor in insert mode
+inoremap <C-e> <Esc>ldei
+
+" ------------------------ Abbrev / Alias ------------------------------ "
+
+" some alias
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q
+
+" some abbrev
+cabbrev tn tabnew
+cabbrev te tabedit
+cabbrev vg ProjSearch
+
+" abbrev for importants dotfiles
+cabbrev i3config ~/.config/i3/config
+cabbrev zshrc ~/.zshrc
+cabbrev vimrc ~/.vimrc
+
+" to be inside quotes/brackets... in insert mode
+inoremap "" ""<Left>
+inoremap '' ''<Left>
+inoremap () ()<Left>
+inoremap {} {}<Left>
+inoremap [] []<Left>

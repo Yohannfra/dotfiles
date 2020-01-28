@@ -6,6 +6,7 @@ cp ~/.vimrc ./vim/
 cp ~/.vim/colors/monokai.vim ./vim/colors/
 cp ~/.config/nvim/coc-settings.json ./vim/
 cp -r ~/.vim/minisnip/ ./vim/minisnip/
+cp ~/.ideavimrc ./vim/
 
 # ZSH
 cp ~/.zshrc ./zsh/
