@@ -37,12 +37,8 @@ plugins=(
 export FZF_DEFAULT_OPTS='--height 30% --layout=reverse --border'
 export FZF_DEFAULT_COMMAND='fd --type f -H --exclude Music \
                             --exclude Pictures --exclude Logiciels --exclude .git'
-
 export CFLAGS='-Wextra -Wall'
 export CXXFLAGS='-Wextra -Wall'
-
-export TERM_IS_TRANSPARENT=`cat ~/.Xresources | grep transparent | grep true`
-# export TERM=xterm-256color
 
 # Must stay at the botton of this file
 source $ZSH/oh-my-zsh.sh

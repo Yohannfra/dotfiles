@@ -362,6 +362,7 @@ command! -nargs=1 ProjSearch vimgrep <args> **
 " ------------------------ Color and Themes ------------------------------ "
 
 if $TERM !=# "rxvt-unicode-256color" && $TERM !=# "xterm-256color"
+            \ && $TERM != "screen"
     set termguicolors
 endif
 if has("nvim")

@@ -11,6 +11,7 @@ cp ~/.ideavimrc ./vim/
 # ZSH
 cp ~/.zshrc ./zsh/
 cp ~/.zshenv ./zsh/
+cp ~/.oh-my-zsh/custom/my_custom_zsh.zsh ./zsh/
 
 # GIT
 cp ~/.gitignore ./git/
