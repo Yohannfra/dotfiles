@@ -1,66 +1,14 @@
-#!/usr/bin/python3
+#!/bin/bash
 
-import os, re
-
-dirlist = []
-
-def is_cmake_project(dirlist):
-    if "CMakeLists.txt" not in dirlist:
-        return False
-    f = open('CMakeLists.txt', 'r')
-    line = f.readline()
-    while (line != ""):
-        if re.findall(r"project", line):
-            break
-        line = f.readline()
-    f.close()
-    binary = line.strip()
-    binary = binary.split('(')[1][0:-1]
-    os.system("./" + binary)
-    return True
-
-def is_makefile_project(dirlist):
-    if "Makefile" not in dirlist or "CMakeLists.txt" in dirlist:
-        return False
-    f = open('Makefile', 'r')
-    line = f.readline()
-    while (line != ""):
-        if re.findall(r"NAME", line):
-            break
-        line = f.readline()
-    f.close()
-    if "NAME" in line:
-        binary = line.split("=")[1].strip()
-        os.system("./" + binary)
-    return "NAME" in line
-
-def is_a_out_project(dirlist):
-    if "a.out" not in dirlist:
-        return False
-    os.system("./a.out")
-    return True
-
-def is_ao_project(dirlist):
-    if ".ao" not in dirlist:
-        return False
-    f = open('.ao', 'r')
-    command = f.readline().strip()
-    os.system(command)
-    f.close()
-    return True
-
-def main():
-    dirlist = os.listdir('.')
-    if is_ao_project(dirlist):
-        pass
-    elif is_makefile_project(dirlist):
-        pass
-    elif is_cmake_project(dirlist):
-        pass
-    elif is_a_out_project(dirlist):
-        pass
-    else:
-        print("Couldn't find any binary")
-        exit(1)
-
-main()
+if [ -f ".ao" ]; then
+    cat .ao | bash
+elif [ -f "Makefile" ]; then
+    echo `grep "^NAME" Makefile | sed "s/\t//g" | sed "s/ //g" | cut -d '=' -f2` | bash
+elif [ -f "CMakeLists.txt" ]; then
+    echo `grep "^project(.*)$" CMakeLists.txt | cut -d '(' -f2 | cut -d ')' -f1` | bash
+elif [ -f "a.out" ]; then
+    echo "./a.out" | bash
+else
+    echo "Couldn't find any binary"
+    exit 1
+fi

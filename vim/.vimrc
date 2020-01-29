@@ -361,11 +361,11 @@ command! -nargs=1 ProjSearch vimgrep <args> **
 
 " ------------------------ Color and Themes ------------------------------ "
 
-if $TERM !=# "rxvt-unicode-256color"
+if $TERM !=# "rxvt-unicode-256color" && $TERM !=# "xterm-256color"
     set termguicolors
 endif
 if has("nvim")
-    let g:gruvbox_italic = 1
+    let g:gruvbox_italic = 0
     let g:gruvbox_contrast_dark = 'hard'
     let g:gruvbox_contrast_light = 'hard'
     set background=dark
@@ -458,6 +458,7 @@ xnoremap <C-g> :s/
 nnoremap ( gT
 nnoremap ) gt
 nnoremap gr gT
+
 
 " open a terminal with maj+t
 nnoremap <S-T> :split <bar> resize 20 <bar> term <CR>

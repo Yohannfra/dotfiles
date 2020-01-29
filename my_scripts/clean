@@ -1,6 +1,7 @@
 #!/bin/bash
 
-find . -name "#*" -a -name "*#" -delete -print -or \
+find . \
+-name "#*" -a -name "*#" -delete -print -or \
 -name "*~" -delete -print -or \
 -name "a.out" -delete -print -or \
 -name "*.swp" -delete -print -or \
@@ -8,4 +9,5 @@ find . -name "#*" -a -name "*#" -delete -print -or \
 -name "vgcore*" -delete -print -or \
 -name "*.gcno" -delete -print -or \
 -name "*.gcda" -delete -print -or \
--name "libmy.a" -delete -print
+-name "libmy.a" -delete -print -or \
+-name "valgrind_log*.txt.core*" -delete -print

@@ -5,22 +5,23 @@ alias amk="make"
 alias amke="make"
 alias bat="bat -p"
 alias bc="bc -ql"
-alias cf="cd \"\`fd -H -t d . | fzf\`\""
 alias cb="cargo build"
-alias cdtoto="mkdir /tmp/toto 2>/dev/null ; cd /tmp/toto"
 alias cdtk='cd ~/Desktop/Epitech/Tek2'
+alias cdtoto="mkdir /tmp/toto 2>/dev/null ; cd /tmp/toto"
+alias cf="cd \"\`fd -H -t d . | fzf\`\""
+alias chmox="chmod"
 alias clip="xclip -selection clipboard"
+alias cpp="g++"
 alias cr="cargo run -q "
 alias emacs="emacs -nw"
 alias f='fg'
 alias gcl="git clone"
 alias gdf="git diff --color | diff-so-fancy | bat"
+alias gf="fg"
+alias gs="git status"
 alias gta="git add"
 alias gtm="git commit -m"
-alias gs="git status"
-alias oa='ao'
 alias gww="gcc -Wextra -Werror -Wall"
-alias cpp="g++"
 alias gxx="g++"
 alias joke="curl https://icanhazdadjoke.com/ ; echo"
 alias jv="java"
@@ -41,6 +42,7 @@ alias na="nano"
 alias ne="emacs -nw"
 alias ne="emacs -nw"
 alias nt="nautilus . &"
+alias oa='ao'
 alias open="xdg-open"
 alias py="python3"
 alias python="python3"
@@ -49,51 +51,47 @@ alias rm="rm -i"
 alias rt="reset"
 alias sb="sbl"
 alias sbl="/opt/sublime_text/sublime_text"
+alias setxkbmap_international='setxkbmap -layout us -variant intl'
 alias sl="ls"
+alias t='true && clear'
 alias top='gotop'
 alias v="nvim"
-alias vm='nvim'
 alias va="valgrind"
+alias valog="valgrind --log-file=valgrind_log.txt"
 alias vf='nvim $(fzf)'
 alias vi="nvim"
 alias vim="nvim"
+alias vm='nvim'
 alias ys="yarn start"
-alias setxkbmap_international='setxkbmap -layout us -variant intl'
-alias t='true && clear'
-alias gf="fg"
+
 URXVT_SIZE=12
 URXVT_PROGRESS_SIZE=2
 
 alias cdp="cd ~/Desktop/Epitech/Tek2/Piscine_CPP/"
 
-function cdpd()
-{
+# function zp()
+# {
+#     URXVT_SIZE=$(echo "$URXVT_SIZE+$URXVT_PROGRESS_SIZE" | bc )
+#     zoom $URXVT_SIZE
+# }
 
-}
+# function zm()
+# {
+#     URXVT_SIZE=$(echo "$URXVT_SIZE-$URXVT_PROGRESS_SIZE" | bc )
+#     zoom $URXVT_SIZE
+# }
 
-function zp()
-{
-    URXVT_SIZE=$(echo "$URXVT_SIZE+$URXVT_PROGRESS_SIZE" | bc )
-    zoom $URXVT_SIZE
-}
+# function z()
+# {
+#     URXVT_SIZE=12
+#     zoom $URXVT_SIZE
+# }
 
-function zm()
-{
-    URXVT_SIZE=$(echo "$URXVT_SIZE-$URXVT_PROGRESS_SIZE" | bc )
-    zoom $URXVT_SIZE
-}
-
-function z()
-{
-    URXVT_SIZE=12
-    zoom $URXVT_SIZE
-}
-
-function zoom()
-{
-    if [ $# -eq 0 ]; then
-        printf '\33]50;%s\007' "xft:DejaVu Sans Mono:size=12"
-    else
-        printf '\33]50;%s\007' "xft:DejaVu Sans Mono:size=$1"
-    fi
-}
+# function zoom()
+# {
+#     if [ $# -eq 0 ]; then
+#         printf '\33]50;%s\007' "xft:DejaVu Sans Mono:size=12"
+#     else
+#         printf '\33]50;%s\007' "xft:DejaVu Sans Mono:size=$1"
+#     fi
+# }

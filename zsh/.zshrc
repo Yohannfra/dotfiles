@@ -1,4 +1,4 @@
-[[ $TERM != "screen" ]] && exec tmux
+[[ $TERM != "screen" ]] && exec tmux -2
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias mouli='sudo docker run --rm -it -v $PWD:/home/ -w /home epitechcontent/epitest-docker bash'
@@ -42,6 +42,7 @@ export CFLAGS='-Wextra -Wall'
 export CXXFLAGS='-Wextra -Wall'
 
 export TERM_IS_TRANSPARENT=`cat ~/.Xresources | grep transparent | grep true`
+# export TERM=xterm-256color
 
 # Must stay at the botton of this file
 source $ZSH/oh-my-zsh.sh
