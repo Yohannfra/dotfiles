@@ -16,7 +16,7 @@ XTerm*selectToClipboard: true
 
 *background:                      #222D31
 *foreground:                      #d8d8d8
-*fading:                          8
+*fading:                          10
 *fadeColor:                       black
 *cursorColor:                     #FFFFFF
 *pointerColorBackground:          #2B2C2B
@@ -55,21 +55,17 @@ XTerm*selectToClipboard: true
 *color15:                         #f8f8f8
 
 Xcursor.theme: xcursor-breeze
-Xcursor.size:                     0
+Xcursor.size:                     1
 
 ! Fonts
-urxvt.font:     xft:DejaVu Sans Mono, xft:Noto Emoji
+urxvt.font:     xft:DejaVu Sans Mono :size=12, xft:Noto Emoji
 urxvt.boldFont:     xft:DejaVu Sans Mono :Bold, xft:Noto Emoji
 URxvt.italicFont: xft:DejaVu Sans Mono:Italic
 
 ! Real transparency
 URxvt.depth:                      32
-! The transparent :
 urxvt*background: rgba:0000/0000/0200/B000
-! The non transparent
-!urxvt*background: rgb:0000/0000/0200
 
-! URxvt.background:                 [100]#222D31 */
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
@@ -77,10 +73,19 @@ URxvt*background:                 black
 URxvt*foreground:                 grey
 URxvt*saveLines:                  5000
 
-! for 'fake' transparency (without Compton) uncomment the following three lines
+! for 'fake' transparency (without Compton)
 ! URxvt*inheritPixmap:            true
 ! URxvt*transparent:              true
 ! URxvt*shading:                  30
+
+! Resize font
+! https://github.com/simmel/urxvt-resize-font
+urxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+URxvt.resize-font.step: 1
 
 ! Normal copy-paste keybindings without perls
 URxvt.iso14755:                   false
@@ -100,3 +105,7 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! Hide mouse cursor when typing
 URxvt*pointerBlank:               true
 URxvt*pointerBlankDelay:          987654321
+
+! Toggle transparency :
+URxvt.keysym.C-7: command:\033]11;rgb:0000/0000/0000\007
+URxvt.keysym.C-8: command:\033]11;rgba:0000/0000/0200/B000\007
