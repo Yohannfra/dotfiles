@@ -7,5 +7,10 @@ fi
 
 mapfile -t my_array < <( find ~/Pictures/wallpapers -type f )
 let a=${#my_array[@]}
-let index=$(( $RANDOM % a + 1 ))
-feh --bg-scale ${my_array[index]}
+while [ true ]; do
+    let index=$(( $RANDOM % a + 1 ))
+    feh --bg-scale ${my_array[index]} 2> /dev/null
+    if [ $? -eq 0 ]; then
+        break
+    fi
+done

@@ -13,3 +13,6 @@ compile_commands.json
 vgcore*
 .vimsession
 .clangd
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles
