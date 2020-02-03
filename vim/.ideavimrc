@@ -275,3 +275,5 @@ inoremap '' ''<Left>
 inoremap () ()<Left>
 inoremap {} {}<Left>
 inoremap [] []<Left>
+
+nnoremap H ^

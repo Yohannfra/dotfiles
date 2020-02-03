@@ -14,12 +14,8 @@ Plug 'Townk/vim-autoclose'                      " autoclose brackets, parenthesi
 Plug 'rhysd/vim-clang-format'                   " clang-format in vim
 Plug 'godlygeek/tabular'                        " quick text alignment
 Plug 'tpope/vim-surround'                       " quick edit surround
-Plug 'vim-scripts/SearchComplete'               " autocomplete search with tab
 Plug 'sheerun/vim-polyglot'                     " Better syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
-if has("nvim")
-    Plug 'Yohannfra/Nvim-Switch-Buffer'         " Switch buffer quicker
-endif
 Plug 'terryma/vim-multiple-cursors'             " Multiple cursors in vim
 Plug 'Yohannfra/Vim-Vim-Project'                 " Vim project
 Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
@@ -138,7 +134,7 @@ set updatetime=300
 set switchbuf=usetab
 
 " force neovim to use caret block in insert mode
-" set guicursor=
+set guicursor=
 
 " Options for :mksession
 " set sessionoptions="blank,curdir,tabpages,winsize,options,help,buffers,folds"
@@ -179,27 +175,43 @@ let g:goto_header_use_shorter_path = 1
 " disable diff window for autopep8 plugin
 let g:autopep8_disable_show_diff = 1
 
+" hilight duration (1000 default)
+let g:highlightedyank_highlight_duration = 200
+
 " Protect Header add comment on endif line
 let g:Protect_Header_Endif_Comment = 1
 
+" Fzf :Buffers config, jump to existing window if possible
+let g:fzf_buffers_jump = 1
+
 " FZF Config
 if has('nvim')
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+    let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+    function! FloatingFZF()
+        let width = min([&columns - 4, max([40, &columns - 60])])
+        let height = min([&lines - 4, max([20, &lines - 10])])
+        let top = ((&lines - height) / 2) - 1
+        let left = (&columns - width) / 2
+        let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
 
-silent! function! FloatingFZF()
-    let buf = nvim_create_buf(v:false, v:true)
-    call setbufvar(buf, '&signcolumn', 'no')
-
-    let opts = {'relative': 'editor',
-                \ 'row': 0,
-                \ 'col': (&columns / 2) - ((&columns / 2) / 2),
-                \ 'width': &columns / 2,
-                \ 'height': 10
-                \}
-    call nvim_open_win(buf, v:true, opts)
-    nnoremap <buffer> <Esc> :q <CR>
-endfunction
+        let top = "╭" . repeat("─", width - 2) . "╮"
+        let mid = "│" . repeat(" ", width - 2) . "│"
+        let bot = "╰" . repeat("─", width - 2) . "╯"
+        let lines = [top] + repeat([mid], height - 2) + [bot]
+        let s:buf = nvim_create_buf(v:false, v:true)
+        call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
+        call nvim_open_win(s:buf, v:true, opts)
+        set winhl=Normal:Floating
+        let opts.row += 1
+        let opts.height -= 2
+        let opts.col += 2
+        let opts.width -= 4
+        call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+        tnoremap <buffer> jk <ESC>
+        au BufWipeout <buffer> exe 'bw '.s:buf
+    endfunction
 endif
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -251,11 +263,17 @@ command! Jq :%!jq .
 " map gh to GotoHeader#Switch
 nnoremap gh :GotoHeaderSwitch <CR>
 
-" Spawn SwitchBuffer Plugin
-nnoremap S :SwitchBuffer <CR>
+" Switch buffer with fzf
+nnoremap S :Buffers<CR>
 
 " FZF
 nnoremap t :silent! FZF .<CR>
+
+" FZF search through files with :Ag
+nnoremap <Leader>g :Ag <CR>
+
+" FZF search in files lines
+nnoremap <Leader>/ :BLines <CR>
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -355,10 +373,6 @@ function! OpenFiles(...)
 endfunction
 command! -narg=? -complete=file OP :call OpenFiles(<f-args>)
 
-
-" use vimgrep easily
-command! -nargs=1 ProjSearch vimgrep <args> **
-
 " ------------------------ Color and Themes ------------------------------ "
 
 if $TERM !=# "rxvt-unicode-256color" && $TERM !=# "xterm-256color"
@@ -369,6 +383,7 @@ if has("nvim")
     let g:gruvbox_italic = 0
     let g:gruvbox_contrast_dark = 'hard'
     let g:gruvbox_contrast_light = 'hard'
+    let g:gruvbox_invert_tabline = 1
     set background=dark
     colorscheme gruvbox
 else
@@ -465,6 +480,7 @@ nnoremap gr gT
 nnoremap <S-T> :split <bar> resize 20 <bar> term <CR>
 
 " escape terminal with escape
+autocmd! FileType fzf tnoremap <buffer> <ESC> <C-c>
 tnoremap <Esc> <C-\><C-n>
 
 " resize buffer with shortcut
@@ -577,7 +593,6 @@ command! Rl :source .vimsession
 " some abbrev
 cabbrev tn tabnew
 cabbrev te tabedit
-cabbrev vg ProjSearch
 
 " to be inside quotes/brackets... in insert mode
 inoremap "" ""<Left>
