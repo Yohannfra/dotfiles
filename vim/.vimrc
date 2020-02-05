@@ -5,8 +5,11 @@
 " 4. Enjoy ! :)
 " -----------------------------------------------------------------------------
 
+
+" A pool of plugins i can sometimes use :
+" Plug 'stevearc/vim-arduino'                       " use vim instead of arduino ide
+
 call plug#begin('~/.vim/plugged')
-Plug 'ianks/vim-tsx'                            " allow tsx coloration in vim
 Plug 'machakann/vim-highlightedyank'            " make the yanked region apparent
 Plug 'tpope/vim-vinegar'                        " file explorer
 Plug 'luochen1990/rainbow'                      " rainbow brackets, parenthesis
@@ -16,7 +19,7 @@ Plug 'godlygeek/tabular'                        " quick text alignment
 Plug 'tpope/vim-surround'                       " quick edit surround
 Plug 'sheerun/vim-polyglot'                     " Better syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
-Plug 'terryma/vim-multiple-cursors'             " Multiple cursors in vim
+" Plug 'terryma/vim-multiple-cursors'             " Multiple cursors in vim
 Plug 'Yohannfra/Vim-Vim-Project'                 " Vim project
 Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
 Plug 'Yohannfra/Vim-Goto-Header'                " goto c/cpp header
@@ -29,10 +32,11 @@ Plug 'Yohannfra/Vim-Protect-Header'               "protect c/cpp header files
 Plug 'airblade/vim-gitgutter'                     " git diff in vim
 Plug 'joereynolds/vim-minisnip'                   " snippets engine
 Plug 'Yohannfra/Vim-Flip'                         " flip booleans
-Plug 'majutsushi/tagbar'                          " tagbar
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " tagbar
 Plug 'PeterRincker/vim-argumentative'             " change arguments position
-" Plug 'stevearc/vim-arduino'                       " use vim instead of arduino ide
 Plug 'AndrewRadev/linediff.vim'                   " vimdiff within a file
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -78,7 +82,7 @@ set encoding=utf-8
 set fileencodings=utf-8
 
 " hilight the cursorline
-set cursorline
+" set cursorline
 
 " autoread file, if the file is changed outside of vim, it will ask you if you
 " want to reload it
@@ -153,6 +157,10 @@ set rulerformat=%30(%{&fileencoding?&fileencoding:&encoding}\ \ %y\ \ %P\ %l\/%L
 
 set noshowmatch
 
+" Hide toolbar and menubar in Gvim
+" set guioptions -=m
+" set guioptions -=T
+
 " --------------------------  Plugins Config ------------------------------- "
 
 " enable rainbow brackets
@@ -188,7 +196,7 @@ let g:fzf_buffers_jump = 1
 if has('nvim')
     let g:fzf_layout = { 'window': 'call FloatingFZF()' }
     function! FloatingFZF()
-        let width = min([&columns - 4, max([40, &columns - 60])])
+        let width = max([&columns - 8, max([40, &columns - 60])])
         let height = min([&lines - 4, max([20, &lines - 10])])
         let top = ((&lines - height) / 2) - 1
         let left = (&columns - width) / 2
@@ -251,6 +259,26 @@ let g:vim_project_custom_variables= [
 " skip epitech header if ther is one
 let g:Protect_Header_Skip_Epitech_Header = 1
 
+" Commands to overide FZF default options
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options':
+    \ ['--layout=reverse', '--info=inline', '--preview', 'bat -p --color always {}']}, <bang>0)
+
+" command! -bang -nargs=* Rg call fzf#vim#grep
+"             \("rg --column --line-number --no-heading --color=always --smart-case "
+"             \.shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'},
+"             \<bang>0)
+
+  " \{'options': '--delimiter : --nth 4..'},
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case ' . shellescape(<q-args>), 1,
+  \ fzf#vim#with_preview(),
+  \ <bang>0)
+
+command! -nargs=0 Cd call fzf#run(fzf#wrap(
+  \ {'source': 'find '.' -type d',
+  \  'sink': 'cd'}))
+
 " ----------------- Shortcuts for plugins / external stuff ----------------- "
 
 " map F12 to the function GotoHeader
@@ -263,26 +291,29 @@ command! Jq :%!jq .
 " map gh to GotoHeader#Switch
 nnoremap gh :GotoHeaderSwitch <CR>
 
+" navigate through tags with fzf
+nnoremap ]] :Tags <CR>
+
 " Switch buffer with fzf
 nnoremap S :Buffers<CR>
 
 " FZF
-nnoremap t :silent! FZF .<CR>
+nnoremap t :silent! Files .<CR>
 
-" FZF search through files with :Ag
-nnoremap <Leader>g :Ag <CR>
+" FZF search through files with :Rg
+nnoremap <Leader>g :Rg <CR>
 
 " FZF search in files lines
 nnoremap <Leader>/ :BLines <CR>
+
+" autocomplete path using <C-f>
+imap <c-f> <plug>(fzf-complete-path)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Generate ctags
 command! Gt :execute "! ctags --extra=+f --c-kinds=+p -R ."
-
-" open NERDTree with Ctrl + b
-nnoremap <C-b> :NERDTreeToggle<CR>
 
 " Toggle TagBar
 nnoremap <Leader><F8>  :TagbarToggle<CR>
@@ -475,7 +506,6 @@ nnoremap ( gT
 nnoremap ) gt
 nnoremap gr gT
 
-
 " open a terminal with maj+t
 nnoremap <S-T> :split <bar> resize 20 <bar> term <CR>
 
@@ -553,10 +583,6 @@ nnoremap <C-p> <C-i>
 
 " to select the tag i prefer, easier to type
 nnoremap <C-]> g<C-]>
-
-" change case in insert mode
-inoremap <C-u> <Esc>lvawU<Esc>i
-inoremap <C-l> <Esc>lvawu<Esc>i
 
 " To not go back one character when exiting insert mode
 inoremap <Esc> <Esc>l
