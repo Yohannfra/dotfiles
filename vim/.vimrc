@@ -5,7 +5,6 @@
 " 4. Enjoy ! :)
 " -----------------------------------------------------------------------------
 
-
 " A pool of plugins i can sometimes use :
 " Plug 'stevearc/vim-arduino'                       " use vim instead of arduino ide
 
@@ -19,7 +18,6 @@ Plug 'godlygeek/tabular'                        " quick text alignment
 Plug 'tpope/vim-surround'                       " quick edit surround
 Plug 'sheerun/vim-polyglot'                     " Better syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
-" Plug 'terryma/vim-multiple-cursors'             " Multiple cursors in vim
 Plug 'Yohannfra/Vim-Vim-Project'                 " Vim project
 Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
 Plug 'Yohannfra/Vim-Goto-Header'                " goto c/cpp header
@@ -237,6 +235,9 @@ command! Fix :CocFix
 " not hide .h in netrw
 set suffixes-=.h
 
+" Default size for :Lexplore
+let g:netrw_winsize = 15
+
 " vimproject custom text
 let g:vim_project_custom_variables= [
             \"\"If it is a project for Epitech",
@@ -340,29 +341,6 @@ let g:vim_flip_dict = {
             \}
 
 let g:startify_bookmarks = ["~/.vimrc", "~/.config/i3/config", "~/.zshrc"]
-
-" A little function to increment and decrement numbers in code
-function! CalcVal(calc)
-    let word = expand("<cword>")
-    if empty(word)
-        return
-    endif
-    if word =~# '^\d\+$'
-        let nb = str2nr(word, 10)
-    else
-        echo "NAN"
-        return
-    endif
-    if a:calc == '+'
-        let nb = nb + 1
-    else
-        let nb = nb - 1
-    endif
-    execute "normal ciw" . nb
-endfunction
-
-nnoremap + :call CalcVal("+")<CR>
-nnoremap _ :call CalcVal("-")<CR>
 
 " Add surround in visual mode
 function! AddSurround(char1, char2)
@@ -500,6 +478,10 @@ nnoremap <C-j> <C-W>j
 " Find and replace easier
 nnoremap <C-g> :%s/
 xnoremap <C-g> :s/
+
+" increment and decrement numbers in code
+nnoremap + <C-a>
+nnoremap _ <C-x>
 
 " switch buffer easily
 nnoremap ( gT
@@ -643,13 +625,37 @@ nnoremap <silent> <Home> :call ExtendedHome()<CR>
 inoremap <silent> <Home> <C-O>:call ExtendedHome()<CR>
 
 " Go to tab by number
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>4 4gt
-nnoremap <leader>5 5gt
-nnoremap <leader>6 6gt
-nnoremap <leader>7 7gt
-nnoremap <leader>8 8gt
-nnoremap <leader>9 9gt
-nnoremap <leader>0 :tablast<cr>
+nnoremap <Leader>1 1gt
+nnoremap <Leader>2 2gt
+nnoremap <Leader>3 3gt
+nnoremap <Leader>4 4gt
+nnoremap <Leader>5 5gt
+nnoremap <Leader>6 6gt
+nnoremap <Leader>7 7gt
+nnoremap <Leader>8 8gt
+nnoremap <Leader>9 9gt
+nnoremap <Leader>0 :tablast<CR>
+
+" increments in visual block
+vnoremap + g<C-a><CR>
+
+" align text easily
+nnoremap <Leader>h :left <CR>
+vnoremap <Leader>h :left <CR>
+nnoremap <Leader>l :right <CR>
+vnoremap <Leader>l :right <CR>
+
+" expand function proto to function for c/c++
+function! ExpandProtoToFunctionVisual() range
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    exe ":" . (line_start)
+    while line_start <= line_end
+        exe "normal $s\n{\n\n}\n"
+        normal j
+        let line_start += 1
+    endwhile
+endfunction
+
+nnoremap <Leader>q $s<CR>{<CR><CR>}<CR><ESC>j
+vnoremap <Leader>q :call ExpandProtoToFunctionVisual() <CR>
