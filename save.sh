@@ -25,6 +25,7 @@ cp ~/.config/i3/config ./i3/
 cp ~/.xinitrc ./i3/
 cp ~/.config/libinput-gestures.conf ./i3/
 cp ~/.config/i3status/i3status.conf ./i3/i3status/
+cp /etc/systemd/logind.conf ./i3/
 
 # I3 (scripts)
 cp /usr/bin/tap_to_click.sh ./i3/scripts/
@@ -49,7 +50,6 @@ cp ~/my_scripts/clean ./my_scripts/
 cp ~/my_scripts/apply_correct_rights ./my_scripts/
 cp ~/my_scripts/poule ./my_scripts/
 cp ~/my_scripts/prepare_my_repo ./my_scripts/
-cp ~/my_scripts/cit ./my_scripts/
 
 # TMUX
 cp ~/.tmux.conf ./tmux/
@@ -71,12 +71,6 @@ cp /usr/share/applications/godot.desktop ./desktop_files/
 # CONKY
 cp /usr/bin/start_conky ./conky/
 cp /usr/share/conky/data.conky ./conky/
-
-# TERMINATOR
-cp ~/.config/terminator/config ./terminator/
-
-# VS CODE
-cp ~/.config/Code/User/settings.json ./vs_code/
 
 # FISH
 cp ~/.config/fish/config.fish ./fish/

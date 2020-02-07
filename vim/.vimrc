@@ -9,32 +9,32 @@
 " Plug 'stevearc/vim-arduino'                       " use vim instead of arduino ide
 
 call plug#begin('~/.vim/plugged')
-Plug 'machakann/vim-highlightedyank'            " make the yanked region apparent
-Plug 'tpope/vim-vinegar'                        " file explorer
-Plug 'luochen1990/rainbow'                      " rainbow brackets, parenthesis
+Plug 'AndrewRadev/linediff.vim'                   " vimdiff within a file
+Plug 'PeterRincker/vim-argumentative'             " change arguments position
 Plug 'Townk/vim-autoclose'                      " autoclose brackets, parenthesis
-Plug 'rhysd/vim-clang-format'                   " clang-format in vim
-Plug 'godlygeek/tabular'                        " quick text alignment
-Plug 'tpope/vim-surround'                       " quick edit surround
-Plug 'sheerun/vim-polyglot'                     " Better syntax highlighting
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
-Plug 'Yohannfra/Vim-Vim-Project'                 " Vim project
 Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
+Plug 'Yohannfra/Vim-Flip'                         " flip booleans
 Plug 'Yohannfra/Vim-Goto-Header'                " goto c/cpp header
-Plug 'morhetz/gruvbox'                          " a nice theme/colorschemes
-Plug 'tell-k/vim-autopep8'                      " autopep8 in vim
-Plug 'tpope/vim-commentary'                     " quick commenting
+Plug 'Yohannfra/Vim-Protect-Header'               "protect c/cpp header files
+Plug 'Yohannfra/Vim-Vim-Project'                 " Vim project
+Plug 'airblade/vim-gitgutter'                     " git diff in vim
+Plug 'godlygeek/tabular'                        " quick text alignment
+Plug 'joereynolds/vim-minisnip'                   " snippets engine
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " FZF
 Plug 'junegunn/fzf.vim'                                           " FZF
-Plug 'Yohannfra/Vim-Protect-Header'               "protect c/cpp header files
-Plug 'airblade/vim-gitgutter'                     " git diff in vim
-Plug 'joereynolds/vim-minisnip'                   " snippets engine
-Plug 'Yohannfra/Vim-Flip'                         " flip booleans
+Plug 'luochen1990/rainbow'                      " rainbow brackets, parenthesis
+Plug 'machakann/vim-highlightedyank'            " make the yanked region apparent
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " tagbar
-Plug 'PeterRincker/vim-argumentative'             " change arguments position
-Plug 'AndrewRadev/linediff.vim'                   " vimdiff within a file
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'tpope/vim-fugitive'
+Plug 'morhetz/gruvbox'                          " a nice theme/colorschemes
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
+Plug 'rhysd/vim-clang-format'                   " clang-format in vim
+Plug 'sheerun/vim-polyglot'                     " Better syntax highlighting
+Plug 'tell-k/vim-autopep8'                      " autopep8 in vim
+Plug 'tpope/vim-commentary'                     " quick commenting
+Plug 'tpope/vim-fugitive'                         " git integration
+Plug 'tpope/vim-surround'                       " quick edit surround
+Plug 'tpope/vim-vinegar'                        " file explorer
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -92,7 +92,7 @@ set so=5
 
 " show a bar at the bottom of the file with some infos about the cursor, the
 " line etc... (disable because i use powerline)
-" set noruler
+set noruler
 
 " allow autocmd looking for filetype
 filetype plugin on
@@ -214,7 +214,7 @@ if has('nvim')
         let opts.width -= 4
         call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
         tnoremap <buffer> jk <ESC>
-        au BufWipeout <buffer> exe 'bw '.s:buf
+        au BufWipeout <buffer> execute 'bw '.s:buf
     endfunction
 endif
 
@@ -426,7 +426,7 @@ autocmd BufWritePre * %s/\s\+$//e
 " Return to last edit position when opening files
 autocmd BufReadPost *
             \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \   exe "normal! g`\"" |
+            \   execute "normal! g`\"" |
             \ endif
 augroup END
 
@@ -649,9 +649,9 @@ vnoremap <Leader>l :right <CR>
 function! ExpandProtoToFunctionVisual() range
     let [line_start, column_start] = getpos("'<")[1:2]
     let [line_end, column_end] = getpos("'>")[1:2]
-    exe ":" . (line_start)
+    execute ":" . (line_start)
     while line_start <= line_end
-        exe "normal $s\n{\n\n}\n"
+        execute "normal $s\n{\n\n}\n"
         normal j
         let line_start += 1
     endwhile
@@ -659,3 +659,19 @@ endfunction
 
 nnoremap <Leader>q $s<CR>{<CR><CR>}<CR><ESC>j
 vnoremap <Leader>q :call ExpandProtoToFunctionVisual() <CR>
+
+" A mini custom distraction free mode
+let s:is_distraction_free_mode = 0
+function! DistractionFreeToggle()
+    if !s:is_distraction_free_mode
+        execute ":CocDisable"
+        execute ":set nonu"
+        execute ":GitGutterDisable"
+    else
+        execute ":CocEnable"
+        execute ":set nu"
+        execute ":GitGutterEnable"
+    endif
+    let s:is_distraction_free_mode = !s:is_distraction_free_mode
+endfunction
+command Df :call DistractionFreeToggle()

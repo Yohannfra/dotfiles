@@ -13,6 +13,7 @@ alias cdtk='cd ~/Desktop/Epitech/Tek2'
 alias cdtoto="mkdir /tmp/toto 2>/dev/null ; cd /tmp/toto"
 alias cf="cd \"\`fd -H -t d . | fzf\`\""
 alias chmox="chmod"
+alias exe="chmod +x"
 alias clip="xclip -selection clipboard"
 alias cpp="g++"
 alias cr="cargo run -q "
