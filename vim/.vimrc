@@ -5,9 +5,6 @@
 " 4. Enjoy ! :)
 " -----------------------------------------------------------------------------
 
-" A pool of plugins i can sometimes use :
-" Plug 'stevearc/vim-arduino'                       " use vim instead of arduino ide
-
 call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/linediff.vim'                   " vimdiff within a file
 Plug 'PeterRincker/vim-argumentative'             " change arguments position
@@ -22,6 +19,7 @@ Plug 'godlygeek/tabular'                        " quick text alignment
 Plug 'joereynolds/vim-minisnip'                   " snippets engine
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " FZF
 Plug 'junegunn/fzf.vim'                                           " FZF
+Plug 'junegunn/goyo.vim'
 Plug 'luochen1990/rainbow'                      " rainbow brackets, parenthesis
 Plug 'machakann/vim-highlightedyank'            " make the yanked region apparent
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " tagbar
@@ -34,7 +32,7 @@ Plug 'tpope/vim-commentary'                     " quick commenting
 Plug 'tpope/vim-fugitive'                         " git integration
 Plug 'tpope/vim-surround'                       " quick edit surround
 Plug 'tpope/vim-vinegar'                        " file explorer
-Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'                    " A statusline
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -187,6 +185,10 @@ let g:highlightedyank_highlight_duration = 200
 " Protect Header add comment on endif line
 let g:Protect_Header_Endif_Comment = 1
 
+" Goyo config
+let g:goyo_width = 120
+let g:goyo_height = 100
+
 " Fzf :Buffers config, jump to existing window if possible
 let g:fzf_buffers_jump = 1
 
@@ -281,6 +283,10 @@ command! -nargs=0 Cd call fzf#run(fzf#wrap(
   \  'sink': 'cd'}))
 
 " ----------------- Shortcuts for plugins / external stuff ----------------- "
+
+" space as leader key
+let mapleader=" "
+nmap \ <Leader>
 
 " map F12 to the function GotoHeader
 nnoremap <F12> :GotoHeader <CR>
@@ -460,7 +466,8 @@ nnoremap ': :
 nnoremap ! :!
 
 " map space to i in normal mode
-nnoremap <Space> i
+" nnoremap <Space> i
+nnoremap <Leader><Leader> i
 
 " allow to indent with tab and remove indent with shift + tab
 nnoremap <Tab> >>_
@@ -603,11 +610,16 @@ cabbrev tn tabnew
 cabbrev te tabedit
 
 " to be inside quotes/brackets... in insert mode
-inoremap "" ""<Left>
-inoremap '' ''<Left>
-inoremap () ()<Left>
-inoremap {} {}<Left>
-inoremap [] []<Left>
+" inoremap "" ""<Left>
+" inoremap '' ''<Left>
+" inoremap () ()<Left>
+" inoremap {} {}<Left>
+" inoremap [] []<Left>
+
+" I think that this is a better and less anoying solution.
+" still need time to figure out
+inoremap <C-d> <Left>
+inoremap <C-f> <Right>
 
 " got to begening of line the way i like
 " stackoverflow.com/questions/2035799/pressing-home-in-vim-on-an-indented-line
@@ -664,13 +676,11 @@ vnoremap <Leader>q :call ExpandProtoToFunctionVisual() <CR>
 let s:is_distraction_free_mode = 0
 function! DistractionFreeToggle()
     if !s:is_distraction_free_mode
-        execute ":CocDisable"
+        set scl=no
         execute ":set nonu"
-        execute ":GitGutterDisable"
     else
-        execute ":CocEnable"
+        set scl=auto
         execute ":set nu"
-        execute ":GitGutterEnable"
     endif
     let s:is_distraction_free_mode = !s:is_distraction_free_mode
 endfunction
