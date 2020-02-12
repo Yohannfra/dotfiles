@@ -1,15 +1,12 @@
 [[ $TERM != "screen" ]] && exec tmux -2
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias mouli='sudo docker run --rm -it -v $PWD:/home/ -w /home epitechcontent/epitest-docker bash'
-alias moulip='sudo docker run --rm -it -v $PWD:/home/ -w /home --privileged epitechcontent/epitest-docker bash'
-
 # Node Version Manager
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Keyboard settings
-xset r rate 170 85 # set key repeat rate. delay 180 milisecond, 80 per sec
+xset r rate 160 95 # set key repeat rate. delay 160 milisecond, 95 per sec
 
 # Add dirs to $PATH
 export PATH=$PATH:~/my_scripts

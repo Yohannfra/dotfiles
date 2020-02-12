@@ -139,11 +139,8 @@ set guicursor=
 " Options for :mksession
 " set sessionoptions="blank,curdir,tabpages,winsize,options,help,buffers,folds"
 
-" Path var. mostly for c/cpp headers
-set path=
-            \.,
-            \../includes/,
-            \/usr/include/**,
+" Path var
+set path+=**
 
 " vimgrep ignore list
 set wildignore+=a.out,*.o,*.png,*.jpg,*.ttf,tags,*.ogg*.wav
@@ -153,9 +150,14 @@ set rulerformat=%30(%{&fileencoding?&fileencoding:&encoding}\ \ %y\ \ %P\ %l\/%L
 
 set noshowmatch
 
-" Hide toolbar and menubar in Gvim
-" set guioptions -=m
-" set guioptions -=T
+" Highlight search
+set hlsearch
+
+" Hilight while typing
+set incsearch
+
+" nocompatible mode
+set nocompatible
 
 " --------------------------  Plugins Config ------------------------------- "
 
@@ -192,32 +194,10 @@ let g:goyo_height = 100
 " Fzf :Buffers config, jump to existing window if possible
 let g:fzf_buffers_jump = 1
 
-" FZF Config
-if has('nvim')
-    let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-    function! FloatingFZF()
-        let width = max([&columns - 8, max([40, &columns - 60])])
-        let height = min([&lines - 4, max([20, &lines - 10])])
-        let top = ((&lines - height) / 2) - 1
-        let left = (&columns - width) / 2
-        let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
 
-        let top = "╭" . repeat("─", width - 2) . "╮"
-        let mid = "│" . repeat(" ", width - 2) . "│"
-        let bot = "╰" . repeat("─", width - 2) . "╯"
-        let lines = [top] + repeat([mid], height - 2) + [bot]
-        let s:buf = nvim_create_buf(v:false, v:true)
-        call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
-        call nvim_open_win(s:buf, v:true, opts)
-        set winhl=Normal:Floating
-        let opts.row += 1
-        let opts.height -= 2
-        let opts.col += 2
-        let opts.width -= 4
-        call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-        tnoremap <buffer> jk <ESC>
-        au BufWipeout <buffer> execute 'bw '.s:buf
-    endfunction
+if has("nvim")
+" FZF Window Config
+let g:fzf_layout = { 'window': {'width': 0.9, 'height': 0.9} }
 endif
 
 function! s:show_documentation()
@@ -239,6 +219,9 @@ set suffixes-=.h
 
 " Default size for :Lexplore
 let g:netrw_winsize = 15
+
+" tree view for netrw
+let g:netrw_liststyle=3
 
 " vimproject custom text
 let g:vim_project_custom_variables= [
@@ -279,7 +262,7 @@ command! -bang -nargs=* Rg
   \ <bang>0)
 
 command! -nargs=0 Cd call fzf#run(fzf#wrap(
-  \ {'source': 'find '.' -type d',
+  \ {'source': 'fd '.' -t d',
   \  'sink': 'cd'}))
 
 " ----------------- Shortcuts for plugins / external stuff ----------------- "
@@ -394,6 +377,7 @@ if $TERM !=# "rxvt-unicode-256color" && $TERM !=# "xterm-256color"
             \ && $TERM != "screen"
     set termguicolors
 endif
+
 if has("nvim")
     let g:gruvbox_italic = 0
     let g:gruvbox_contrast_dark = 'hard'
@@ -403,7 +387,7 @@ if has("nvim")
     colorscheme gruvbox
 else
     set background=dark
-    colorscheme gruvbox
+    colorscheme monokai
 endif
 
 " set the color of the error column the same as the bg
@@ -422,6 +406,14 @@ function! Toggle_transparent()
 endfunction
 nnoremap <Leader>t : call Toggle_transparent()<CR>
 
+" Highlight _t in c and in cpp
+augroup highlight_t_in_c
+    autocmd!
+    autocmd Syntax c,cpp syntax match cStructure /\w*_t\s/
+    autocmd Syntax c,cpp syntax match cStructure /\w*_t;/
+    autocmd Syntax c,cpp syntax match cStructure /\w*_t)/
+augroup end
+
 " ------------------------ Autocmds ------------------------------ "
 
 augroup all_files
@@ -434,6 +426,7 @@ autocmd BufReadPost *
             \ if line("'\"") > 0 && line("'\"") <= line("$") |
             \   execute "normal! g`\"" |
             \ endif
+
 augroup END
 
 " Autoprotect new header files
@@ -593,6 +586,9 @@ vnoremap W iw
 " delete word after cursor in insert mode
 inoremap <C-e> <Esc>ldei
 
+" undo in insert mode
+inoremap <C-u> <C-o>u
+
 " ------------------------ Abbrev / Alias ------------------------------ "
 
 " save layout easily
@@ -685,3 +681,20 @@ function! DistractionFreeToggle()
     let s:is_distraction_free_mode = !s:is_distraction_free_mode
 endfunction
 command Df :call DistractionFreeToggle()
+
+" Toggle background color from white to dark
+function! ToggleLightDark()
+    if &background ==# "dark"
+        set background=light
+    else
+        set background=dark
+    endif
+endfunction
+
+nnoremap <Leader>B :call ToggleLightDark()<CR>
+
+" Search for the world under cursor
+ nnoremap <Leader>b #N
+
+" Kind of find and replace
+nnoremap <C-d> #Ncgn

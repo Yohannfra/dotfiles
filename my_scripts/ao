@@ -2,10 +2,10 @@
 
 if [ -f ".ao" ]; then
     cat .ao | bash
-elif [ -f "Makefile" ]; then
-    echo `grep "^NAME" Makefile | sed "s/\t//g" | sed "s/ //g" | cut -d '=' -f2` | bash
 elif [ -f "CMakeLists.txt" ]; then
-    echo `grep "^project(.*)$" CMakeLists.txt | cut -d '(' -f2 | cut -d ')' -f1` | bash
+    echo ./`grep "^project(.*)$" CMakeLists.txt | cut -d '(' -f2 | cut -d ')' -f1` | bash
+elif [ -f "Makefile" ]; then
+    echo ./`grep "^NAME" Makefile | sed "s/\t//g" | sed "s/ //g" | cut -d '=' -f2` | bash
 elif [ -f "a.out" ]; then
     echo "./a.out" | bash
 else
