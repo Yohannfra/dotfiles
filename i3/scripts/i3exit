@@ -10,10 +10,10 @@ case "$1" in
         i3-msg exit
         ;;
     suspend)
-        i3lock-fancy -f Comic-Sans-MS & systemctl suspend
+        i3lock-fancy -f Comic-Sans-MS -- scrot -z & systemctl suspend
         ;;
     hibernate)
-        i3lock-fancy -f Comic-Sans-MS & systemctl hibernate
+        i3lock-fancy -f Comic-Sans-MS -- scrot -z & systemctl hibernate
         ;;
     reboot)
         systemctl reboot

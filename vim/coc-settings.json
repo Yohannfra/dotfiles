@@ -8,7 +8,7 @@
             "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
         },
     },
-    "suggest.noselect": false,
+    "suggest.noselect": true,
     "coc.source.buffer.enable" : true,
     "coc.source.around.enable" : true,
     "coc.source.file.enable" : true,

@@ -16,3 +16,5 @@ vgcore*
 CMakeCache.txt
 cmake_install.cmake
 CMakeFiles
+.gdb_history
+peda-session-tester.txt

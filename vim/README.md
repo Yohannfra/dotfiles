@@ -36,3 +36,6 @@ rust :
 ```
 CocInstall coc-rls
 ```
+
+For vinegar:
+https://github.com/tpope/vim-vinegar/pull/55/files

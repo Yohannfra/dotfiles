@@ -33,6 +33,7 @@ Plug 'tpope/vim-fugitive'                         " git integration
 Plug 'tpope/vim-surround'                       " quick edit surround
 Plug 'tpope/vim-vinegar'                        " file explorer
 Plug 'itchyny/lightline.vim'                    " A statusline
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -62,7 +63,7 @@ set fileformats=unix
 
 " show line numbers
 set number
-" set relativenumber
+set relativenumber
 
 " show the file title in the terminal titlebar
 set title
@@ -78,7 +79,7 @@ set encoding=utf-8
 set fileencodings=utf-8
 
 " hilight the cursorline
-" set cursorline
+set cursorline
 
 " autoread file, if the file is changed outside of vim, it will ask you if you
 " want to reload it
@@ -158,6 +159,12 @@ set incsearch
 
 " nocompatible mode
 set nocompatible
+
+" always show tabline
+set showtabline=2
+
+" remove the _ from the separators list (FIXME)
+" set iskeyword-=_
 
 " --------------------------  Plugins Config ------------------------------- "
 
@@ -331,36 +338,6 @@ let g:vim_flip_dict = {
 
 let g:startify_bookmarks = ["~/.vimrc", "~/.config/i3/config", "~/.zshrc"]
 
-" Add surround in visual mode
-function! AddSurround(char1, char2)
-    let pos_1 = getpos("'<")
-    let pos_2 = getpos("'>")
-    let pos_2[2] += 1
-    call setpos(".", pos_1)
-    execute "normal i" . a:char1
-    call setpos('.', pos_2)
-    execute "normal a" . a:char2
-endfunction
-
-" Single quotes
-vnoremap a' :call AddSurround("'", "'")<CR>
-" Double quotes
-vnoremap a" :call AddSurround('"', '"')<CR>
-" parenthesis
-vnoremap a( :call AddSurround('(', ')')<CR>
-vnoremap a) :call AddSurround('(', ')')<CR>
-" brackets
-vnoremap a[ :call AddSurround('[', ']')<CR>
-vnoremap a] :call AddSurround('[', ']')<CR>
-" curly brackets
-vnoremap a{ :call AddSurround('{', '}')<CR>
-vnoremap a} :call AddSurround('{', '}')<CR>
-" chevrons
-vnoremap a< :call AddSurround('<', '>')<CR>
-vnoremap a> :call AddSurround('<', '>')<CR>
-" backtick
-vnoremap a` :call AddSurround('`', '``')<CR>
-
 function! OpenFiles(...)
     if a:0 == 1
         let fp = a:1
@@ -386,7 +363,6 @@ if has("nvim")
     set background=dark
     colorscheme gruvbox
 else
-    set background=dark
     colorscheme monokai
 endif
 
@@ -552,7 +528,7 @@ nnoremap <Leader>hl 0v$h
 
 " Ctags
 " Map \ + Ctrl + [ to jump to tag in a new tab
-nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+nnoremap <silent><Leader><C-]> <C-w>g<C-]><C-w>T
 
 " Map Ctrl + h to jump to header with ctags
 nnoremap <C-f> vi"<C-]><CR>
@@ -668,33 +644,27 @@ endfunction
 nnoremap <Leader>q $s<CR>{<CR><CR>}<CR><ESC>j
 vnoremap <Leader>q :call ExpandProtoToFunctionVisual() <CR>
 
-" A mini custom distraction free mode
-let s:is_distraction_free_mode = 0
-function! DistractionFreeToggle()
-    if !s:is_distraction_free_mode
-        set scl=no
-        execute ":set nonu"
-    else
-        set scl=auto
-        execute ":set nu"
-    endif
-    let s:is_distraction_free_mode = !s:is_distraction_free_mode
-endfunction
-command Df :call DistractionFreeToggle()
-
 " Toggle background color from white to dark
 function! ToggleLightDark()
     if &background ==# "dark"
         set background=light
+        colorscheme PaperColor
     else
         set background=dark
+        colorscheme gruvbox
     endif
 endfunction
 
 nnoremap <Leader>B :call ToggleLightDark()<CR>
 
 " Search for the world under cursor
- nnoremap <Leader>b #N
+nnoremap <Leader>b #N
+vnoremap <Leader>b y/<C-r>"<CR>N
 
 " Kind of find and replace
 nnoremap <C-d> #Ncgn
+vnoremap <C-d> y/<C-r>"<CR>Ncgn
+
+" disable pageup and pagedown
+nnoremap <PageUp> <NOP>
+nnoremap <PageDown> <NOP>

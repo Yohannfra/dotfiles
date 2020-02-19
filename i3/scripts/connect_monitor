@@ -28,16 +28,26 @@ elif [ $1 == "mirror" ]; then
 else
     exit 1
 fi
+
+function check_if_workspace_exists()
+{
+    i3-msg -t get_workspaces | jq | grep "name" | sed -e "s/\"name\"//g" \
+        -e "s/://g" -e "s/,//g" -e "s/ //g" | grep "\"$1\"" >> /dev/null
+    return $?
+}
+
 if [[ $1 = "left" ]] || [[ $1 = "right" ]] || [[ $1 = "top" ]] ; then
-    i3-msg "workspace 10, move workspace to output $monitor"
-    i3-msg "workspace 11, move workspace to output $monitor"
-    i3-msg "workspace 12, move workspace to output $monitor"
-    i3-msg "workspace 13, move workspace to output $monitor"
-    i3-msg "workspace 14, move workspace to output $monitor"
-    i3-msg "workspace 15, move workspace to output $monitor"
-    i3-msg "workspace 16, move workspace to output $monitor"
-    i3-msg "workspace 17, move workspace to output $monitor"
-    i3-msg "workspace 18, move workspace to output $monitor"
-    i3-msg "workspace 19, move workspace to output $monitor"
-    i3-msg "workspace 20, move workspace to output $monitor"
+    first_found=0
+    for (( c=10; c<=20; c++ ))
+    do
+        if check_if_workspace_exists $c; then
+            i3-msg "workspace $c, move workspace to output $monitor"
+            if [ $first_found -eq 0 ]; then
+                first_found=$c
+            fi
+        fi
+    done
+    if [ $first_found -ne 0 ]; then
+        i3-msg "workspace $first_found"
+    fi
 fi
