@@ -37,11 +37,22 @@ rust :
 CocInstall coc-rls
 ```
 
-For vinegar:
-https://github.com/tpope/vim-vinegar/pull/55/files
+## Some custom advanced config
 
-For lightline, to hide the ...:
-in lightline/autoload/lightline.vim
-line 464
-++ return [x, y, z]
-just after the endfor in function lightline#tabs()
+### For vinegar:
+
+To quit it easily using <C-o>\
+add :
+```vim
+nnoremap <buffer> <C-o> :Rexplore<CR>
+```
+at the end of the last function.
+
+### For lightline:
+To hide the ... in the tabline\
+In lightline/autoload/lightline.vim line 464\
+add :
+```vim
+return [x, y, z]
+```
+Just after the endfor in function lightline#tabs().
