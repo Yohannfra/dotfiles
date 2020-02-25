@@ -70,7 +70,6 @@ alias vm='nvim'
 alias ys="yarn start"
 alias mouli='sudo docker run --rm -it -v $PWD:/home/ -w /home epitechcontent/epitest-docker bash'
 alias moulip='sudo docker run --rm -it -v $PWD:/home/ -w /home --privileged epitechcontent/epitest-docker bash'
-
 URXVT_SIZE=12
 URXVT_PROGRESS_SIZE=2
 

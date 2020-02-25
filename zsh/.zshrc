@@ -2,8 +2,8 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Node Version Manager
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+ # export NVM_DIR="$HOME/.nvm"
+ # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Keyboard settings
 xset r rate 160 95 # set key repeat rate. delay 160 milisecond, 95 per sec
@@ -20,6 +20,8 @@ export EDITOR=vim
 export ZSH="/home/yohann/.oh-my-zsh"
 export DEFAULT_USER=$USER
 
+# disable C-S
+stty -ixon
 
 # Zsh theme
 ZSH_THEME="robbyrussell"

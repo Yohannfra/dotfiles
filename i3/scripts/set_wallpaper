@@ -14,6 +14,7 @@ function select_wallpaper_randomly()
         let index=$(( $RANDOM % a + 1 ))
         feh --bg-scale ${my_array[index]} 2> /dev/null
         if [ $? -eq 0 ]; then
+            echo "This is : $(echo ${my_array[index]} | cut -d '/' '-f4-')"
             break
         fi
     done

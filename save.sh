@@ -30,7 +30,7 @@ cp /etc/systemd/logind.conf ./i3/
 # I3 (scripts)
 cp /usr/bin/tap_to_click.sh ./i3/scripts/
 cp /usr/bin/inverse_scroll.sh ./i3/scripts/
-cp /usr/bin/i3exit ./i3/scripts/
+cp /usr/bin/my_i3exit ./i3/scripts/
 cp /usr/bin/my_new_status ./i3/scripts/
 cp /usr/bin/swap_workspaces ./i3/scripts/
 cp /usr/bin/rofi-web ./i3/scripts/

@@ -7,7 +7,7 @@
 
 call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/linediff.vim'                   " vimdiff within a file
-Plug 'PeterRincker/vim-argumentative'             " change arguments position
+" Plug 'PeterRincker/vim-argumentative'             " change arguments position
 Plug 'Townk/vim-autoclose'                      " autoclose brackets, parenthesis
 Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
 Plug 'Yohannfra/Vim-Flip'                         " flip booleans
@@ -521,7 +521,8 @@ vnoremap <silent> m :<C-U>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 nnoremap m :match Error "<C-R><C-W>"<CR>
-nnoremap <S-m> :match none <CR> :noh <CR>h
+
+nnoremap <Leader>m :match none <CR> :noh <CR>h
 
 " select the line except \n
 nnoremap <Leader>hl 0v$h
@@ -668,3 +669,10 @@ vnoremap <C-d> y/<C-r>"<CR>Ncgn
 " disable pageup and pagedown
 nnoremap <PageUp> <NOP>
 nnoremap <PageDown> <NOP>
+
+" navigate within the file
+nnoremap < H
+nnoremap > L
+
+" repeat last f or t
+nnoremap , ;
