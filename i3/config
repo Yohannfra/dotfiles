@@ -161,6 +161,9 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# Contrain focused window
+floating_maximum_size 1500 x 1000
+
 # Open specific applications in floating mode
 # man xprop
 for_window [title="alsamixer"] floating enable border pixel 1

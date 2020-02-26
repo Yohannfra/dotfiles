@@ -12,4 +12,6 @@
     "coc.source.buffer.enable" : true,
     "coc.source.around.enable" : true,
     "coc.source.file.enable" : true,
+    "diagnostic.errorSign" : "!",
+    "diagnostic.warningSign" : ">",
 }

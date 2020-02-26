@@ -58,7 +58,8 @@ Xcursor.theme: xcursor-breeze
 Xcursor.size:                     1
 
 ! Fonts
-urxvt.font:     xft:DejaVu Sans Mono :size=12, xft:Noto Emoji
+! urxvt.font:     xft:DejaVu Sans Mono :size=12, xft:Noto Emoji
+urxvt.font:     xft:JetBrains Mono Medium :size=12, xft:Noto Emoji
 urxvt.boldFont:     xft:DejaVu Sans Mono :Bold, xft:Noto Emoji
 URxvt.italicFont: xft:DejaVu Sans Mono:Italic
 
