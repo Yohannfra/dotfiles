@@ -197,6 +197,7 @@ let g:Protect_Header_Endif_Comment = 1
 " Goyo config
 let g:goyo_width = 120
 let g:goyo_height = 100
+let g:goyo_linenr = 1
 
 " Fzf :Buffers config, jump to existing window if possible
 let g:fzf_buffers_jump = 1
@@ -282,6 +283,7 @@ command! -nargs=0 Cd call fzf#run(fzf#wrap(
 " Space as leader key
 let mapleader=" "
 nmap \ <Leader>
+vmap \ <Leader>
 
 " Map F12 to the function GotoHeader
 nnoremap <F12> :GotoHeader <CR>
@@ -356,7 +358,7 @@ command! -narg=? -complete=file OP :call OpenFiles(<f-args>)
 " ------------------------ Color and Themes ------------------------------ "
 
 if $TERM !=# "rxvt-unicode-256color" && $TERM !=# "xterm-256color"
-            \ && $TERM != "screen"
+            \ && $TERM !=# "screen"
     set termguicolors
 endif
 
@@ -674,6 +676,8 @@ vnoremap <C-d> y/<C-r>"<CR>Ncgn
 " Disable pageup and pagedown
 nnoremap <PageUp> <NOP>
 nnoremap <PageDown> <NOP>
+inoremap <PageUp> <NOP>
+inoremap <PageDown> <NOP>
 
 " Navigate within the file
 nnoremap < H
@@ -681,3 +685,28 @@ nnoremap > L
 
 " Repeat last f or t
 nnoremap , ;
+
+" open last closed buffer
+" posted by me on https://stackoverflow.com/questions/8184001/vim-reopen-last-closed-window-that-was-in-split/60466219#60466219
+function! OpenLastClosed()
+    let last_buf = bufname('#')
+
+    if empty(last_buf)
+        echo "No recently closed buffer found"
+        return
+    endif
+    let result = input("Open ". last_buf . " in (n)ormal (v)split, (t)ab or (s)plit ? (n/v/t/s) : ")
+    if empty(result) || (result !=# 'v' && result !=# 't' && result !=# 's' && result !=# 'n')
+        return
+    endif
+    if result ==# 't'
+        execute 'tabnew'
+    elseif result ==# 'v'
+        execute "vsplit"
+    elseif result ==# 's'
+        execute "split"
+    endif
+    execute 'b ' . last_buf
+endfunction
+
+nnoremap <C-t> :call OpenLastClosed() <CR>

@@ -39,5 +39,12 @@ export FZF_DEFAULT_COMMAND='fd --type f -H --exclude Music \
 export CFLAGS='-Wextra -Wall'
 export CXXFLAGS='-Wextra -Wall'
 
+# open manpages man in vim
+function viman ()
+{
+    text=$(command man "$@") && echo "$text" | nvim -R +":set ft=man nomod nonu noma nolist colorcolumn=" -
+}
+alias man='viman'
+
 # Must stay at the botton of this file
 source $ZSH/oh-my-zsh.sh

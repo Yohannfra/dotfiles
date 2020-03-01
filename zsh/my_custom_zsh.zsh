@@ -3,3 +3,4 @@
 #
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#8a8a8a"
 unalias gf
+alias gf="fg"

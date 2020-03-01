@@ -2,10 +2,10 @@
 ### Mod key: ###
 ################
 
-# Alt key
+# Super key
 set $mod Mod4
 
-# Super key
+# Alt key
 set $mod2 Mod1
 
 ###################
