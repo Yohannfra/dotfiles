@@ -4,3 +4,15 @@
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#8a8a8a"
 unalias gf
 alias gf="fg"
+
+unalias gcm
+alias gcm="git checkout master"
+
+unalias gcd
+alias gcd="git checkout dev"
+
+# unalias gmm
+alias gmm="git merge master"
+
+# unalias gmd
+alias gmd="git merge dev"

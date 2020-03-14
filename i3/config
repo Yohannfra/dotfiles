@@ -312,6 +312,7 @@ mode "$mode_connect_monitor" {
     bindsym i exec --no-startup-id connect_monitor intern, mode "default"
     bindsym e exec --no-startup-id connect_monitor extern, mode "default"
     bindsym m exec --no-startup-id connect_monitor mirror, mode "default"
+    bindsym h exec --no-startup-id connect_monitor home, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -402,7 +403,7 @@ gaps outer 1
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-# smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)

@@ -339,6 +339,7 @@ let g:vim_flip_dict = {
             \"true" : "false",
             \"True" : "False",
             \ "TRUE": "FALSE",
+            \ "LOW": "HIGH",
             \ "0"   : "1",
             \ "on"  : "off"
             \}
@@ -421,6 +422,7 @@ autocmd BufNewFile,BufRead pymakr.conf set filetype=json
 
 " Indent with tabs in makefiles
 autocmd FileType make setlocal noexpandtab shiftwidth=8 softtabstop=0
+autocmd FileType go setlocal noexpandtab shiftwidth=4 softtabstop=0
 
 " ------------------------ Internals Shortcuts ------------------------------ "
 
@@ -710,3 +712,9 @@ function! OpenLastClosed()
 endfunction
 
 nnoremap <C-t> :call OpenLastClosed() <CR>
+
+nnoremap W <C-b>
+nnoremap E <C-f>
+
+" Execute shell ommand on line and replace it with output
+noremap <Leader>e !!sh<cr>

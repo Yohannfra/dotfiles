@@ -9,8 +9,6 @@ CC = gcc
 
 SHELL = /bin/bash
 
-THIS_DIR         := $(shell dirname $(abspath $(lastword $(MAKEFILE_LIST))))/
-
 NAME = default_name
 
 SRC_MAIN = src/main.c

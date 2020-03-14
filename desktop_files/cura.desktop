@@ -5,5 +5,5 @@ Encoding=UTF-8
 Name=cura
 Comment=prepare 3d obj for printer
 Keywords[en]=CURA;cura;Cura
-Exec=/home/yohann/Logiciels/Cura/Ultimaker_Cura-4.3.0.AppImage
+Exec=/home/yohann/Logiciels/Ultimaker_Cura-4.5.0.AppImage
 Terminal=false
