@@ -4,8 +4,16 @@
             "enable": true,
             "command": "clangd",
             "args": ["--background-index"],
-            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "filetypes": ["c", "cpp", "objc", "objcpp", "arduino"],
             "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+        },
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["go"],
+            "initializationOptions": {
+                "usePlaceholders": true
+            },
         },
     },
     "suggest.noselect": true,

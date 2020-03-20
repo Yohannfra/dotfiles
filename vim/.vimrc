@@ -7,7 +7,6 @@
 
 call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/linediff.vim'                   " Vimdiff within a file
-" Plug 'PeterRincker/vim-argumentative'             " Change arguments position
 Plug 'Townk/vim-autoclose'                      " Autoclose brackets, parenthesis
 Plug 'Yohannfra/Vim-Epitech'                    " Create epitech header
 Plug 'Yohannfra/Vim-Flip'                         " Flip booleans
@@ -715,6 +714,3 @@ nnoremap <C-t> :call OpenLastClosed() <CR>
 
 nnoremap W <C-b>
 nnoremap E <C-f>
-
-" Execute shell ommand on line and replace it with output
-noremap <Leader>e !!sh<cr>
