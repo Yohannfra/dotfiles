@@ -468,8 +468,6 @@ nnoremap + <C-a>
 nnoremap _ <C-x>
 
 " Switch buffer easily
-nnoremap ( gT
-nnoremap ) gt
 nnoremap gr gT
 
 " Open a terminal with maj+t
