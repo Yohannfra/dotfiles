@@ -1,0 +1,59 @@
+{
+    "sync.gist": "461a9946b6d6c4555640e57351aa2617",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "newUntitledFile",
+    "files.exclude": {
+        "**/*.o": true,
+        "**/.vimproject": true,
+        "**/.clangd" : true,
+    },
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 1,
+    "trailing-spaces.trimOnSave": true,
+    "vim.useSystemClipboard": true,
+    "vim.highlightedyank.enable": true,
+
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    },
+  ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+    {
+        "before": ["g", "r"],
+        "after": ["g", "T"]
+    },
+    {
+        "before": ["Tab"],
+        "after": [">", ">"]
+    },
+    {
+        "before": ["shift+Tab"],
+        "after": ["<", "<"]
+    },
+    {
+      "before": [";"],
+      "after": [":"]
+    },
+    {
+      "before": ["\""],
+      "after": [":"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["Enter"],
+      "after": ["O", "<Esc>", "j"]
+    },
+ ],
+  "vim.incsearch": true,
+  "vim.hlsearch": true,
+}

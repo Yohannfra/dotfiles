@@ -13,6 +13,9 @@ cp ~/.zshrc ./zsh/
 cp ~/.zshenv ./zsh/
 cp ~/.oh-my-zsh/custom/my_custom_zsh.zsh ./zsh/
 
+# VS CODE
+cp ~/.config/Code\ -\ OSS/User/settings.json ./vs_code
+
 # GIT
 cp ~/.gitignore ./git/
 cp ~/.gitconfig ./git/
