@@ -81,3 +81,6 @@ cp ~/.local/share/omf/themes/godfather/fish_prompt.fish ./fish/
 
 # Alacritty
 cp ~/.config/alacritty/alacritty.yml ./alacritty/
+
+# Templates dir
+cp -r ~/Templates/* ./Templates

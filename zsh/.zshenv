@@ -20,7 +20,6 @@ alias cr="cargo run -q "
 alias emacs="emacs -nw"
 alias f='fg'
 alias gcl="git clone"
-alias gdf="git diff --color | diff-so-fancy"
 alias gf="fg"
 alias gs="git status"
 alias gta="git add"
@@ -77,6 +76,21 @@ URXVT_SIZE=12
 URXVT_PROGRESS_SIZE=2
 
 alias cdp="cd ~/Desktop/Epitech/Tek2/Units/"
+
+function gdf()
+{
+    if [[ -d ".git" ]]; then
+        git diff $1 --color | diff-so-fancy
+    fi
+    return 1
+}
+
+function cdtotoarduino()
+{
+    mkdir -p /tmp/toto_arduino/
+    cp -r ~/Templates/arduino_project/* /tmp/toto_arduino/
+    cd /tmp/toto_arduino/
+}
 
 # function zp()
 # {

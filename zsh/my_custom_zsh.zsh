@@ -6,6 +6,7 @@ unalias gf
 alias gf="fg"
 
 unalias gcm
+unalias gsd
 alias gcm="git checkout master"
 
 unalias gcd
@@ -16,3 +17,5 @@ alias gmm="git merge master"
 
 # unalias gmd
 alias gmd="git merge dev"
+
+alias d="docker"
