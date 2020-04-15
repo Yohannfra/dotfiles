@@ -86,7 +86,7 @@ set autoread
 
 " Set a gap of X lines when scrolling vertically, so the scrolling start X lines
 " Before the last line
-set so=5
+" set so=5
 
 " Show a bar at the bottom of the file with some infos about the cursor, the
 " Line etc... (disable because i use powerline)
@@ -226,6 +226,7 @@ command! -nargs=0 Format :call CocAction('format')
 " Coc fix
 command! Fix :CocFix
 
+
 " Not hide .h in netrw
 set suffixes-=.h
 
@@ -354,6 +355,10 @@ function! OpenFiles(...)
     execute "! xdg-open " . fp
 endfunction
 command! -narg=? -complete=file OP :call OpenFiles(<f-args>)
+
+" code navigation with Coc
+nmap <silent> cd <Plug>(coc-definition)
+nmap <silent> cr <Plug>(coc-references)
 
 " ------------------------ Color and Themes ------------------------------ "
 

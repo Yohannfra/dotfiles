@@ -87,9 +87,24 @@ function gdf()
 
 function cdtotoarduino()
 {
-    mkdir -p /tmp/toto_arduino/
+    if [[ -d /tmp/toto_arduino ]] ; then
+        cd /tmp/toto_arduino/
+        return
+    fi
+    mkdir /tmp/toto_arduino/
     cp -r ~/Templates/arduino_project/* /tmp/toto_arduino/
     cd /tmp/toto_arduino/
+}
+
+function cdtotoesp()
+{
+    if [[ -d /tmp/toto_esp32 ]] ; then
+        cd /tmp/toto_esp32/
+        return
+    fi
+    mkdir /tmp/toto_esp32/
+    cp -r ~/Templates/esp32_project/* /tmp/toto_esp32/
+    cd /tmp/toto_esp32/
 }
 
 # function zp()
