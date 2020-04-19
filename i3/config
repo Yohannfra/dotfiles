@@ -94,7 +94,7 @@ bindsym $mod+Shift+q kill
 floating_modifier $mod
 
 # disable titlebar
-# new_window 1pixel
+new_window 1pixel
 
 # change focus
 bindsym $mod+j focus down
@@ -304,7 +304,7 @@ mode "$mode_system" {
 
 # Mode to quickly connect an external monitor
 bindsym $mod+Control+o mode "$mode_connect_monitor"
-set $mode_connect_monitor (t)op, (r)ight, (l)eft, (i)ntern, (e)xtern (m)irror
+set $mode_connect_monitor (t)op, (r)ight, (l)eft, (i)ntern, (e)xtern (m)irror (h)ome
 mode "$mode_connect_monitor" {
     bindsym t exec --no-startup-id connect_monitor top, mode "default"
     bindsym r exec --no-startup-id connect_monitor right, mode "default"
@@ -394,7 +394,7 @@ bar {
 #############################
 
 # Set inner/outer gaps
-gaps inner 3
+gaps inner 8
 gaps outer 1
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -403,7 +403,7 @@ gaps outer 1
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)

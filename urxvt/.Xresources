@@ -64,13 +64,13 @@ urxvt.boldFont:     xft:DejaVu Sans Mono :Bold, xft:Noto Emoji
 URxvt.italicFont: xft:DejaVu Sans Mono:Italic
 
 ! Real transparency
-URxvt.depth:                      32
-urxvt*background: rgba:0000/0000/0200/B000
+! URxvt.depth:                      32
+! urxvt*background: rgba:0000/0000/0200/B000
 
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
-URxvt*background:                 black
+URxvt*background:                 #1B1D1E
 
 ! text color
 URxvt*foreground:                 white

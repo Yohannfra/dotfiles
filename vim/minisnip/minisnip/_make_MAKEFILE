@@ -43,10 +43,10 @@ test: fclean
 	./tester --verbose
 
 clean:
-	$(RM) $(NAME)
+	$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) $(OBJ)
+	$(RM) $(NAME)
 
 re: fclean all
 

@@ -340,6 +340,7 @@ let g:vim_flip_dict = {
             \"True" : "False",
             \ "TRUE": "FALSE",
             \ "LOW": "HIGH",
+            \ "INPUT": "OUTPUT",
             \ "0"   : "1",
             \ "on"  : "off"
             \}
@@ -717,3 +718,7 @@ nnoremap <C-t> :call OpenLastClosed() <CR>
 
 nnoremap W <C-b>
 nnoremap E <C-f>
+
+" scrolling easier
+inoremap <C-j> <C-o><C-e>
+inoremap <C-k> <C-o><C-y>

@@ -17,5 +17,3 @@ alias gmm="git merge master"
 
 # unalias gmd
 alias gmd="git merge dev"
-
-alias d="docker"

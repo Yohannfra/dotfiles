@@ -71,6 +71,7 @@ alias mouli='sudo docker run --rm -it -v $PWD:/home/ -w /home epitechcontent/epi
 alias moulip='sudo docker run --rm -it -v $PWD:/home/ -w /home --privileged epitechcontent/epitest-docker bash'
 alias cc='cd ~/Desktop && cf'
 alias st="echo $?"
+alias gti="git"
 
 URXVT_SIZE=12
 URXVT_PROGRESS_SIZE=2
