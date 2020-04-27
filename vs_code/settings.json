@@ -9,7 +9,7 @@
     },
     "workbench.colorTheme": "Gruvbox Dark Hard",
     "editor.minimap.enabled": false,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "trailing-spaces.trimOnSave": true,
     "vim.useSystemClipboard": true,
     "vim.highlightedyank.enable": true,
@@ -20,6 +20,24 @@
       "after": ["<Esc>"]
     },
   ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+        "before": ["Tab"],
+        "after": [">", ">"]
+    },
+      {
+        "before": ["shift+Tab"],
+        "after": ["<", "<"]
+    },
+    ],
     "vim.normalModeKeyBindingsNonRecursive": [
     {
         "before": ["g", "r"],

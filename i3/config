@@ -141,7 +141,7 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-popup_during_fullscreen leave_fullscreen
+# popup_during_fullscreen leave_fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking

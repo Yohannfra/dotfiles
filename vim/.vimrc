@@ -33,6 +33,7 @@ Plug 'tpope/vim-surround'                       " Quick edit surround
 Plug 'tpope/vim-vinegar'                        " File explorer
 Plug 'itchyny/lightline.vim'                    " A statusline
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -165,6 +166,9 @@ set showtabline=2
 " Remove the _ from the separators list (FIXME)
 " set iskeyword-=_
 
+" Show the current find and replace in a split
+set inccommand=split
+
 " --------------------------  Plugins Config ------------------------------- "
 
 " Enable rainbow brackets
@@ -277,6 +281,16 @@ command! -bang -nargs=* Rg
 command! -nargs=0 Cd call fzf#run(fzf#wrap(
   \ {'source': 'fd '.' -t d',
   \  'sink': 'cd'}))
+
+
+let g:vimwiki_list = [{
+            \'path' : '$HOME/.vim/vimwiki/',
+            \ 'path_html': '$HOME/.vim/vimwiki_html',
+            \ 'syntax': 'markdown',
+            \ 'ext' : '.md'
+            \}]
+
+command! VimWikiUpdate :!$HOME/.vim/vimwiki/update.sh
 
 " ----------------- Shortcuts for plugins / external stuff ----------------- "
 
@@ -423,6 +437,7 @@ autocmd BufNewFile *.h,*.hpp :Protect
 
 " Use html syntax for .emProject files
 autocmd BufNewFile,BufRead *.emProject set filetype=html
+autocmd BufNewFile,BufRead *.csv set filetype=text
 autocmd BufNewFile,BufRead pymakr.conf set filetype=json
 
 " Indent with tabs in makefiles
@@ -616,6 +631,7 @@ function! ExtendedHome()
     endif
 endfunction
 
+vnoremap H 0
 nnoremap H :call ExtendedHome()<CR>
 nnoremap 0 :call ExtendedHome() <CR>
 nnoremap <silent> <Home> :call ExtendedHome()<CR>
