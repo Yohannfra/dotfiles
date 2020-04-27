@@ -8,3 +8,5 @@ flash:
 
 clean:
 	@pio run --target clean
+
+.PHONY: build flash clean all
