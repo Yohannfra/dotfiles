@@ -34,6 +34,7 @@ Plug 'tpope/vim-vinegar'                        " File explorer
 Plug 'itchyny/lightline.vim'                    " A statusline
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'vimwiki/vimwiki'
+Plug 'brooth/far.vim'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -170,6 +171,8 @@ set showtabline=2
 set inccommand=split
 
 " --------------------------  Plugins Config ------------------------------- "
+
+let g:far#enable_undo=1
 
 " Enable rainbow brackets
 let g:rainbow_active = 1
@@ -480,9 +483,11 @@ nnoremap <C-l> <C-W>l
 nnoremap <C-k> <C-W>k
 nnoremap <C-j> <C-W>j
 
-" Find and replace easier
-nnoremap <C-g> :%s/
-xnoremap <C-g> :s/
+" Find and replace easier (now with far.vim)
+" nnoremap <C-g> :%s/
+" xnoremap <C-g> :s/
+nnoremap <C-g> :Far
+xnoremap <C-g> :Far
 
 " Increment and decrement numbers in code
 nnoremap + <C-a>

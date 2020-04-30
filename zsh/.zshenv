@@ -11,7 +11,6 @@ alias bat="bat -p"
 alias bc="bc -ql"
 alias cb="cargo build"
 alias cdtk='cd ~/Desktop/Epitech/Tek2'
-alias cdtoto="mkdir /tmp/toto 2>/dev/null ; cd /tmp/toto"
 alias cf="cd \"\`fd -H -t d . | fzf\`\""
 alias chmox="chmod"
 alias exe="chmod +x"
@@ -41,6 +40,7 @@ alias mak="make"
 alias meteo="curl wttr.in/Paris"
 alias mi="micro"
 alias mkae="make"
+alias dc="cd"
 alias mke="make"
 alias mtags="ctags --extras=+f --c-kinds=+p -R ."
 alias na="nano"
@@ -87,26 +87,34 @@ function gdf()
     return 1
 }
 
-function cdtotoarduino()
+function cdtoto()
 {
-    if [[ -d /tmp/toto_arduino ]] ; then
-        cd /tmp/toto_arduino/
-        return
+    if [[ -z $1 ]]; then
+        mkdir /tmp/toto 2>/dev/null ; cd /tmp/toto ; return
     fi
-    mkdir /tmp/toto_arduino/
-    cp -r ~/Templates/arduino_project/* /tmp/toto_arduino/
-    cd /tmp/toto_arduino/
-}
-
-function cdtotoesp()
-{
-    if [[ -d /tmp/toto_esp32 ]] ; then
-        cd /tmp/toto_esp32/
-        return
+    case $1 in
+        "esp32")
+            dirname="esp32"
+            ;;
+        "nano")
+            dirname="arduino_nano"
+            ;;
+        "uno")
+            dirname="arduino_uno"
+            ;;
+        *)
+            if [[ $# -ne 0 ]]; then
+                echo "Bad dir name"
+                echo "Available options: uno nano esp32"
+                return 1
+            fi
+            ;;
+    esac
+    if ! [[ -d /tmp/toto_$dirname ]]; then
+        mkdir /tmp/toto_$dirname
+        cp -r ~/Templates/${dirname}_project/* /tmp/toto_$dirname
     fi
-    mkdir /tmp/toto_esp32/
-    cp -r ~/Templates/esp32_project/* /tmp/toto_esp32/
-    cd /tmp/toto_esp32/
+    cd /tmp/toto_$dirname
 }
 
 # function zp()
@@ -135,3 +143,4 @@ function cdtotoesp()
 #         printf '\33]50;%s\007' "xft:DejaVu Sans Mono:size=$1"
 #     fi
 # }
+#
