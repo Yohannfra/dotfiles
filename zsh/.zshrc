@@ -44,7 +44,9 @@ export CXXFLAGS='-Wextra -Wall'
 # open manpages man in vim
 function viman ()
 {
-    text=$(command man "$@") && echo "$text" | nvim -R +":set ft=man nomod nonu noma nolist colorcolumn=" -
+    text=$(command man "$@") && echo "$text" | \
+        nvim -R --cmd 'let g:NoVimProject=1' \
+            +":set ft=man nomod nonu noma nolist colorcolumn=" -
 }
 alias man='viman'
 

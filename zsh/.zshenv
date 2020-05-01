@@ -73,6 +73,7 @@ alias moulip='sudo docker run --rm -it -v $PWD:/home/ -w /home --privileged epit
 alias cc='cd ~/Desktop && cf'
 alias st="echo $?"
 alias gti="git"
+alias cppcheck="cppcheck -q -j8 --enable=all --force --output-file=cppcheck.xml --xml --xml-version=2 ."
 
 URXVT_SIZE=12
 URXVT_PROGRESS_SIZE=2

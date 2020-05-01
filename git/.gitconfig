@@ -3,4 +3,4 @@
 	name = Yohann
 [core]
 	excludesfile = /home/yohann/.gitignore
-	editor = vim -Nu NONE
+	editor = nvim --cmd 'let g:NoVimProject=1'
