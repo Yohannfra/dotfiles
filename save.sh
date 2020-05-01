@@ -58,9 +58,6 @@ cp ~/my_scripts/prepare_my_repo ./my_scripts/
 # TMUX
 cp ~/.tmux.conf ./tmux/
 
-# AWESOME
-cp ~/.config/awesome/rc.lua ./awesome/
-
 # NANO
 cp ~/.nanorc ./nano/
 
