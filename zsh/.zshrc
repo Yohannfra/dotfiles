@@ -6,7 +6,7 @@
  # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Keyboard settings
-xset r rate 170 95 # set key repeat rate. delay 160 milisecond, 95 per sec
+xset r rate 190 95 # set key repeat rate. delay 160 milisecond, 95 per sec
 
 # Add dirs to $PATH
 export PATH=$PATH:~/my_scripts
@@ -14,6 +14,8 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin/
 export PATH=$PATH:~/.cargo/bin/
 export PATH=$PATH:~/.platformio/penv/bin/
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/Desktop/Epitech/Tek2/Units/Network/NWP_myteams_2019/lib/myteams/
 
 # Some other env vars i need
 export RUST_BACKTRACE=1

@@ -75,8 +75,8 @@ bindsym $mod+d exec --no-startup-id "rofi -show-icons -combi-modi window,run,dru
 # rofi search web
 bindsym $mod+g exec --no-startup-id rofi-web
 
-# Firefox
-bindsym $mod+Shift+f exec --no-startup-id firefox
+# web browser
+bindsym $mod+Shift+f exec --no-startup-id opera
 
 #############################
 ### Settings for i3-lock: ###
@@ -193,6 +193,7 @@ for_window [class="Xfburn"] floating enable
 for_window [class="My hunter"] floating enable move window to position 0 px 0 px
 for_window [class="Pong"] floating enable move window to position 0 px 0 px
 for_window [class="my_mario"] floating enable
+for_window [class="My BBTAN"] floating enable
 for_window [class="MyGKrellm"] floating enable
 for_window [class="Godot_Engine"] floating enable
 for_window [class="stepbystep"] floating enable

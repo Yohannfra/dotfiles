@@ -484,10 +484,10 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-j> <C-W>j
 
 " Find and replace easier (now with far.vim)
-" nnoremap <C-g> :%s/
-" xnoremap <C-g> :s/
-nnoremap <C-g> :Far
-xnoremap <C-g> :Far
+nnoremap <C-g> :%s/
+xnoremap <C-g> :s/
+" nnoremap <C-g> :Far
+" xnoremap <C-g> :Far
 
 " Increment and decrement numbers in code
 nnoremap + <C-a>

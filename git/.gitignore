@@ -19,3 +19,4 @@ CMakeFiles
 .gdb_history
 peda-session-tester.txt
 *.hi
+cppcheck.xml
