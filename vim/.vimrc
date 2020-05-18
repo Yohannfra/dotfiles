@@ -168,7 +168,9 @@ set showtabline=2
 " set iskeyword-=_
 
 " Show the current find and replace in a split
+if has('nvim')
 set inccommand=split
+fi
 
 " --------------------------  Plugins Config ------------------------------- "
 

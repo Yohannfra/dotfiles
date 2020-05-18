@@ -6,7 +6,7 @@ set -e
 mkdir .config/nvim/
 
 # mon vimrc
-wget -O ~/.vimrc/ https://raw.githubusercontent.com/Yohannfra/dotfiles/master/vim/.vimrc
+wget -O ~/.vimrc https://raw.githubusercontent.com/Yohannfra/dotfiles/master/vim/.vimrc
 
 # coc-settings
 wget -O ~/.config/nvim/coc-settings.json https://raw.githubusercontent.com/Yohannfra/dotfiles/master/vim/coc-settings.json
