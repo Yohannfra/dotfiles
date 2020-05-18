@@ -170,7 +170,7 @@ set showtabline=2
 " Show the current find and replace in a split
 if has('nvim')
 set inccommand=split
-fi
+endif
 
 " --------------------------  Plugins Config ------------------------------- "
 
