@@ -201,6 +201,7 @@ for_window [class="Eog"] floating enable
 for_window [class="Tk"] floating enable border normal
 for_window [class="sfmlgame"] floating enable move window to position 500px 100px
 for_window [class="Viewnior"] floating enable
+for_window [Title="Bomberman"] floating enable
 
 ################################
 ### Settings for workspaces: ###
@@ -387,7 +388,13 @@ bar {
     status_command py3status -c ~/.config/i3status/i3status.conf
     # status_command i3status
     colors {
+    # if theme dark
         background #222222
+    # if theme light
+        # background #ffffff
+        # focused_workspace  #4c7899 #00ffff #000000
+        # active_workspace   #333333 #ffffff #000000
+        # inactive_workspace #333333 #ffffff #000000
     }
 }
 
