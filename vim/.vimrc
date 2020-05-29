@@ -20,7 +20,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " FZF
 Plug 'junegunn/fzf.vim'                                           " FZF
 Plug 'junegunn/goyo.vim'
 Plug 'luochen1990/rainbow'                      " Rainbow brackets, parenthesis
-Plug 'machakann/vim-highlightedyank'            " Make the yanked region apparent
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar
 Plug 'morhetz/gruvbox'                          " A nice theme/colorschemes
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
@@ -32,7 +31,6 @@ Plug 'tpope/vim-fugitive'                         " Git integration
 Plug 'tpope/vim-surround'                       " Quick edit surround
 Plug 'tpope/vim-vinegar'                        " File explorer
 Plug 'itchyny/lightline.vim'                    " A statusline
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'vimwiki/vimwiki'
 Plug 'brooth/far.vim'
 call plug#end()
@@ -62,6 +60,8 @@ set vb t_vb=
 " Fileformat for new file
 set fileformats=unix
 
+set noswapfile
+"
 " Show line numbers
 set number
 set relativenumber
@@ -93,6 +93,9 @@ set autoread
 " Show a bar at the bottom of the file with some infos about the cursor, the
 " Line etc... (disable because i use powerline)
 set noruler
+
+" always show status line
+set laststatus=2
 
 " Allow autocmd looking for filetype
 filetype plugin on
@@ -195,9 +198,6 @@ let g:goto_header_use_shorter_path = 1
 
 " Disable diff window for autopep8 plugin
 let g:autopep8_disable_show_diff = 1
-
-" Hilight duration (1000 default)
-let g:highlightedyank_highlight_duration = 200
 
 " Protect Header add comment on endif line
 let g:Protect_Header_Endif_Comment = 1
@@ -330,7 +330,11 @@ nnoremap <Leader>g :Rg <CR>
 nnoremap <Leader>/ :BLines <CR>
 
 " Autocomplete path using <C-f>
-imap <c-f> <plug>(fzf-complete-path)
+imap <C-f> <plug>(fzf-complete-path)
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -392,10 +396,18 @@ if has("nvim")
     let g:gruvbox_contrast_dark = 'hard'
     let g:gruvbox_contrast_light = 'hard'
     let g:gruvbox_invert_tabline = 1
-    set background=dark
+    if system('cat ~/.outside') != "1\n"
+        set background=dark
+    else
+        set background=light
+
+        let g:lightline = {
+          \ 'colorscheme': 'one',
+      \ }
+    endif
     colorscheme gruvbox
 else
-    colorscheme monokai
+    colorscheme default
 endif
 
 " Set the color of the error column the same as the bg
@@ -421,6 +433,14 @@ augroup highlight_t_in_c
     autocmd Syntax c,cpp syntax match cStructure /\w*_t;/
     autocmd Syntax c,cpp syntax match cStructure /\w*_t)/
 augroup end
+
+" hilight yank build in neovim
+if has('nvim')
+    augroup highlight_yank
+        autocmd!
+        autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 200)
+    augroup END
+endif
 
 " ------------------------ Autocmds ------------------------------ "
 
@@ -615,6 +635,7 @@ command! Rl :source .vimsession
 " Some abbrev
 cabbrev tn tabnew
 cabbrev te tabedit
+cabbrev re make re
 
 " To be inside quotes/brackets... in insert mode
 " Inoremap "" ""<Left>
@@ -684,10 +705,8 @@ vnoremap <Leader>q :call ExpandProtoToFunctionVisual() <CR>
 function! ToggleLightDark()
     if &background ==# "dark"
         set background=light
-        colorscheme PaperColor
     else
         set background=dark
-        colorscheme gruvbox
     endif
 endfunction
 

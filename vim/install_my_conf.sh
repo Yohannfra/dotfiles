@@ -10,6 +10,8 @@ wget -O ~/.vimrc https://raw.githubusercontent.com/Yohannfra/dotfiles/master/vim
 
 # coc-settings
 wget -O ~/.config/nvim/coc-settings.json https://raw.githubusercontent.com/Yohannfra/dotfiles/master/vim/coc-settings.json
+# to use coc with vim too
+ln -s ~/.config/nvim/coc-settings.json ~/.vim/
 
 # init.vim
 wget -O ~/.config/nvim/init.vim https://raw.githubusercontent.com/Yohannfra/dotfiles/master/vim/init.vim
