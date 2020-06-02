@@ -324,7 +324,7 @@ nnoremap S :Buffers<CR>
 nnoremap t :silent! Files .<CR>
 
 " FZF search through files with :Rg
-nnoremap <Leader>g :Rg <CR>
+nnoremap <Leader>g :Rg<Space>
 
 " FZF search in files lines
 nnoremap <Leader>/ :BLines <CR>
