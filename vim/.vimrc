@@ -398,14 +398,15 @@ if has("nvim")
     let g:gruvbox_invert_tabline = 1
     if system('cat ~/.outside') != "1\n"
         set background=dark
+        colorscheme gruvbox
     else
         set background=light
 
         let g:lightline = {
           \ 'colorscheme': 'one',
       \ }
+        colorscheme delek
     endif
-    colorscheme gruvbox
 else
     colorscheme default
 endif
