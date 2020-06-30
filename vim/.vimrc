@@ -489,10 +489,6 @@ nnoremap ': :
 " Map ! to :! to type in shell commands easily
 nnoremap ! :!
 
-" Map space to i in normal mode
-" Nnoremap <Space> i
-nnoremap <Leader><Leader> i
-
 " Allow to indent with tab and remove indent with shift + tab
 nnoremap <Tab> >>_
 nnoremap <S-Tab> <<_

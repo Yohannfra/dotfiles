@@ -76,7 +76,13 @@ bindsym $mod+d exec --no-startup-id "rofi -show-icons -combi-modi window,run,dru
 bindsym $mod+g exec --no-startup-id rofi-web
 
 # web browser
-bindsym $mod+Shift+f exec --no-startup-id opera
+bindsym $mod+Shift+f exec --no-startup-id firefox
+
+# cinnamon settings
+bindsym $mod+Shift+s exec --no-startup-id cinnamon-settings sound
+
+bindsym $mod+Shift+m exec --no-startup-id clementine
+
 
 #############################
 ### Settings for i3-lock: ###
@@ -382,6 +388,7 @@ exec_always --no-startup-id nm-applet
 exec_always --no-startup-id blueman-applet
 
 bar {
+    modifier none
     height 20
     position top
     i3bar_command i3bar

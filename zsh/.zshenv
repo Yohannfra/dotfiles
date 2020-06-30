@@ -1,5 +1,6 @@
 alias RTT="JLinkRTTClient"
 alias ake="make"
+alias mj="make -j"
 alias mka="make"
 alias amek="make"
 alias mf="make flash"
@@ -59,7 +60,7 @@ alias sbl="/opt/sublime_text/sublime_text"
 alias setxkbmap_international='setxkbmap -layout us -variant intl'
 alias sl="ls"
 alias t='true && clear'
-alias top='gotop'
+# alias top='gotop'
 alias v="nvim"
 alias va="valgrind"
 alias valog="valgrind --log-file=valgrind_log.txt"

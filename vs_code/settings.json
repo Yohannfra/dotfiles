@@ -7,7 +7,7 @@
         "**/.vimproject": true,
         "**/.clangd" : true,
     },
-    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "workbench.colorTheme": "Visual Studio Dark",
     "editor.minimap.enabled": false,
     "window.zoomLevel": 0,
     "trailing-spaces.trimOnSave": true,

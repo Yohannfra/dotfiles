@@ -46,7 +46,7 @@ add :
 ```vim
 nnoremap <buffer> <C-o> :Rexplore<CR>
 ```
-at the end of the last function.
+at the end of the last function. (after nmap and xmap) in plugin/vinegar.vim
 
 ### For lightline:
 To hide the ... in the tabline\

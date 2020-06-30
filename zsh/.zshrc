@@ -15,8 +15,6 @@ export PATH=$PATH:~/go/bin/
 export PATH=$PATH:~/.cargo/bin/
 export PATH=$PATH:~/.platformio/penv/bin/
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/Desktop/Epitech/Tek2/Units/Network/NWP_myteams_2019/libs/myteams/
-
 # Some other env vars i need
 export RUST_BACKTRACE=1
 export LANG=en_US.UTF-8

@@ -4,3 +4,5 @@
 [core]
 	excludesfile = /home/yohann/.gitignore
 	editor = nvim --cmd 'let g:NoVimProject=1'
+[pull]
+	rebase = false
