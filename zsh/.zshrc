@@ -15,6 +15,9 @@ export PATH=$PATH:~/go/bin/
 export PATH=$PATH:~/.cargo/bin/
 export PATH=$PATH:~/.platformio/penv/bin/
 
+export PATH=$PATH:~/Downloads/nrf_cmd_tools/JLink_Linux_V680a_x86_64
+export PATH=$PATH:~/Downloads/SES/arm_segger_embedded_studio_v452_linux_x64_nordic/bin/
+
 # Some other env vars i need
 export RUST_BACKTRACE=1
 export LANG=en_US.UTF-8
@@ -52,3 +55,6 @@ alias man='viman'
 
 # Must stay at the botton of this file
 source $ZSH/oh-my-zsh.sh
+
+export IDF_PATH="${HOME}/esp/esp-idf"
+alias get_idf='. $HOME/esp/esp-idf/export.sh'

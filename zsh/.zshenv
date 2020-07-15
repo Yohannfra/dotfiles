@@ -72,6 +72,7 @@ alias ys="yarn start"
 alias mouli='sudo docker run --rm -it -v $PWD:/home/ -w /home epitechcontent/epitest-docker bash'
 alias moulip='sudo docker run --rm -it -v $PWD:/home/ -w /home --privileged epitechcontent/epitest-docker bash'
 alias cc='cd ~/Desktop && cf'
+alias hdc="cd /home/yohann/Desktop/Blackfoot/HerdingCatsReborn/herdingcats-firmware/HerdingCats"
 alias st="echo $?"
 alias gti="git"
 alias cppcheck="cppcheck -q -j8 --enable=all --force --output-file=cppcheck.xml --xml --xml-version=2 ."
