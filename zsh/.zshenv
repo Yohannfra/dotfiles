@@ -4,11 +4,12 @@ alias mj="make -j"
 alias mka="make"
 alias amek="make"
 alias mf="make flash"
+alias emf="make flash"
 alias amk="make"
 alias maje="make"
 alias maj="make"
 alias amke="make"
-alias bat="bat -p"
+# alias bat="bat -p"
 alias bc="bc -ql"
 alias cb="cargo build"
 alias cdtk='cd ~/Desktop/Epitech/Tek2'
@@ -50,7 +51,7 @@ alias ne="emacs -nw"
 alias nt="nautilus . &"
 alias oa='ao'
 alias open="xdg-open"
-alias py="python3"
+alias py="python"
 alias python="python3"
 alias re="make re"
 alias rm="rm -i"
@@ -73,8 +74,11 @@ alias mouli='sudo docker run --rm -it -v $PWD:/home/ -w /home epitechcontent/epi
 alias moulip='sudo docker run --rm -it -v $PWD:/home/ -w /home --privileged epitechcontent/epitest-docker bash'
 alias cc='cd ~/Desktop && cf'
 alias hdc="cd /home/yohann/Desktop/Blackfoot/HerdingCatsReborn/herdingcats-firmware/HerdingCats"
+alias hdcp="cd /home/yohann/Desktop/Blackfoot/HerdingCatsReborn/herdingcats-plotter/"
+alias wsff="cd /home/yohann/Desktop/Perso/Projets/WSFF/"
 alias st="echo $?"
 alias gti="git"
+alias rtt="JLinkRTTViewerExe --autoconnect"
 alias cppcheck="cppcheck -q -j8 --enable=all --force --output-file=cppcheck.xml --xml --xml-version=2 ."
 
 URXVT_SIZE=12
@@ -82,12 +86,21 @@ URXVT_PROGRESS_SIZE=2
 
 alias cdp="cd ~/Desktop/Epitech/Tek2/Units/"
 
+function open()
+{
+    if [[ -z $1 ]]; then
+        echo "No args given"
+        return 1
+    fi
+    xdg-open $1 &
+}
+
 function gdf()
 {
-    if [[ -d ".git" ]]; then
-        git diff $1 --color | diff-so-fancy
-    fi
-    return 1
+    # if [[ -d ".git" ]]; then
+        git diff --color $1 | diff-so-fancy
+    # fi
+    # return 1
 }
 
 function cdtoto()

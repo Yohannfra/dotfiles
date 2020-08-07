@@ -44,6 +44,9 @@ export FZF_DEFAULT_COMMAND='fd --type f -H --exclude Music \
 export CFLAGS='-Wextra -Wall'
 export CXXFLAGS='-Wextra -Wall'
 
+# export QTWEBENGINE_CHROMIUM_FLAGS=--ignore-gpu-blacklist
+# export QT_XCB_GL_INTEGRATION=xcb_egl
+
 # open manpages man in vim
 function viman ()
 {

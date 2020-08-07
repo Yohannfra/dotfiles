@@ -83,6 +83,8 @@ bindsym $mod+Shift+s exec --no-startup-id cinnamon-settings sound
 
 bindsym $mod+Shift+m exec --no-startup-id clementine
 
+# JLinkRTTViewerExe
+bindsym $mod+Shift+t exec --no-startup-id /home/yohann/Downloads/nrf_cmd_tools/JLink_Linux_V680a_x86_64/JLinkRTTViewerExe --autoconnect
 
 #############################
 ### Settings for i3-lock: ###
@@ -118,8 +120,8 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # Alt tab like behavior
-bindsym $mod+Tab focus right
-bindsym $mod2+Tab focus left
+bindsym $mod+Tab focus left
+bindsym $mod2+Tab focus right
 
 # move focused window
 bindsym $mod+Shift+j move left

@@ -390,7 +390,7 @@ nmap <silent> cr <Plug>(coc-references)
 
 " ------------------------ Color and Themes ------------------------------ "
 
-if $TERM !=# "rxvt-unicode-256color" && $TERM !=# "xterm-256color"
+if $TERM !=# "rxvt-unicode-256color" && $TERM !=# "xterm-256color" " only for gruvbox
             \ && $TERM !=# "screen"
     set termguicolors
 endif
