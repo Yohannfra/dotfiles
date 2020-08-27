@@ -2,7 +2,7 @@
 Type=Application
 Encoding=UTF-8
 Name=Godot
-Comment=Godot game engine
-Keywords[en]=Godot;godot
-Exec=/home/yohann/Logiciels/Godot/Godot_v3.1.1-stable_x11.64
+Comment=Game engine
+Keywords[en]=GODOT;godot;Godot
+Exec=/home/yohann/Logiciels/Godot/Godot_v3.2.2-stable_x11.64
 Terminal=false

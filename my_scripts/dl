@@ -1,11 +1,53 @@
 #!/bin/bash
 
-if [ -w $1 ]; then
+PATH_TO_DL="/home/${USER}/Music/youtube-dl"
+PATH_TO_ARCHIVE="/home/${USER}/.archive.txt"
+YOUTUBE_DL_FORMAT="%(title)s.%(ext)s"
+
+function open_in_clementine()
+{
+    if [[ $(pgrep clementine) ]]; then
+        clementine $1
+        # echo $1
+    fi
+}
+
+function get_songs_infos()
+{
+    full_title=$(youtube-dl -e $1)
+    artist=$(echo $full_title | cut -d '-' -f1 | sed 's/ $//g' | sed 's/^ //g')
+    title=$(echo $full_title | cut -d '-' -f2 | sed 's/ $//g' | sed 's/^ //g' | cut -d ' ' -f1)
+    echo -n "Is artist : '${artist}' and title '${title}' ? (y/n) : "
+    read answer
+    if [[ $answer = "y" ]]; then
+        YOUTUBE_DL_FORMAT="${artist} - ${title}.m4a"
+    else
+        YOUTUBE_DL_FORMAT="${full_title}.m4a"
+    fi
+}
+
+if [[ $# -eq 0 ]]; then
     echo "Missing URL"
     exit 1
+elif [[ $# -eq 1 ]]; then
+    get_songs_infos $1
+    youtube-dl -f 'm4a' -o "${PATH_TO_DL}/${YOUTUBE_DL_FORMAT}" $1  --download-archive ${PATH_TO_ARCHIVE} --no-playlist -i
+    open_in_clementine "\"${PATH_TO_DL}/${YOUTUBE_DL_FORMAT}\""
+elif [[ $# -eq 2 ]]; then
+    case $2 in
+        "-v") # video
+            echo "Video"
+            ;;
+        ".") # dl at . location
+            echo "dl at ${PWD}"
+            ;;
+        "--playlist")
+            echo "dl playlist"
+            # youtube-dl -f 'm4a' -o '/home/${USER}/Music/youtube-dl/%(title)s.f%(format_id)s.%(ext)s' $1 --download-archive /home/${USER}/.archive.txt -i
+            ;;
+        *)
+            echo "Invalid parameter $2"
+            exit 1
+            ;;
+    esac
 fi
-if [ -w $2 ]; then
-    youtube-dl -f 'm4a' -o '/home/${USER}/Music/youtube-dl/%(title)s.f%(format_id)s.%(ext)s' $1 --download-archive /home/${USER}/.archive.txt --no-playlist -i
-    exit 0
-fi
-    youtube-dl -f 'm4a' -o '/home/${USER}/Music/youtube-dl/%(title)s.f%(format_id)s.%(ext)s' $1 --download-archive /home/${USER}/.archive.txt -i

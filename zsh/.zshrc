@@ -14,6 +14,7 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin/
 export PATH=$PATH:~/.cargo/bin/
 export PATH=$PATH:~/.platformio/penv/bin/
+export PATH=$PATH:~/.gem/ruby/2.7.0/bin
 
 export PATH=$PATH:~/Downloads/nrf_cmd_tools/JLink_Linux_V680a_x86_64
 export PATH=$PATH:~/Downloads/SES/arm_segger_embedded_studio_v452_linux_x64_nordic/bin/
