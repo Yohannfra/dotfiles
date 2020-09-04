@@ -3,7 +3,7 @@
 # stop at first error
 set -e
 
-mkdir .config/nvim/
+mkdir -p ~/.config/nvim/
 
 # mon vimrc
 wget -O ~/.vimrc https://raw.githubusercontent.com/Yohannfra/dotfiles/master/vim/.vimrc
@@ -25,8 +25,8 @@ vim -c "PlugInstall" -c qa
 vim -c "CocInstall coc-python" -c qa
 
 # tools for python
-pip install python-language-server --user
-pip install jedi --user
+pip3 install python-language-server --user
+pip3 install jedi --user
 
 # install coc-rls (rust lsp)
 vim -c "CocInstall coc-rls" -c qa
