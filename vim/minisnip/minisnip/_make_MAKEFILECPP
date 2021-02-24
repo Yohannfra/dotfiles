@@ -1,10 +1,3 @@
-##
-## EPITECH PROJECT, 2019
-## project name
-## File description:
-## Makefile
-##
-
 CXX = g++
 
 NAME = default_name
@@ -12,8 +5,6 @@ NAME = default_name
 SRC_MAIN = src/main.cpp
 
 SRC_OTHERS =
-
-SRC_TEST =
 
 SRC = $(SRC_OTHERS)
 
@@ -27,18 +18,13 @@ LDFLAGS =
 
 LDLIBS =
 
-all: $(NAME) sign
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CXX) -o $(NAME) $(OBJ) $(LDFLAGS) $(LDLIBS)
 
 debug: CXXFLAGS += -g3 -D DEBUG
 debug: fclean $(NAME)
-
-test: LDFLAGS += -lcriterion
-test: fclean
-	$(CXX) $(SRC) $(SRC_TEST) $(LDFLAGS) $(CXXFLAGS) $(LDLIBS) -o tester
-	./tester --verbose
 
 clean:
 	$(RM) $(NAME)
@@ -48,10 +34,4 @@ fclean: clean
 
 re: fclean all
 
-sign:
-	@echo ""
-	@echo "Assouline Yohann"
-	@echo "EPITECH, 2018"
-	@echo ""
-
-.PHONY: all clean fclean re debug sign test
+.PHONY: all clean fclean re debug

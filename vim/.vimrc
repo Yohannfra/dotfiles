@@ -33,6 +33,8 @@ Plug 'tpope/vim-vinegar'                        " File explorer
 Plug 'itchyny/lightline.vim'                    " A statusline
 Plug 'vimwiki/vimwiki'
 Plug 'brooth/far.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'Yohannfra/DoxygenToolkit.vim'
 call plug#end()
 
 " --------------------------  General Config ------------------------------- "
@@ -47,7 +49,7 @@ set foldlevelstart=99
 set shell=/bin/zsh
 
 " Use system clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " Persistent undo
 set undodir=~/.vim/undo-dir
@@ -116,6 +118,17 @@ set softtabstop=0
 set expandtab
 set shiftwidth=4
 
+" change tab/spaces quickly
+function! UseTabsfn(type)
+    if a:type
+        set noexpandtab
+    else
+        set expandtab
+    endif
+endfunction
+command! UseTabs :call UseTabsfn(1)
+command! UseSpaces :call UseTabsfn(0)
+
 " Autoindent when you're on an indented line and hit Enter, it will adjust the
 " Indentation of the new line
 set autoindent
@@ -139,7 +152,7 @@ set updatetime=300
 set switchbuf=usetab
 
 " Force neovim to use caret block in insert mode
-set guicursor=
+" set guicursor=
 
 " Options for :mksession
 " set sessionoptions="blank,curdir,tabpages,winsize,options,help,buffers,folds"
@@ -189,7 +202,7 @@ let g:arduino_dir="~/Logiciels/arduino/arduino-1.8.10"
 let g:AutoClosePreserveDotReg = 0
 
 " Config for GotoHeader
-let g:goto_header_includes_dirs = ["/usr/include", ".", "..", "~"]
+let g:goto_header_includes_dirs = ["/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/", "/usr/local/include", "/usr/include", ".", "..", "~"]
 let g:goto_header_excludes_dirs = ["Music", "Logiciels", "Pictures", "Downloads"]
 let g:goto_header_use_find = 0
 let g:goto_header_search_flags = "-t f -s"
@@ -217,8 +230,8 @@ autocmd FileType asm setlocal commentstring=;\ %s
 autocmd FileType xdefaults setlocal commentstring=!\ %s
 
 if has("nvim")
-" FZF Window Config
-let g:fzf_layout = { 'window': {'width': 0.9, 'height': 0.9} }
+    " FZF Window Config
+    let g:fzf_layout = { 'window': {'width': 0.9, 'height': 0.9} }
 endif
 
 function! s:show_documentation()
@@ -296,6 +309,10 @@ let g:vimwiki_list = [{
             \}]
 
 command! VimWikiUpdate :!$HOME/.vim/vimwiki/update.sh
+
+" Doxygen
+let g:DoxygenToolkit_authorName = "Assouline Yohann"
+let g:DoxygenToolkit_versionString = ""
 
 " ----------------- Shortcuts for plugins / external stuff ----------------- "
 
@@ -386,6 +403,18 @@ command! -narg=? -complete=file OP :call OpenFiles(<f-args>)
 
 " code navigation with Coc
 nmap <silent> cd <Plug>(coc-definition)
+
+function! Cdinnewtab()
+    let pos = getpos('.')
+    let y = pos[1] - 1
+    let x = pos[2] - 1
+
+    execute ":tabedit % | norm" . y . "j"
+    execute "norm" . x . "l"
+    call CocAction('jumpDefinition')
+endfunction
+nnoremap <silent> <Leader>cd :call Cdinnewtab() <CR>
+
 nmap <silent> cr <Plug>(coc-references)
 
 " ------------------------ Color and Themes ------------------------------ "
@@ -409,7 +438,7 @@ if has("nvim")
         let g:lightline = {
           \ 'colorscheme': 'one',
       \ }
-        colorscheme delek
+        colorscheme gruvbox
     endif
 else
     colorscheme default
@@ -440,12 +469,15 @@ augroup highlight_t_in_c
 augroup end
 
 " hilight yank build in neovim
-if has('nvim')
-    augroup highlight_yank
-        autocmd!
-        autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 200)
-    augroup END
-endif
+" if has('nvim')
+"     augroup highlight_yank
+"         autocmd!
+"         autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 200)
+"     augroup END
+" endif
+
+" if nvim version is not high enough use the plugin
+let g:highlightedyank_highlight_duration = 200
 
 " ------------------------ Autocmds ------------------------------ "
 
@@ -606,7 +638,7 @@ inoremap <C-c> <C-c>l
 inoremap jk <Esc>l
 
 " Easy switch to last buffer
-nnoremap <Leader>f :b#<CR>
+noremap <Leader>f :b#<CR>
 
 " Map leader [/] to navigate between buffers
 nnoremap <Leader>[ :bprevious <CR>
@@ -636,7 +668,6 @@ command! Rl :source .vimsession
 " Some abbrev
 cabbrev tn tabnew
 cabbrev te tabedit
-cabbrev re make re
 
 " To be inside quotes/brackets... in insert mode
 " Inoremap "" ""<Left>
@@ -661,8 +692,8 @@ function! ExtendedHome()
 endfunction
 
 vnoremap H 0
-nnoremap H :call ExtendedHome()<CR>
-nnoremap 0 :call ExtendedHome() <CR>
+nnoremap <silent> H :call ExtendedHome()<CR>
+nnoremap <silent> 0 :call ExtendedHome() <CR>
 nnoremap <silent> <Home> :call ExtendedHome()<CR>
 inoremap <silent> <Home> <C-O>:call ExtendedHome()<CR>
 

@@ -1,10 +1,3 @@
-##
-## EPITECH PROJECT, 2019
-## project name
-## File description:
-## Makefile
-##
-
 CC = gcc
 
 SHELL = /bin/bash
@@ -14,8 +7,6 @@ NAME = default_name
 SRC_MAIN = src/main.c
 
 SRC_OTHERS =
-
-SRC_TEST =
 
 SRC = $(SRC_OTHERS)
 
@@ -29,18 +20,13 @@ LDFLAGS =
 
 LDLIBS =
 
-all: $(NAME) sign
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS) $(LDLIBS)
 
 debug: CFLAGS += -g3 -D DEBUG
 debug: fclean $(NAME)
-
-test: LDFLAGS += -lcriterion
-test: fclean
-	gcc $(SRC) $(SRC_TEST) $(LDFLAGS) $(CFLAGS) $(LDLIBS) -o tester
-	./tester --verbose
 
 clean:
 	$(RM) $(OBJ)
@@ -50,10 +36,4 @@ fclean: clean
 
 re: fclean all
 
-sign:
-	@echo ""
-	@echo "Assouline Yohann"
-	@echo "EPITECH, 2018"
-	@echo ""
-
-.PHONY: all clean fclean re debug sign test
+.PHONY: all clean fclean re debug
