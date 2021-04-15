@@ -1,36 +1,114 @@
 {
-  "sync.gist": "461a9946b6d6c4555640e57351aa2617",
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.startupEditor": "newUntitledFile",
-  "files.exclude": {
-    "**/*.o": true,
-    "**/.vimproject": true,
-    "**/.clangd": true
-  },
-  "editor.minimap.enabled": false,
-  "window.zoomLevel": 0,
-  "trailing-spaces.trimOnSave": true,
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "workbench.editor.enablePreview": false,
-  "workbench.editor.enablePreviewFromQuickOpen": false,
-  "files.associations": {
-    "*.emProject": "xml",
-    "*.emSession": "xml"
-  },
-  "python.linting.pylintEnabled": true,
-  "python.linting.enabled": true,
-  "python.pythonPath": "/usr/bin/python2",
-  "C/C++ Include Guard.Macro Type": "Filename",
-  "C/C++ Include Guard.Remove Extension": false,
-  "editor.formatOnSave": false,
-  "[cpp]": {
-    "editor.defaultFormatter": "xaver.clang-format"
-  },
-  "idf.showOnboardingOnInit": false,
-  "idf.espIdfPath": "/home/yohann/esp/esp-idf"
+    "sync.gist": "461a9946b6d6c4555640e57351aa2617",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
+    "trailing-spaces.trimOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "workbench.editor.enablePreview": false,
+    "editor.cursorStyle": "block",
+    "C/C++ Include Guard.Macro Type": "Filename",
+    "C/C++ Include Guard.Remove Extension": false,
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "editor.fontFamily": "JetBrains Mono,Menlo, Monaco, 'Courier New', monospace",
+    "workbench.startupEditor": "newUntitledFile",
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "python.showStartPage": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.autoFixOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": false
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "go.useLanguageServer": true,
+    "stories.username": "egret_moccasin",
+    "files.exclude": {
+        "**/*.o": true
+    },
+    "idf.espIdfPath": "/Users/yohannassouline/sdks/esp-idf",
+    "idf.pythonBinPath": "/Users/yohannassouline/.espressif/python_env/idf4.1_py2.7_env/bin/python",
+    "idf.customExtraPaths": "/Users/yohannassouline/.espressif/tools/xtensa-esp32-elf/esp-2020r2-8.2.0/xtensa-esp32-elf/bin:/Users/yohannassouline/.espressif/tools/xtensa-esp32s2-elf/esp-2020r2-8.2.0/xtensa-esp32s2-elf/bin:/Users/yohannassouline/.espressif/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin:/Users/yohannassouline/.espressif/tools/esp32s2ulp-elf/2.28.51-esp-20191205/esp32s2ulp-elf-binutils/bin:/Users/yohannassouline/.espressif/tools/openocd-esp32/v0.10.0-esp32-20191114/openocd-esp32/bin",
+    "idf.customExtraVars": "{\"OPENOCD_SCRIPTS\":\"/Users/yohannassouline/.espressif/tools/openocd-esp32/v0.10.0-esp32-20191114/openocd-esp32/share/openocd/scripts\"}",
+    "dart.previewLsp": true,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "editor.rulers": [
+    95
+    ],
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<space>",
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.highlightedyank.enable": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["<Esc>"],
+            "after": ["<Esc>", "l"]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["g", "r"],
+            "after": ["g", "T"]
+        },
+        {
+            "before": ["L"],
+            "after": ["$"]
+        },
+        {
+            "before": ["H"],
+            "after": ["^"]
+        },
+        {
+            "before": [";"],
+            "after": [":"]
+        },
+        {
+            "before": ["t"],
+            "after": ["<C>", "p"]
+        },
+        {
+            "before": ["c", "d"],
+            "after": ["g", "d"]
+        },
+        {
+            "before": ["t"],
+            "commands": [
+                "workbench.action.quickOpen",
+            ]
+        },
+        {
+            "before": ["<leader>", "m"],
+            "commands": [":noh"]
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["L"],
+            "after": ["$", "h"]
+        },
+        {
+            "before": ["H"],
+            "after": ["0"]
+        },
+    ]
 }
